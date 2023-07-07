@@ -51,7 +51,7 @@ DefappDetailWidget::~DefappDetailWidget()
 {
 }
 
-void DefappDetailWidget::setModel(DefAppModel *const model)
+void DefappDetailWidget::setModel(DefAppModel *const model)//设置分类（需要删除分类）
 {
     switch (m_categoryValue) {
     case DefAppWorker::Browser:
@@ -80,6 +80,13 @@ void DefappDetailWidget::setModel(DefAppModel *const model)
     }
 }
 
+/**
+ * Sets the category for the DefappDetailWidget.
+ *
+ * @param category a pointer to the Category object
+ *
+ * @throws ErrorType description of error
+ */
 void DefappDetailWidget::setCategory(Category *const category)
 {
     m_category = category;
@@ -96,6 +103,16 @@ void DefappDetailWidget::setCategory(Category *const category)
     setCategoryName(m_category->getName());
 }
 
+/**
+ * Retrieves the application icon with the specified size.
+ *
+ * @param appIcon the path or name of the application icon
+ * @param size the desired size of the icon
+ *
+ * @return the application icon as a QIcon object
+ *
+ * @throws None
+ */
 QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
 {
     QIcon icon(appIcon);
@@ -109,6 +126,13 @@ QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
     return pixmap;
 }
 
+/**
+ * Adds an item to the DefappDetailWidget.
+ *
+ * @param item The App object to add.
+ *
+ * @throws ErrorType description of error
+ */
 void DefappDetailWidget::addItem(const App &item)
 {
     qDebug() << Q_FUNC_INFO << item.Id << ", isUser :" << item.isUser;
@@ -138,6 +162,15 @@ void DefappDetailWidget::removeItem(const App &item)
     updateListView(m_category->getDefault());
 }
 
+/**
+ * Shows invalid text in the DefappDetailWidget.
+ *
+ * @param modelItem a pointer to DStandardItem
+ * @param name the name of the item
+ * @param iconName the name of the icon
+ *
+ * @throws None
+ */
 void DefappDetailWidget::showInvalidText(DStandardItem *modelItem, const QString &name, const QString &iconName)
 {
     if (name.isEmpty())
@@ -158,6 +191,13 @@ void DefappDetailWidget::setCategoryName(const QString &name)
     m_categoryName = name;
 }
 
+/**
+ * Updates the list view with the given default app.
+ *
+ * @param defaultApp the default app to update the list view with
+ *
+ * @throws None
+ */
 void DefappDetailWidget::updateListView(const App &defaultApp)
 {
     int cnt = m_model->rowCount();
@@ -197,6 +237,14 @@ void DefappDetailWidget::updateListView(const App &defaultApp)
     }
 }
 
+/**
+ * Updates the list view with the given app after setting it as the default
+ * app.
+ *
+ * @param app The app to set as the default app.
+ *
+ * @throws ErrorType If there is an error updating the list view.
+ */
 void DefappDetailWidget::onDefaultAppSet(const App &app)
 {
     qDebug() << Q_FUNC_INFO << app.Name;
@@ -204,6 +252,15 @@ void DefappDetailWidget::onDefaultAppSet(const App &app)
 }
 
 
+/**
+ * Updates the AppsItem widget with the given list of App objects.
+ *
+ * @param list A QList of App objects representing the list of apps to be updated.
+ *
+ * @return void
+ *
+ * @throws None
+ */
 void DefappDetailWidget::AppsItemChanged(const QList<App> &list)
 {
     for (const App &app : list) {
@@ -214,6 +271,13 @@ void DefappDetailWidget::AppsItemChanged(const QList<App> &list)
     connect(m_defApps, &DListView::activated, m_defApps, &QListView::clicked);
 }
 
+/**
+ * The function handles the click event of the list view in the `DefappDetailWidget`.
+ *
+ * @param index The index of the clicked item in the list view.
+ *
+ * @throws None
+ */
 void DefappDetailWidget::onListViewClicked(const QModelIndex &index)
 {
     if (!index.isValid())
@@ -270,6 +334,13 @@ App DefappDetailWidget::getAppById(const QString &appId)
     return app;
 }
 
+/**
+ * Appends item data to the DefappDetailWidget.
+ *
+ * @param app The App object containing the data to be appended.
+ *
+ * @throws None
+ */
 void DefappDetailWidget::appendItemData(const App &app)
 {
     qDebug() << "appendItemData=" << app.MimeTypeFit;
@@ -299,6 +370,15 @@ void DefappDetailWidget::appendItemData(const App &app)
     m_model->insertRow(index, item);
 }
 
+/**
+ * Determines if the given file name represents a desktop or binary file.
+ *
+ * @param fileName The name of the file to check.
+ *
+ * @return True if the file is a desktop file, false otherwise.
+ *
+ * @throws None.
+ */
 bool DefappDetailWidget::isDesktopOrBinaryFile(const QString &fileName)
 {
     QMimeDatabase mimeDatabase;
@@ -310,6 +390,15 @@ bool DefappDetailWidget::isDesktopOrBinaryFile(const QString &fileName)
     return mimeType.name().startsWith("application/octet-stream");
 }
 
+/**
+ * Check if the given `App` object is valid.
+ *
+ * @param app The `App` object to be validated.
+ *
+ * @return `true` if the `App` object is valid, `false` otherwise.
+ *
+ * @throws None
+ */
 bool DefappDetailWidget::isValid(const App &app)
 {
     return (!app.Id.isNull() && !app.Id.isEmpty());
