@@ -1,8 +1,8 @@
 // SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
-#ifndef DEFAPPPLUGIN_H
-#define DEFAPPPLUGIN_H
+#ifndef SelfStartupPlugin_H
+#define SelfStartupPlugin_H
 
 #include "defappworker.h"
 #include "interface/pagemodule.h" //to_add!!(below3)
@@ -12,13 +12,13 @@
 class DefAppModel;
 
 // 默认程序插件
-class DefAppPlugin : public DCC_NAMESPACE::PluginInterface
+class SelfStartupPlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.DefApp" FILE "defaultapp.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.SelfSartup" FILE "selfstartup.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
-    explicit DefAppPlugin() { }
+    explicit SelfStartupPlugin() { }
 
     virtual QString name() const override;
     virtual DCC_NAMESPACE::ModuleObject *module() override;
@@ -26,12 +26,12 @@ public:
 };
 
 // 一级菜单
-class DefAppModule : public DCC_NAMESPACE::VListModule
+class SelfStartupModule : public DCC_NAMESPACE::VListModule
 {
     Q_OBJECT
 public:
-    explicit DefAppModule(QObject *parent = nullptr);
-    ~DefAppModule() override;
+    explicit SelfStartupModule(QObject *parent = nullptr);
+    ~SelfStartupModule() override;
 
     DefAppWorker *work() { return m_work; }
 
@@ -71,11 +71,11 @@ private:
 };
 
 // 三级菜单
-class DefappDetailModule : public DCC_NAMESPACE::ModuleObject
+class SelfStartupDetailModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
-    DefappDetailModule(DefAppWorker::DefaultAppsCategory category,
+    SelfStartupDetailModule(DefAppWorker::DefaultAppsCategory category,
                        DefAppModel *model,
                        DefAppWorker *work);
     virtual QWidget *page() override;
@@ -86,4 +86,4 @@ private:
     DefAppWorker *m_work;
 };
 
-#endif // DEFAPPPLUGIN_H
+#endif // SelfStartupPlugin_H
