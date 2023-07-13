@@ -46,30 +46,6 @@ private:
     ModuleObject *m_defApps;
 };
 
-// 二级按钮菜单
-class DefAppsButtonModule : public DCC_NAMESPACE::PageModule
-{
-    Q_OBJECT
-public:
-    explicit DefAppsButtonModule(DefAppWorker::DefaultAppsCategory category,
-                                 const QString &name,
-                                 const QString &displayName,
-                                 const QString &icon,
-                                 DefAppModel *model,
-                                 DefAppWorker *work);
-    ~DefAppsButtonModule();
-
-    //    virtual QWidget *page() override;
-
-Q_SIGNALS:
-    void onButtonClicked();
-
-private:
-    DefAppWorker::DefaultAppsCategory m_category;
-    DefAppModel *m_model;
-    DefAppWorker *m_work;
-};
-
 // 三级菜单
 class SelfStartupDetailModule : public DCC_NAMESPACE::ModuleObject
 {
@@ -81,7 +57,6 @@ public:
     virtual QWidget *page() override;
 
 private:
-    DefAppWorker::DefaultAppsCategory m_category;
     DefAppModel *m_model;
     DefAppWorker *m_work;
 };

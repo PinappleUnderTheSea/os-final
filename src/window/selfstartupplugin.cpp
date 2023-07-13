@@ -1,7 +1,7 @@
 #include "selfstartupplugin.h"
 
 #include "addbuttonwidget.h"
-#include "defappdetailwidget.h"
+#include "selfstartupdetailwidget.h"
 #include "defappmodel.h"
 #include "defappworker.h"
 #include "widgets/widgetmodule.h"
@@ -88,34 +88,10 @@ void SelfStartupModule::active()
     m_work->onGetListApps();
 }
 
-DefAppsButtonModule::DefAppsButtonModule(DefAppWorker::DefaultAppsCategory category,
-                                         const QString &name,
-                                         const QString &displayName,
-                                         const QString &icon,
-                                         DefAppModel *model,
-                                         DefAppWorker *work)
-    : PageModule(name, displayName, QVariant::fromValue(icon), nullptr)
-    , m_category(category)
-    , m_model(model)
-    , m_work(work)
-{
-}
-
-DefAppsButtonModule::~DefAppsButtonModule() { }
-
-// QWidget *DefAppsButtonModule::page(){
-//     DefappDetailWidget *defDetail = new DefappDetailWidget(m_category);
-//     defDetail->setModel(m_model);
-
-//    return defDetail;
-//}
-
 // 三级页面
-SelfStartupDetailModule::SelfStartupDetailModule(DefAppWorker::DefaultAppsCategory category,
-                                       DefAppModel *model,
-                                       DefAppWorker *work)
-    : ModuleObject("defappApplistDefapp")
-    , m_category(category)
+SelfStartupDetailModule::SelfStartupDetailModule(DefAppModel *model,
+                                                DefAppWorker *work)
+    : ModuleObject("SelfStartupApplist")
     , m_model(model)
     , m_work(work)
 {
@@ -123,13 +99,16 @@ SelfStartupDetailModule::SelfStartupDetailModule(DefAppWorker::DefaultAppsCatego
 
 QWidget *SelfStartupDetailModule::page()
 {
-    DefappDetailWidget *defDetail = new DefappDetailWidget(m_category);
-    defDetail->setModel(m_model);
-    // 设置默认程序
-    connect(defDetail,
-            &DefappDetailWidget::requestSetDefaultApp,
+    SelfStartupDetailWidget *selfDetail = new SelfStartupDetailWidget();
+    selfDetail->setModel(m_model);
+    
+    // 设置默认程序 change to 设置初始是否自启动
+    connect(selfDetail,
+            &SelfStartupDetailWidget::requestSetDefaultApp,
             m_work,
             &DefAppWorker::onSetDefaultApp);
-    connect(defDetail, &DefappDetailWidget::requestDelUserApp, m_work, &DefAppWorker::onDelUserApp);
-    return defDetail;
+
+    connect(selfDetail, &SelfStartupDetailWidget::requestDelUserApp, m_work, &DefAppWorker::onDelUserApp);
+    
+    return selfDetail;
 }
