@@ -64,6 +64,7 @@ private:
     void AppsItemChanged(const QList<App> &list);
     void addItem(const App &item);
     void removeItem(const App &item);
+    void reverseItem(const APP &item);
     void showInvalidText(DTK_WIDGET_NAMESPACE::DStandardItem *modelItem, const QString &name, const QString &iconName);
 
 private:
@@ -74,6 +75,5 @@ private:
     int m_categoryValue;
     Category *m_category;
     QMap<DTK_WIDGET_NAMESPACE::DViewItemAction *, QString> m_actionMap;
-    int m_systemAppCnt;
-    int m_userAppCnt;
+    int m_appCnt;
 };

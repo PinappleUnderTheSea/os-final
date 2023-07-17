@@ -23,13 +23,7 @@ public:
     explicit DefAppWorker(DefAppModel *m_defAppModel, QObject *parent = 0);
 
     enum DefaultAppsCategory {
-        Browser,
-        Mail,
-        Text,
-        Music,
-        Video,
-        Picture,
-        Terminal
+        SelfSetUp
     };
 
     void active();

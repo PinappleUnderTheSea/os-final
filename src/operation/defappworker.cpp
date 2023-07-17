@@ -19,21 +19,13 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     m_dbusManager(new MimeDBusProxy(this))
 {
 
-    m_stringToCategory.insert("Browser",     Browser);
-    m_stringToCategory.insert("Mail",        Mail);
-    m_stringToCategory.insert("Text",        Text);
-    m_stringToCategory.insert("Music",       Music);
-    m_stringToCategory.insert("Video",       Video);
-    m_stringToCategory.insert("Picture",     Picture);
-    m_stringToCategory.insert("Terminal",    Terminal);
+    m_stringToCategory.insert("SelfSetUp",     SelfSetUp);
+
 
     connect(m_dbusManager, &MimeDBusProxy::Change, this, &DefAppWorker::onGetListApps);
 
-    m_userLocalPath = QDir::homePath() + "/.local/share/applications/";
+    m_userLocalPath = QDir::homePath() + ".config/autostart";
 
-    // mkdir folder
-    QDir dir(m_userLocalPath);
-    dir.mkpath(m_userLocalPath);
 }
 
 void DefAppWorker::active()
@@ -100,14 +92,14 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
 
     if (isDesktop) {
         QFile file(info.filePath());
-        QString newfile = m_userLocalPath + "deepin-custom-" + info.fileName();
+        QString newfile = m_userLocalPath + info.fileName();
         file.copy(newfile);
         file.close();
 
         QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
         QFileInfo fileInfo(info.filePath());
 
-        const QString &filename = "deepin-custom-" + fileInfo.completeBaseName() + ".desktop";
+        const QString &filename = m_userLocalPath+ fileInfo.completeBaseName() + ".desktop";
 
         m_dbusManager->AddUserApp(mimelist, filename);
 
@@ -119,10 +111,12 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         app.Description = "";
         app.Exec = info.filePath();
         app.isUser = true;
+        app.Hidden = false;
 
+        
         onGetListApps();
     } else {
-        QFile file(m_userLocalPath + "deepin-custom-" + info.baseName() + ".desktop");
+        QFile file(m_userLocalPath + info.baseName() + ".desktop");
 
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             return;
@@ -149,10 +143,10 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
 
         QFileInfo fileInfo(info.filePath());
-        m_dbusManager->AddUserApp(mimelist, "deepin-custom-" + fileInfo.baseName() + ".desktop");
+        m_dbusManager->AddUserApp(mimelist, m_userLocalPath + fileInfo.baseName() + ".desktop");
 
         App app;
-        app.Id = "deepin-custom-" + fileInfo.baseName() + ".desktop";
+        app.Id = m_userLocalPath + fileInfo.baseName() + ".desktop";
         app.Name = fileInfo.baseName();
         app.DisplayName = fileInfo.baseName();
         app.Icon = "application-default-icon";
@@ -202,40 +196,21 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, cons
         list << app;
     }
 
-    QList<App> systemList = category->systemAppList();
-    QList<App> userList = category->userAppList();
-    for (App app : list) {
-        if (app.isUser == false) {
-            for (App appUser : userList) {
-                if (appUser.Exec == app.Exec) {
-                    category->delUserItem(appUser);
-                }
-            }
-        }
-    }
+    QList<App> appList = category->getappItem();
 
     for (App app : list) {
-        if (!systemList.contains(app) || !userList.contains(app)) {
+        if (!appList.contains(app)) {
             category->addUserItem(app);
         }
     }
 
-    if (isUser) {
-        userList = category->userAppList();
-        for (App app : userList) {
-            if (!list.contains(app)) {
-                category->delUserItem(app);
-            }
-        }
-    } else {
-        systemList = category->systemAppList();
-        for (App app : systemList) {
-            if (!list.contains(app)) {
-                category->delUserItem(app);
-            }
+    appList = category->getappItem();
+    for (App app : appList) {
+        if (!list.contains(app)) {
+            category->delUserItem(app);
         }
     }
-
+    
     category->setCategory(mime);
 }
 
@@ -262,20 +237,8 @@ void DefAppWorker::saveDefaultApp(const QString &mime, const QJsonObject &json)
 Category *DefAppWorker::getCategory(const QString &mime) const
 {
     switch (m_stringToCategory[mime]) {
-    case Browser:
-        return m_defAppModel->getModBrowser();
-    case Mail:
-        return m_defAppModel->getModMail();
-    case Text:
-        return m_defAppModel->getModText();
-    case Music:
-        return m_defAppModel->getModMusic();
-    case Video:
-        return m_defAppModel->getModVideo();
-    case Picture:
-        return m_defAppModel->getModPicture();
-    case Terminal:
-        return m_defAppModel->getModTerminal();
+    case SelfSetUp:
+        return m_defAppModel->getModSelfSetUp();
     }
     return nullptr;
 }

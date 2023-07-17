@@ -29,8 +29,7 @@ DefappDetailWidget::DefappDetailWidget(DefAppWorker::DefaultAppsCategory categor
     , m_model(new QStandardItemModel(this))
     , m_categoryValue(category)
     , m_category(nullptr)
-    , m_systemAppCnt(0)
-    , m_userAppCnt(0)
+    , m_appCnt(0)
 {
     m_defApps->setAccessibleName("List_defapplist");
     m_defApps->setEditTriggers(QListView::NoEditTriggers);
@@ -96,7 +95,8 @@ void DefappDetailWidget::setCategory(Category *const category)
     connect(m_category, &Category::removedUserItem, this, &DefappDetailWidget::removeItem);
     connect(m_category, &Category::categoryNameChanged, this, &DefappDetailWidget::setCategoryName);
     connect(m_category, &Category::clearAll, this, &DefappDetailWidget::onClearAll);
-
+    connect(m_category, &Category::reversedUserItem, this, &DefappDetailWidget::reverseItem);
+    
     AppsItemChanged(m_category->getappItem());
 
     onDefaultAppSet(m_category->getDefault());
@@ -149,11 +149,7 @@ void DefappDetailWidget::removeItem(const App &item)
         QString id = m_model->data(m_model->index(row, 0), DefAppIdRole).toString();
         if (id == item.Id) {
             m_model->removeRow(row);
-            if (item.isUser) {
-                m_userAppCnt--;
-            } else {
-                m_systemAppCnt--;
-            }
+            m_appCnt--;
 
             break;
         }
@@ -315,8 +311,7 @@ void DefappDetailWidget::onClearAll()
 {
     int cnt = m_model->rowCount();
     m_model->removeRows(0, cnt);
-    m_systemAppCnt = 0;
-    m_userAppCnt = 0;
+    m_appCnt = 0;
 }
 
 App DefappDetailWidget::getAppById(const QString &appId)
@@ -359,13 +354,8 @@ void DefappDetailWidget::appendItemData(const App &app)
     item->setData(app.CanDelete, DefAppCanDeleteRole);
 
     int index = 0;
-    if (app.isUser) {
-        index = m_systemAppCnt + m_userAppCnt;
-        m_userAppCnt++;
-    } else {
-        index = m_systemAppCnt;
-        m_systemAppCnt++;
-    }
+    index = m_appCnt;
+    m_appCnt++;
 
     m_model->insertRow(index, item);
 }
