@@ -57,6 +57,7 @@ public:
     virtual QWidget *page() override;
 
 private:
+    DefAppWorker::DefaultAppsCategory m_category;
     DefAppModel *m_model;
     DefAppWorker *m_work;
 };

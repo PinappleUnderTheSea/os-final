@@ -89,9 +89,11 @@ void SelfStartupModule::active()
 }
 
 // 三级页面
-SelfStartupDetailModule::SelfStartupDetailModule(DefAppModel *model,
+SelfStartupDetailModule::SelfStartupDetailModule(DefAppWorker::DefaultAppsCategory category,
+                                                DefAppModel *model,
                                                 DefAppWorker *work)
     : ModuleObject("SelfStartupApplist")
+    , m_category(category)
     , m_model(model)
     , m_work(work)
 {

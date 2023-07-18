@@ -23,12 +23,12 @@ class QIcon;
 QT_END_NAMESPACE
 
 class defappworker;
-class DefappDetailWidget : public QWidget
+class SelfStartupDetailWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DefappDetailWidget(DefAppWorker::DefaultAppsCategory category, QWidget *parent = nullptr);
-    virtual ~DefappDetailWidget();
+    explicit SelfStartupDetailWidget(QWidget *parent = nullptr);
+    virtual ~SelfStartupDetailWidget();
 
     void setModel(DefAppModel *const model);
     void setCategory(Category *const category);
@@ -54,11 +54,10 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void onDefaultAppSet(const App &app);
-    void setCategoryName(const QString &name);
     void onListViewClicked(const QModelIndex &index);
     void onDelBtnClicked();
     void onClearAll();
-    DTK_WIDGET_NAMESPACE::DListView *getAppListview() const { return m_defApps; }
+    DTK_WIDGET_NAMESPACE::DListView *getAppListview() const { return m_selfApps; }
 
 private:
     void AppsItemChanged(const QList<App> &list);
@@ -68,10 +67,8 @@ private:
 
 private:
     QVBoxLayout *m_centralLayout;
-    DTK_WIDGET_NAMESPACE::DListView *m_defApps;
+    DTK_WIDGET_NAMESPACE::DListView *m_selfApps;
     QStandardItemModel *m_model;
-    QString m_categoryName;
-    int m_categoryValue;
     Category *m_category;
     QMap<DTK_WIDGET_NAMESPACE::DViewItemAction *, QString> m_actionMap;
     int m_systemAppCnt;

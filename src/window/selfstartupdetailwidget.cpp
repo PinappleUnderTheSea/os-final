@@ -5,7 +5,7 @@
 #include <interface/moduleobject.h>
 #include "widgets/dcclistview.h"
 
-#include "defappdetailwidget.h"
+#include "selfstartupdetailwidget.h"
 #include "defappmodel.h"
 #include "defappworker.h"
 
@@ -22,85 +22,57 @@
 
 DWIDGET_USE_NAMESPACE
 
-DefappDetailWidget::DefappDetailWidget(DefAppWorker::DefaultAppsCategory category, QWidget *parent)
+SelfStartupDetailWidget::SelfStartupDetailWidget(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout)
-    , m_defApps(new DCC_NAMESPACE::DCCListView)
+    , m_selfApps(new DCC_NAMESPACE::DCCListView)
     , m_model(new QStandardItemModel(this))
-    , m_categoryValue(category)
-    , m_category(nullptr)
     , m_systemAppCnt(0)
     , m_userAppCnt(0)
 {
-    m_defApps->setAccessibleName("List_defapplist");
-    m_defApps->setEditTriggers(QListView::NoEditTriggers);
-    m_defApps->setIconSize(QSize(32, 32));
-    m_defApps->setMovement(QListView::Static);
-    m_defApps->setSelectionMode(QListView::NoSelection);
-    m_defApps->setFrameShape(QFrame::NoFrame);
-    m_defApps->setModel(m_model);
-    m_defApps->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_defApps->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_selfApps->setAccessibleName("List_selfapplist");
+    m_selfApps->setEditTriggers(QListView::NoEditTriggers); //Qlistview 双击默认是编辑条目，即使doubleclicked已经connect了别的函数。此时只需setEditTriggers 属性设置成NoEditTriggers 即可
+    m_selfApps->setIconSize(QSize(32, 32));
+    m_selfApps->setMovement(QListView::Static);
+    m_selfApps->setSelectionMode(QListView::NoSelection);
+    m_selfApps->setFrameShape(QFrame::NoFrame);
+    m_selfApps->setModel(m_model); //!!和下面的setmodel是同一个码?
+    m_selfApps->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //!!maybe change
+    m_selfApps->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //!!maybe change
 
-    m_centralLayout->setContentsMargins(0, 0, 20, 0);
-    m_centralLayout->addWidget(m_defApps, 1);
+    m_centralLayout->setContentsMargins(0, 0, 20, 0); //设置左侧、顶部、右侧和底部边距，以便在布局周围使用
+    m_centralLayout->addWidget(m_selfApps, 1); // 将给定的小部件添加到单元格网格的行、列。
     setLayout(m_centralLayout);
 }
 
-DefappDetailWidget::~DefappDetailWidget()
+SelfStartupDetailWidget::~SelfStartupDetailWidget()
 {
 }
 
-void DefappDetailWidget::setModel(DefAppModel *const model)//设置分类（需要删除分类）
+void SelfStartupDetailWidget::setModel(DefAppModel *const model)//设置分类（需要删除分类）
 {
-    switch (m_categoryValue) {
-    case DefAppWorker::Browser:
-        setCategory(model->getModBrowser());
-        break;
-    case DefAppWorker::Mail:
-        setCategory(model->getModMail());
-        break;
-    case DefAppWorker::Text:
-        setCategory(model->getModText());
-        break;
-    case DefAppWorker::Music:
-        setCategory(model->getModMusic());
-        break;
-    case DefAppWorker::Video:
-        setCategory(model->getModVideo());
-        break;
-    case DefAppWorker::Picture:
-        setCategory(model->getModPicture());
-        break;
-    case DefAppWorker::Terminal:
-        setCategory(model->getModTerminal());
-        break;
-    default:
-        break;
-    }
+    setCategory(model->getModTerminal());
 }
 
 /**
- * Sets the category for the DefappDetailWidget.
+ * Sets the category for the SelfStartupDetailWidget.
  *
  * @param category a pointer to the Category object
  *
  * @throws ErrorType description of error
  */
-void DefappDetailWidget::setCategory(Category *const category)
+void SelfStartupDetailWidget::setCategory(Category *const category) //!!to_see
 {
     m_category = category;
 
-    connect(m_category, &Category::defaultChanged, this, &DefappDetailWidget::onDefaultAppSet);
-    connect(m_category, &Category::addedUserItem, this, &DefappDetailWidget::addItem);
-    connect(m_category, &Category::removedUserItem, this, &DefappDetailWidget::removeItem);
-    connect(m_category, &Category::categoryNameChanged, this, &DefappDetailWidget::setCategoryName);
-    connect(m_category, &Category::clearAll, this, &DefappDetailWidget::onClearAll);
+    connect(m_category, &Category::defaultChanged, this, &SelfStartupDetailWidget::onDefaultAppSet);
+    connect(m_category, &Category::addedUserItem, this, &SelfStartupDetailWidget::addItem);
+    connect(m_category, &Category::removedUserItem, this, &SelfStartupDetailWidget::removeItem);
+    connect(m_category, &Category::clearAll, this, &SelfStartupDetailWidget::onClearAll);
 
     AppsItemChanged(m_category->getappItem());
 
     onDefaultAppSet(m_category->getDefault());
-    setCategoryName(m_category->getName());
 }
 
 /**
@@ -113,7 +85,7 @@ void DefappDetailWidget::setCategory(Category *const category)
  *
  * @throws None
  */
-QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
+QIcon SelfStartupDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
 {
     QIcon icon(appIcon);
     if (icon.pixmap(size).isNull())
@@ -127,22 +99,22 @@ QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
 }
 
 /**
- * Adds an item to the DefappDetailWidget.
+ * Adds an item to the SelfStartupDetailWidget.
  *
  * @param item The App object to add.
  *
  * @throws ErrorType description of error
  */
-void DefappDetailWidget::addItem(const App &item)
+void SelfStartupDetailWidget::addItem(const App &item)
 {
     qDebug() << Q_FUNC_INFO << item.Id << ", isUser :" << item.isUser;
     appendItemData(item);
     updateListView(m_category->getDefault());
 }
 
-void DefappDetailWidget::removeItem(const App &item)
+void SelfStartupDetailWidget::removeItem(const App &item)
 {
-    qDebug() << "DefappDetailWidget::removeItem id " << item.Id;
+    qDebug() << "SelfStartupDetailWidget::removeItem id " << item.Id;
     //update model
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
@@ -163,7 +135,7 @@ void DefappDetailWidget::removeItem(const App &item)
 }
 
 /**
- * Shows invalid text in the DefappDetailWidget.
+ * Shows icons in the SelfStartupDetailWidget.
  *
  * @param modelItem a pointer to DStandardItem
  * @param name the name of the item
@@ -171,7 +143,7 @@ void DefappDetailWidget::removeItem(const App &item)
  *
  * @throws None
  */
-void DefappDetailWidget::showInvalidText(DStandardItem *modelItem, const QString &name, const QString &iconName)
+void SelfStartupDetailWidget::showInvalidText(DStandardItem *modelItem, const QString &name, const QString &iconName)
 {
     if (name.isEmpty())
         return;
@@ -186,10 +158,6 @@ void DefappDetailWidget::showInvalidText(DStandardItem *modelItem, const QString
     modelItem->setActionList(Qt::LeftEdge, actions);
 }
 
-void DefappDetailWidget::setCategoryName(const QString &name)
-{
-    m_categoryName = name;
-}
 
 /**
  * Updates the list view with the given default app.
@@ -198,7 +166,7 @@ void DefappDetailWidget::setCategoryName(const QString &name)
  *
  * @throws None
  */
-void DefappDetailWidget::updateListView(const App &defaultApp)
+void SelfStartupDetailWidget::updateListView(const App &defaultApp)
 {
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
@@ -228,7 +196,7 @@ void DefappDetailWidget::updateListView(const App &defaultApp)
             QPointer<DViewItemAction> delAction(new DViewItemAction(Qt::AlignVCenter | Qt::AlignRight, QSize(21, 21), QSize(19, 19), true));
 
             delAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_CloseButton, nullptr, this));
-            connect(delAction, &QAction::triggered, this, &DefappDetailWidget::onDelBtnClicked);
+            connect(delAction, &QAction::triggered, this, &SelfStartupDetailWidget::onDelBtnClicked);
             btnActList << delAction;
             modelItem->setActionList(Qt::RightEdge, btnActList);
             m_actionMap.insert(delAction, id);
@@ -245,7 +213,7 @@ void DefappDetailWidget::updateListView(const App &defaultApp)
  *
  * @throws ErrorType If there is an error updating the list view.
  */
-void DefappDetailWidget::onDefaultAppSet(const App &app)
+void SelfStartupDetailWidget::onDefaultAppSet(const App &app)
 {
     qDebug() << Q_FUNC_INFO << app.Name;
     updateListView(app);
@@ -261,29 +229,29 @@ void DefappDetailWidget::onDefaultAppSet(const App &app)
  *
  * @throws None
  */
-void DefappDetailWidget::AppsItemChanged(const QList<App> &list)
+void SelfStartupDetailWidget::AppsItemChanged(const QList<App> &list)
 {
     for (const App &app : list) {
         appendItemData(app);
     }
 
-    connect(m_defApps, &DListView::clicked, this, &DefappDetailWidget::onListViewClicked);
-    connect(m_defApps, &DListView::activated, m_defApps, &QListView::clicked);
+    connect(m_selfApps, &DListView::clicked, this, &SelfStartupDetailWidget::onListViewClicked);
+    connect(m_selfApps, &DListView::activated, m_selfApps, &QListView::clicked);
 }
 
 /**
- * The function handles the click event of the list view in the `DefappDetailWidget`.
+ * The function handles the click event of the list view in the `SelfStartupDetailWidget`.
  *
  * @param index The index of the clicked item in the list view.
  *
  * @throws None
  */
-void DefappDetailWidget::onListViewClicked(const QModelIndex &index)
+void SelfStartupDetailWidget::onListViewClicked(const QModelIndex &index)
 {
     if (!index.isValid())
         return;
 
-    QString id = m_defApps->model()->data(m_defApps->currentIndex(), DefAppIdRole).toString();
+    QString id = m_selfApps->model()->data(m_selfApps->currentIndex(), DefAppIdRole).toString();
     App app = getAppById(id);
     if (!isValid(app))
         return;
@@ -294,7 +262,7 @@ void DefappDetailWidget::onListViewClicked(const QModelIndex &index)
     Q_EMIT requestSetDefaultApp(m_categoryName, app);
 }
 
-void  DefappDetailWidget::onDelBtnClicked()
+void  SelfStartupDetailWidget::onDelBtnClicked()
 {
     DViewItemAction *action = qobject_cast<DViewItemAction *>(sender());
     if (!m_actionMap.contains(action))
@@ -311,7 +279,7 @@ void  DefappDetailWidget::onDelBtnClicked()
     Q_EMIT requestDelUserApp(m_categoryName, app);
 }
 
-void DefappDetailWidget::onClearAll()
+void SelfStartupDetailWidget::onClearAll()
 {
     int cnt = m_model->rowCount();
     m_model->removeRows(0, cnt);
@@ -319,7 +287,7 @@ void DefappDetailWidget::onClearAll()
     m_userAppCnt = 0;
 }
 
-App DefappDetailWidget::getAppById(const QString &appId)
+App SelfStartupDetailWidget::getAppById(const QString &appId)
 {
     auto res = std::find_if(m_category->getappItem().cbegin(), m_category->getappItem().cend(), [ = ](const App & item)->bool{
         return item.Id == appId;
@@ -335,13 +303,13 @@ App DefappDetailWidget::getAppById(const QString &appId)
 }
 
 /**
- * Appends item data to the DefappDetailWidget.
+ * Appends item data to the SelfStartupDetailWidget.
  *
  * @param app The App object containing the data to be appended.
  *
  * @throws None
  */
-void DefappDetailWidget::appendItemData(const App &app)
+void SelfStartupDetailWidget::appendItemData(const App &app) 
 {
     qDebug() << "appendItemData=" << app.MimeTypeFit;
     DStandardItem *item = new DStandardItem;
@@ -379,7 +347,7 @@ void DefappDetailWidget::appendItemData(const App &app)
  *
  * @throws None.
  */
-bool DefappDetailWidget::isDesktopOrBinaryFile(const QString &fileName)
+bool SelfStartupDetailWidget::isDesktopOrBinaryFile(const QString &fileName)
 {
     QMimeDatabase mimeDatabase;
     if (mimeDatabase.suffixForFileName(fileName) == "desktop") {
@@ -399,7 +367,7 @@ bool DefappDetailWidget::isDesktopOrBinaryFile(const QString &fileName)
  *
  * @throws None
  */
-bool DefappDetailWidget::isValid(const App &app)
+bool SelfStartupDetailWidget::isValid(const App &app)
 {
     return (!app.Id.isNull() && !app.Id.isEmpty());
 }
