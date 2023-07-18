@@ -28,7 +28,15 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 
 }
 
+void DefAppWorker::active()
+{
+    m_dbusManager->blockSignals(false);
+}
 
+void DefAppWorker::deactive()
+{
+    m_dbusManager->blockSignals(true);
+}
 
 void DefAppWorker::onReverseUserApp(const QString &mime, const App &item)
 {
