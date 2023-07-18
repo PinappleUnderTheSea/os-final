@@ -54,7 +54,7 @@ ModuleObject *SelfStartupPlugin::module()
                                                   connect(button,
                                                           &AddButtonWidget::requestCreateFile,
                                                           moduleRoot->work(),
-                                                          &DefAppWorker::onCreateFile);
+                                                          &DefAppWorker::onAddUserFile);
                                               });
     addButton->setExtra();
     moduleRoot->appendChild(addButton);
@@ -106,7 +106,7 @@ QWidget *SelfStartupDetailModule::page()
     connect(selfDetail,
             &SelfStartupDetailWidget::requestSetDefaultApp,
             m_work,
-            &DefAppWorker::onSetDefaultApp);
+            &DefAppWorker::onReverseUserApp);
 
     connect(selfDetail, &SelfStartupDetailWidget::requestDelUserApp, m_work, &DefAppWorker::onDelUserApp);
     
