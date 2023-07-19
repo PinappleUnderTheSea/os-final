@@ -24,11 +24,11 @@ struct App {
     App() : isUser(false), CanDelete(false), MimeTypeFit(false),Hidden(false) {}
 
     bool operator ==(const App &app) const {
-        return app.Id == Id || app.Name == Name;
+        return app.Id == Id && app.Name == Name;
     }
 
     bool operator !=(const App &app) const {
-        return app.Id != Id && app.Name != Name;
+        return app.Id != Id || app.Name != Name;
     }
 };
 

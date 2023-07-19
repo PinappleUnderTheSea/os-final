@@ -84,6 +84,32 @@ void DefAppWorker::onReverseUserApp(const QString &mime, const App &item)
 
 void DefAppWorker::onGetListApps(){
     //TODO: unknown usage 
+    Dir *pDir;
+    struct dirent *ptr;
+    if(!pDir = opendir(m_userLocalPath.toStdString().c_str())){
+        qDebug() << "Folder not exist"<< Qt::endl;
+        return;
+    }
+    while((ptr = readdir(pDir))!=0){
+        if(ptr->d_name[0] == '.'){
+            continue;
+        }
+        QFile file(m_userLocalPath + QString(ptr->d_name));
+        QFileInfo fileinfo(file);
+
+        App app;
+        app.Id = filename;
+        app.Name = fileInfo.baseName();
+        app.DisplayName = fileInfo.baseName();
+        app.Icon = "application-default-icon";
+        app.Description = "";
+        app.Exec = info.filePath();
+        app.isUser = true;
+        app.Hidden = false;
+
+        category->addUserItem(app);
+
+    }
     return ;
 }
 
