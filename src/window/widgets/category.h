@@ -38,13 +38,11 @@ class Category : public QObject
 public:
     explicit Category(QObject *parent = 0);
 
-    void setDefault(const App &def);
 
     const QString getName() const { return m_category;}
     void setCategory(const QString &category);
     inline const QList<App> getappItem() const { return m_applist;}
 
-    inline const App getDefault() { return m_default;}
     void clear();
     void addUserItem(const App &value);
     void delUserItem(const App &value);
@@ -62,6 +60,5 @@ Q_SIGNALS:
 private:
     QList<App> m_applist;
     QString m_category;
-    App m_default;
 };
 #endif // CATEGORY_H
