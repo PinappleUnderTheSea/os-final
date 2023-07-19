@@ -83,7 +83,6 @@ void DefAppWorker::onReverseUserApp(const QString &mime, const App &item)
 }
 
 void DefAppWorker::onGetListApps(){
-    //TODO: unknown usage 
     Dir *pDir;
     struct dirent *ptr;
     if(!pDir = opendir(m_userLocalPath.toStdString().c_str())){
@@ -95,10 +94,10 @@ void DefAppWorker::onGetListApps(){
             continue;
         }
         QFile file(m_userLocalPath + QString(ptr->d_name));
-        QFileInfo fileinfo(file);
-
+        QFileInfo fileInfo(file);
+        
         App app;
-        app.Id = filename;
+        app.Id = fileInfo.completeBaseName() + ".desktop";
         app.Name = fileInfo.baseName();
         app.DisplayName = fileInfo.baseName();
         app.Icon = "application-default-icon";
