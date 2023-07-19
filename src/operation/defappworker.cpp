@@ -133,6 +133,11 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
         QFile file(info.filePath());
         QString newfile = m_userLocalPath + info.fileName();
         file.copy(newfile);
+
+        if(!file.open(QIODevice::ReadWrite | QIODevice::Append)){
+            qDebug() << "can not append"<<Qt::endl;
+            return ;
+        }
         QTextStream out(&file)
 
         out << "Hidden=false"<<endl;
