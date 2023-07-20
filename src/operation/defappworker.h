@@ -23,29 +23,18 @@ public:
     explicit DefAppWorker(DefAppModel *m_defAppModel, QObject *parent = 0);
 
     enum DefaultAppsCategory {
-        Browser,
-        Mail,
-        Text,
-        Music,
-        Video,
-        Picture,
-        Terminal
+        SelfSetUp
     };
 
-    void active();
-    void deactive();
+
 
 public Q_SLOTS:
-    void onSetDefaultApp(const QString &category, const App &item);
+    void onReverseUserApp(const QString &category, const App &item);
     void onGetListApps();
     void onDelUserApp(const QString &mine, const App &item);
-    void onCreateFile(const QString &mime, const QFileInfo &info);
+    void onAddUserFile(const QString &mime, const QFileInfo &info);
 
-private Q_SLOTS:
-    void getListAppFinished(const QString &mime, const QString &defaultApp, bool isUser);
-    void getDefaultAppFinished(const QString &mime, const QString &w);
-    void saveListApp(const QString &mime, const QJsonArray &json, const bool isUser);
-    void saveDefaultApp(const QString &mime, const QJsonObject &json);
+
 
 private:
     DefAppModel *m_defAppModel;
@@ -54,8 +43,6 @@ private:
     QString m_userLocalPath;
 
 private:
-    const QString getTypeByCategory(const DefAppWorker::DefaultAppsCategory &category);
-    const QStringList getTypeListByCategory(const DefAppWorker::DefaultAppsCategory &category);
     Category* getCategory(const QString &mime) const;
 };
 

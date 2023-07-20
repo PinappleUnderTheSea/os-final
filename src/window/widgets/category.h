@@ -16,18 +16,19 @@ struct App {
     QString Description;
     QString Icon;
     QString Exec;
+    bool Hidden;
     bool isUser;
     bool CanDelete;
     bool MimeTypeFit;
-
-    App() : isUser(false), CanDelete(false), MimeTypeFit(false) {}
+    
+    App() : isUser(false), CanDelete(false), MimeTypeFit(false),Hidden(false) {}
 
     bool operator ==(const App &app) const {
-        return app.Id == Id && app.isUser == isUser;
+        return app.Id == Id || app.Name == Name;
     }
 
     bool operator !=(const App &app) const {
-        return app.Id != Id && app.isUser != isUser;
+        return app.Id != Id && app.Name != Name;
     }
 };
 
@@ -42,24 +43,24 @@ public:
     const QString getName() const { return m_category;}
     void setCategory(const QString &category);
     inline const QList<App> getappItem() const { return m_applist;}
-    inline const QList<App> systemAppList() const { return m_systemAppList; }
-    inline const QList<App> userAppList() const { return m_userAppList; }
+
     inline const App getDefault() { return m_default;}
     void clear();
     void addUserItem(const App &value);
     void delUserItem(const App &value);
+    void reverseUserItem(const APP &value);
 
 Q_SIGNALS:
     void defaultChanged(const App &id);
     void addedUserItem(const App &app);
     void removedUserItem(const App &app);
+    void reversedUserItem(const App &app);
+
     void categoryNameChanged(const QString &name);
     void clearAll();
 
 private:
     QList<App> m_applist;
-    QList<App> m_systemAppList;
-    QList<App> m_userAppList;
     QString m_category;
     App m_default;
 };
