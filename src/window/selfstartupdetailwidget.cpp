@@ -316,6 +316,7 @@ void SelfStartupDetailWidget::appendItemData(const App &app)
     item->setData(app.Id, DefAppIdRole);
     item->setData(app.isUser, DefAppIsUserRole);
     item->setData(app.CanDelete, DefAppCanDeleteRole);
+    item->setData(app.Hidden, DefAppHiddenRole);
 
     int index = m_appCnt;
     m_appCnt++;
