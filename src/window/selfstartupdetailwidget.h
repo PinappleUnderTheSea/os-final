@@ -34,7 +34,7 @@ public:
     void setCategory(Category *const category);
 
 private:
-    void updateListView(const App &defaultApp);
+    void updateListView();
     QIcon getAppIcon(const QString &appIcon, const QSize &size);
     App getAppById(const QString &appId);
     void appendItemData(const App &app);
@@ -45,15 +45,16 @@ private:
         DefAppIdRole,
         DefAppCanDeleteRole,
         DefAppNameRole,
-        DefAppIconRole
+        DefAppIconRole,
+        DefAppHiddenRole
     };
 
 Q_SIGNALS:
-    void requestSetDefaultApp(const QString &category, const App &item);
+    void reverseItem(const QString &category, const App &item);
     void requestDelUserApp(const QString &name, const App &item);
 
 public Q_SLOTS:
-    void onDefaultAppSet(const App &app);
+    void onReverseItem();
     void onListViewClicked(const QModelIndex &index);
     void onDelBtnClicked();
     void onClearAll();
@@ -68,9 +69,9 @@ private:
 
 private:
     QVBoxLayout *m_centralLayout;
-    DTK_WIDGET_NAMESPACE::DListView *m_selfApps;
-    QStandardItemModel *m_model;
+    DTK_WIDGET_NAMESPACE::DListView *m_selfApps; //窗口
+    QStandardItemModel *m_model; //窗口模型
     Category *m_category;
-    QMap<DTK_WIDGET_NAMESPACE::DViewItemAction *, QString> m_actionMap;
+    QMap<DTK_WIDGET_NAMESPACE::DViewItemAction *, QString> m_actionMap; //动作
     int m_appCnt;
 };

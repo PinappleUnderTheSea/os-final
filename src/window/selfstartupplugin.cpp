@@ -106,7 +106,7 @@ QWidget *SelfStartupDetailModule::page()
     
     // 设置默认程序 change to 设置初始是否自启动
     connect(selfDetail,
-            &SelfStartupDetailWidget::requestSetDefaultApp,
+            &SelfStartupDetailWidget::reverseItem,
             m_work,
             &DefAppWorker::onReverseUserApp);
 

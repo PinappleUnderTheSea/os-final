@@ -27,8 +27,7 @@ SelfStartupDetailWidget::SelfStartupDetailWidget(QWidget *parent)
     , m_centralLayout(new QVBoxLayout)
     , m_selfApps(new DCC_NAMESPACE::DCCListView)
     , m_model(new QStandardItemModel(this))
-    , m_systemAppCnt(0)
-    , m_userAppCnt(0)
+    , m_appCnt(0)
 {
     m_selfApps->setAccessibleName("List_selfapplist");
     m_selfApps->setEditTriggers(QListView::NoEditTriggers); //Qlistview 双击默认是编辑条目，即使doubleclicked已经connect了别的函数。此时只需setEditTriggers 属性设置成NoEditTriggers 即可
@@ -36,8 +35,8 @@ SelfStartupDetailWidget::SelfStartupDetailWidget(QWidget *parent)
     m_selfApps->setMovement(QListView::Static);
     m_selfApps->setSelectionMode(QListView::NoSelection);
     m_selfApps->setFrameShape(QFrame::NoFrame);
-    m_selfApps->setModel(m_model); //!!和下面的setmodel是同一个码?
-    m_selfApps->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //!!maybe change
+    m_selfApps->setModel(m_model); // 和下面的setmodel不是同一个
+    m_selfApps->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //!!maybe change：此时设置为不能滑动
     m_selfApps->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //!!maybe change
 
     m_centralLayout->setContentsMargins(0, 0, 20, 0); //设置左侧、顶部、右侧和底部边距，以便在布局周围使用
@@ -51,7 +50,7 @@ SelfStartupDetailWidget::~SelfStartupDetailWidget()
 
 void SelfStartupDetailWidget::setModel(DefAppModel *const model)//设置分类（需要删除分类）
 {
-    setCategory(model->getModTerminal());
+    setCategory(model->getModSelfSetUp());
 }
 
 /**
@@ -65,14 +64,14 @@ void SelfStartupDetailWidget::setCategory(Category *const category) //!!to_see
 {
     m_category = category;
 
-    connect(m_category, &Category::defaultChanged, this, &SelfStartupDetailWidget::onDefaultAppSet);
+    connect(m_category, &Category::reversedUserItem, this, &SelfStartupDetailWidget::onReverseItem);
     connect(m_category, &Category::addedUserItem, this, &SelfStartupDetailWidget::addItem);
     connect(m_category, &Category::removedUserItem, this, &SelfStartupDetailWidget::removeItem);
-    connect(m_category, &Category::clearAll, this, &SelfStartupDetailWidget::onClearAll);
+    // connect(m_category, &Category::clearAll, this, &SelfStartupDetailWidget::onClearAll);
 
     AppsItemChanged(m_category->getappItem());
 
-    onDefaultAppSet(m_category->getDefault());
+    onReverseItem();
 }
 
 /**
@@ -109,7 +108,7 @@ void SelfStartupDetailWidget::addItem(const App &item)
 {
     qDebug() << Q_FUNC_INFO << item.Id << ", isUser :" << item.isUser;
     appendItemData(item);
-    updateListView(m_category->getDefault());
+    updateListView();
 }
 
 void SelfStartupDetailWidget::removeItem(const App &item)
@@ -121,17 +120,12 @@ void SelfStartupDetailWidget::removeItem(const App &item)
         QString id = m_model->data(m_model->index(row, 0), DefAppIdRole).toString();
         if (id == item.Id) {
             m_model->removeRow(row);
-            if (item.isUser) {
-                m_userAppCnt--;
-            } else {
-                m_systemAppCnt--;
-            }
-
+            m_appCnt--;
             break;
         }
     }
 
-    updateListView(m_category->getDefault());
+    updateListView();
 }
 
 /**
@@ -166,7 +160,7 @@ void SelfStartupDetailWidget::showInvalidText(DStandardItem *modelItem, const QS
  *
  * @throws None
  */
-void SelfStartupDetailWidget::updateListView(const App &defaultApp)
+void SelfStartupDetailWidget::updateListView()
 {
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
@@ -176,47 +170,40 @@ void SelfStartupDetailWidget::updateListView(const App &defaultApp)
         bool canDelete = modelItem->data(DefAppCanDeleteRole).toBool();
         QString name = modelItem->data(DefAppNameRole).toString();
         QString iconName = modelItem->data(DefAppIconRole).toString();
+        bool Hidden = modelItem->data(DefAppHiddenRole).toBool();
 
-        if (id == defaultApp.Id) {
+        if (Hidden == false) { 
             modelItem->setCheckState(Qt::Checked);
-            //remove user clear button
-            if (!isUser && !canDelete)
-                continue;
-
-            DViewItemActionList actions;
-            modelItem->setActionList(Qt::RightEdge, actions);
-            showInvalidText(modelItem, name, iconName);
         } else {
             modelItem->setCheckState(Qt::Unchecked);
-            //add user clear button
-            if (!isUser && !canDelete)
-                continue;
-
-            DViewItemActionList btnActList;
-            QPointer<DViewItemAction> delAction(new DViewItemAction(Qt::AlignVCenter | Qt::AlignRight, QSize(21, 21), QSize(19, 19), true));
-
-            delAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_CloseButton, nullptr, this));
-            connect(delAction, &QAction::triggered, this, &SelfStartupDetailWidget::onDelBtnClicked);
-            btnActList << delAction;
-            modelItem->setActionList(Qt::RightEdge, btnActList);
-            m_actionMap.insert(delAction, id);
-            showInvalidText(modelItem, name, iconName);
         }
+        
+        //add user clear button
+        // if (!isUser && !canDelete)
+        //     continue;
+
+        DViewItemActionList btnActList; //!!change delete btn location
+        QPointer<DViewItemAction> delAction(new DViewItemAction(Qt::AlignVCenter | Qt::AlignHCenter , QSize(21, 21), QSize(19, 19), true));
+        
+        delAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_CloseButton, nullptr, this));
+        connect(delAction, &QAction::triggered, this, &SelfStartupDetailWidget::onDelBtnClicked);
+        btnActList << delAction;
+        modelItem->setActionList(Qt::RightEdge, btnActList);
+        m_actionMap.insert(delAction, id);
+        showInvalidText(modelItem, name, iconName);
     }
 }
 
+
 /**
- * Updates the list view with the given app after setting it as the default
- * app.
+ * Handles the action of reversing an item.
  *
- * @param app The app to set as the default app.
- *
- * @throws ErrorType If there is an error updating the list view.
+ * @throws ErrorType description of error
  */
-void SelfStartupDetailWidget::onDefaultAppSet(const App &app)
+void SelfStartupDetailWidget::onReverseItem()
 {
     qDebug() << Q_FUNC_INFO << app.Name;
-    updateListView(app);
+    updateListView();
 }
 
 
@@ -257,11 +244,16 @@ void SelfStartupDetailWidget::onListViewClicked(const QModelIndex &index)
         return;
 
     qDebug()  <<  "set default app "  << app.Name;
-    updateListView(app);
+    updateListView();
     //set default app
-    Q_EMIT requestSetDefaultApp(m_categoryName, app);
+    Q_EMIT reverseItem(m_categoryName, app);
 }
 
+/**
+ * Handles the click event of the delete button in the SelfStartupDetailWidget.
+ * 
+ * @throws ErrorType if the action is not found in the action map.
+ */
 void  SelfStartupDetailWidget::onDelBtnClicked()
 {
     DViewItemAction *action = qobject_cast<DViewItemAction *>(sender());
@@ -283,8 +275,7 @@ void SelfStartupDetailWidget::onClearAll()
 {
     int cnt = m_model->rowCount();
     m_model->removeRows(0, cnt);
-    m_systemAppCnt = 0;
-    m_userAppCnt = 0;
+    m_appCnt = 0;
 }
 
 App SelfStartupDetailWidget::getAppById(const QString &appId)
@@ -326,14 +317,8 @@ void SelfStartupDetailWidget::appendItemData(const App &app)
     item->setData(app.isUser, DefAppIsUserRole);
     item->setData(app.CanDelete, DefAppCanDeleteRole);
 
-    int index = 0;
-    if (app.isUser) {
-        index = m_systemAppCnt + m_userAppCnt;
-        m_userAppCnt++;
-    } else {
-        index = m_systemAppCnt;
-        m_systemAppCnt++;
-    }
+    int index = m_appCnt;
+    m_appCnt++;
 
     m_model->insertRow(index, item);
 }
