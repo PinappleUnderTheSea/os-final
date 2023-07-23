@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    DLogManager::registerJournalAppender();
+    // DLogManager::registerJournalAppender();
     DLogManager::registerConsoleAppender();
     DLogManager::registerFileAppender();
 
