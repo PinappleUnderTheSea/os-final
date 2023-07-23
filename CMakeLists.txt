@@ -80,6 +80,7 @@ find_package(PkgConfig REQUIRED)
 find_package(DtkCore REQUIRED)
 find_package(DtkWidget REQUIRED)
 find_package(Qt5 COMPONENTS Widgets Network DBus Concurrent Multimedia Svg Test REQUIRED)
+find_package(DdeControlCenter REQUIRED)
 
 # pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
