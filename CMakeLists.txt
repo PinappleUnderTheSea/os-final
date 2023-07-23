@@ -256,11 +256,11 @@ set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)
 install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
 
 include(CMakePackageConfigHelpers)
-# configure_package_config_file(misc/DdeControlCenterConfig.cmake.in
-#     ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
-#     INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
-#     PATH_VARS INCLUDE_INSTALL_DIR
-#     INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+configure_package_config_file(misc/DdeControlCenterConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
+    PATH_VARS INCLUDE_INSTALL_DIR
+    INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
