@@ -21,7 +21,6 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 
     m_stringToCategory.insert("SelfSetUp",     SelfSetUp);
 
-
     connect(m_dbusManager, &MimeDBusProxy::Change, this, &DefAppWorker::onGetListApps);
 
     m_userLocalPath = QDir::homePath() + ".config/autostart";
