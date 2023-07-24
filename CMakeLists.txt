@@ -198,44 +198,44 @@ endif()
 # message(STATUS "dccwidgets test success")
 
 #--------------------------dde-control-center--------------------------
-set(Control_Center_Name dde-control-center)
-file(GLOB_RECURSE Control_Center_SRCS
-    "src/frame/*.h"
-    "src/frame/*.cpp"
-)
-list(REMOVE_ITEM Control_Center_SRCS "${CMAKE_SOURCE_DIR}/src/frame/main.cpp")
+# set(Control_Center_Name dde-control-center)
+# file(GLOB_RECURSE Control_Center_SRCS
+#     "src/frame/*.h"
+#     "src/frame/*.cpp"
+# )
+# list(REMOVE_ITEM Control_Center_SRCS "${CMAKE_SOURCE_DIR}/src/frame/main.cpp")
 
-add_executable(${Control_Center_Name}
-    ${Control_Center_SRCS}
-    src/frame/main.cpp
-)
+# add_executable(${Control_Center_Name}
+#     ${Control_Center_SRCS}
+#     src/frame/main.cpp
+# )
 
-target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CVERSION}")
+# target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CVERSION}")
 
-set(Control_Center_Includes
-    ${DtkWidget_INCLUDE_DIRS}
-    Qt5::Widgets
-    Qt5::DBus
-    Qt5::Concurrent
-)
-set(Control_Center_Libraries
-    ${Dcc_Widgets_Name}
-    ${Interface_Name}
-    ${DtkWidget_LIBRARIES}
-    Qt5::Widgets
-    Qt5::DBus
-    Qt5::Concurrent
-)
-target_include_directories(${Control_Center_Name} PUBLIC
-    ${Control_Center_Includes}
-)
+# set(Control_Center_Includes
+#     ${DtkWidget_INCLUDE_DIRS}
+#     Qt5::Widgets
+#     Qt5::DBus
+#     Qt5::Concurrent
+# )
+# set(Control_Center_Libraries
+#     ${Dcc_Widgets_Name}
+#     ${Interface_Name}
+#     ${DtkWidget_LIBRARIES}
+#     Qt5::Widgets
+#     Qt5::DBus
+#     Qt5::Concurrent
+# )
+# target_include_directories(${Control_Center_Name} PUBLIC
+#     ${Control_Center_Includes}
+# )
 
-target_link_libraries(${Control_Center_Name} PRIVATE
-    ${Control_Center_Libraries}
-)
+# target_link_libraries(${Control_Center_Name} PRIVATE
+#     ${Control_Center_Libraries}
+# )
 
-# bin
-install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
+# # bin
+# install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 # message(STATUS "dde-control-centre success")
 
