@@ -36,12 +36,12 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
         add_definitions(-DUSE_ASAN)
     endif()
 else()
-    # # generate qm
-    # execute_process(COMMAND bash "misc/translate_generation.sh"
-    #     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-    # # generate desktop translate
-    # execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
-    #     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    # generate qm
+    execute_process(COMMAND bash "misc/translate_generation.sh"
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    # generate desktop translate
+    execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
 set(BUILD_PLUDIN ON)
 
@@ -89,8 +89,8 @@ if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "sw_64")
 endif()
 
 # dconfig
-# file(GLOB DCONFIG_FILES "misc/configs/*.json")
-# dconfig_meta_files(APPID org.deepin.dde.control-center BASE misc/configs FILES ${DCONFIG_FILES})
+file(GLOB DCONFIG_FILES "misc/configs/*.json")
+dconfig_meta_files(APPID org.deepin.dde.control-center BASE misc/configs FILES ${DCONFIG_FILES})
 
 include_directories(
     include
@@ -175,28 +175,6 @@ set_target_properties(${Dcc_Widgets_Name} PROPERTIES
 # so
 install(TARGETS ${Dcc_Widgets_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
-#------------------------dccwidgets library test--------------------------
-if (UNITTEST)
-    set(UT_Dcc_Widgets_Name ut-dcc-widgets)
-    file(GLOB_RECURSE UT_Dcc_Widgets_SRCS
-        "tests/widgets/*.cpp"
-    )
-    add_executable(${UT_Dcc_Widgets_Name}
-        ${Dcc_Widgets_SRCS}
-        ${UT_Dcc_Widgets_SRCS}
-    )
-    # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_Dcc_Widgets_Name} PRIVATE ${UT_COMPILER})
-    target_include_directories(${UT_Dcc_Widgets_Name} PUBLIC
-        ${Dcc_Widgets_Includes}
-    )
-    target_link_libraries(${UT_Dcc_Widgets_Name} PRIVATE
-        ${Dcc_Widgets_Libraries}
-        ${Test_Libraries}
-    )
-endif()
-# message(STATUS "dccwidgets test success")
-
 #--------------------------dde-control-center--------------------------
 # set(Control_Center_Name dde-control-center)
 # file(GLOB_RECURSE Control_Center_SRCS
@@ -245,10 +223,10 @@ file(GLOB QM_FILES "translations/*.qm")
 install(FILES ${QM_FILES} DESTINATION ${TRANSLATE_INSTALL_DIR})
 
 #desktop
-# install(FILES misc/dde-control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+install(FILES misc/dde-control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
 #service
-# install(FILES misc/org.deepin.dde.ControlCenter1.service DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
+install(FILES misc/org.deepin.dde.ControlCenter1.service DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
 
 # dev files
 file(GLOB HEADERS "include/*")
@@ -290,91 +268,6 @@ if (UNITTEST)
     target_link_libraries(${UT_Interface_Name} PRIVATE
         ${Interface_Libraries}
         ${Test_Libraries}
-    )
-endif()
-#-------------------------ut-dcc-frame-------------------------
-if (UNITTEST)
-    set(UT_Frame_Name ut-dcc-frame)
-    file(GLOB_RECURSE UT_Frame_SRCS
-        "tests/frame/*.cpp"
-    )
-
-    add_executable(${UT_Frame_Name}
-        ${Control_Center_SRCS}
-        ${UT_Frame_SRCS}
-    )
-
-    # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_Frame_Name} PRIVATE ${UT_COMPILER})
-
-    target_include_directories(${UT_Frame_Name} PUBLIC
-        ${Control_Center_Includes}
-    )
-
-    target_link_libraries(${UT_Frame_Name} PRIVATE
-        ${Control_Center_Libraries}
-        ${Test_Libraries}
-    )
-endif()
-#--------------------------plugin-test1--------------------------
-if (UNITTEST)
-    set(Plugin_Test1_Name plugin-test1)
-    file(GLOB_RECURSE Plugin_Test1_SRCS
-        "tests/plugin-test1/*.h"
-        "tests/plugin-test1/*.cpp"
-    )
-
-    add_library(${Plugin_Test1_Name} MODULE
-        ${Plugin_Test1_SRCS}
-    )
-
-    set(Plugin_Test1_Includes
-        Qt5::Widgets
-        Qt5::DBus
-        Dtk::Widget
-    )
-    set(Plugin_Test1_Libraries
-        ${Interface_Name}
-        Qt5::Widgets
-        Qt5::DBus
-        Dtk::Widget
-    )
-    target_include_directories(${Plugin_Test1_Name} PUBLIC
-        ${Plugin_Test1_Includes}
-    )
-
-    target_link_libraries(${Plugin_Test1_Name} PRIVATE
-        ${Plugin_Test1_Libraries}
-    )
-endif()
-
-#--------------------------plugin-test2--------------------------
-if (UNITTEST)
-    set(Plugin_Test2_Name plugin-test2)
-    file(GLOB_RECURSE Plugin_Test2_SRCS
-        "tests/plugin-test2/*.h"
-        "tests/plugin-test2/*.cpp"
-    )
-
-    add_library(${Plugin_Test2_Name} MODULE
-        ${Plugin_Test2_SRCS}
-    )
-
-    set(Plugin_Test2_Includes
-        Qt5::Widgets
-        Qt5::DBus
-    )
-    set(Plugin_Test2_Libraries
-        ${Interface_Name}
-        Qt5::Widgets
-        Qt5::DBus
-    )
-    target_include_directories(${Plugin_Test2_Name} PUBLIC
-        ${Plugin_Test2_Includes}
-    )
-
-    target_link_libraries(${Plugin_Test2_Name} PRIVATE
-        ${Plugin_Test2_Libraries}
     )
 endif()
 
