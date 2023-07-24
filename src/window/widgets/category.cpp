@@ -10,13 +10,7 @@ Category::Category(QObject *parent)
 
 }
 
-void Category::setDefault(const App &def)
-{
-    if (m_default.Id != def.Id) {
-        m_default = def;
-        Q_EMIT defaultChanged(def);
-    }
-}
+
 
 void Category::setCategory(const QString &category)
 {

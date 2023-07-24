@@ -1,5 +1,12 @@
 {
     "files.associations": {
-        "locale": "cpp"
+        "locale": "cpp",
+        "ios": "cpp",
+        "__availability": "cpp",
+        "__locale": "cpp",
+        "clocale": "cpp",
+        "compare": "cpp",
+        "ostream": "cpp",
+        "system_error": "cpp"
     }
 }

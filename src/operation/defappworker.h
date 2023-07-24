@@ -26,7 +26,8 @@ public:
         SelfSetUp
     };
 
-
+    void active();
+    void deactive()
 
 public Q_SLOTS:
     void onReverseUserApp(const QString &category, const App &item);
