@@ -18,7 +18,7 @@ class AddButtonWidget : public QWidget
 {
     Q_OBJECT
 public:
-    AddButtonWidget(DefAppWorker::DefaultAppsCategory category = DefAppWorker::Browser, QWidget *parent = nullptr);
+    AddButtonWidget(DefAppWorker::DefaultAppsCategory category = DefAppWorker::SelfSetUp, QWidget *parent = nullptr);
     ~AddButtonWidget();
 
     void setModel(DefAppModel *const model);
