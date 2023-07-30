@@ -385,7 +385,7 @@ if (BUILD_PLUDIN)
         "src/plugin-defaultapp/window/*.cpp"
         "src/plugin-defaultapp/window/widgets/*.cpp"
         "src/plugin-defaultapp/operation/*.cpp"
-        "src/plugin-defaultapp/operation/qrc/defapp.qrc"
+        "src/plugin-defaultapp/operation/qrc/selfstart.qrc"
     )
 
     add_library(${DefaultApp_Name} MODULE
