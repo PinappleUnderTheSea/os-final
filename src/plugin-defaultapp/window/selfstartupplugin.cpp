@@ -42,7 +42,7 @@ ModuleObject *SelfStartupPlugin::module()
     SelfStartupModule *moduleRoot = new SelfStartupModule;
 
     // 三级页面
-    SelfStartupDetailModule *selfstartupDetail = new SelfStartupDetailModule(moduleRoot->model(), moduleRoot->work());
+    SelfStartupDetailModule *selfstartupDetail = new SelfStartupDetailModule(DefAppWorker::DefaultAppsCategory::SelfSetUp, moduleRoot->model(), moduleRoot->work());
     moduleRoot->appendChild(selfstartupDetail);
 
     // 加号键
