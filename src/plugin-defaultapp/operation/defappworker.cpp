@@ -19,21 +19,13 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     m_dbusManager(new MimeDBusProxy(this))
 {
 
-    m_stringToCategory.insert("Browser",     Browser);
-    m_stringToCategory.insert("Mail",        Mail);
-    m_stringToCategory.insert("Text",        Text);
-    m_stringToCategory.insert("Music",       Music);
-    m_stringToCategory.insert("Video",       Video);
-    m_stringToCategory.insert("Picture",     Picture);
-    m_stringToCategory.insert("Terminal",    Terminal);
+    m_stringToCategory.insert("SelfSetUp",     SelfSetUp);
+
 
     connect(m_dbusManager, &MimeDBusProxy::Change, this, &DefAppWorker::onGetListApps);
 
-    m_userLocalPath = QDir::homePath() + "/.local/share/applications/";
+    m_userLocalPath = QDir::homePath() + ".config/autostart";
 
-    // mkdir folder
-    QDir dir(m_userLocalPath);
-    dir.mkpath(m_userLocalPath);
 }
 
 void DefAppWorker::active()
@@ -46,70 +38,90 @@ void DefAppWorker::deactive()
     m_dbusManager->blockSignals(true);
 }
 
-void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
+void DefAppWorker::onReverseUserApp(const QString &mime, const App &item)
 {
-    QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
+    Category *category  = getCategory(mime);
 
-    QDBusPendingCall call = m_dbusManager->SetDefaultApp(mimelist, item.Id);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [call, watcher, this, item, category] {
-        if (!call.isError()) {
-            qDebug() << "Setting MIME " << category << "to " <<  item.Id;
-            auto tosetCategory = getCategory(category);
-            tosetCategory->setDefault(item);
-        } else {
-            qWarning() << "Cannot set MIME" << category << "to" << item.Id;
-        }
-        watcher->deleteLater();
-    });
+    
 
-}
-
-void DefAppWorker::onGetListApps()
-{
-    //遍历QMap去获取dbus数据
-    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
-        const QString type { getTypeByCategory(mimelist.value()) };
-
-        getDefaultAppFinished(mimelist.key(), m_dbusManager->GetDefaultApp(type));
-        getListAppFinished(mimelist.key(),m_dbusManager->ListApps(type), false);
-        getListAppFinished(mimelist.key(),m_dbusManager->ListUserApps(type), true);
+    QFile file(m_userLocalPath + item.Id);
+    QFile outfile(m_userLocalPath + item.Id);
+    
+//    qDebug() << path;
+    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)){
+        qDebug() << QString("can not change") ;
+        return ;
     }
+    QTextStream in(&file);
+    QVector<QString> contents;
+    QString line;
+    while(!in.atEnd()){
+        line = in.readLine();
+        if(line.left(7) == "Hidden="){
+            qDebug() << line;
+            if(line.right(4) != "true" ){
+                line = line.left(7) + QString("true");
+            }else{
+                line = line.left(7) + QString("false");
+            }
+            qDebug() << QString("change");
+        }
+        contents.push_back(line);
+    }
+
+    if (!outfile.open(QIODevice::WriteOnly | QIODevice::Text)){
+        qDebug() << QString("can not change") ;
+        return ;
+    }
+    QTextStream out(&outfile);
+    for(int i=0; i<contents.size();i++){
+        out << contents[i] << QString("\n");
+    }
+
+    category->reverseUserItem(item);
+    
+    return;
+
 }
+
+void DefAppWorker::onGetListApps(){
+    //TODO: unknown usage 
+    return ;
+}
+
 
 void DefAppWorker::onDelUserApp(const QString &mime, const App &item)
 {
     Category *category = getCategory(mime);
 
     category->delUserItem(item);
-    if (item.CanDelete) {
-        QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
-        m_dbusManager->DeleteApp(mimelist, item.Id);
-    } else {
-        m_dbusManager->DeleteUserApp(item.Id);
-    }
-
-    //remove file
+    
     QFile file(m_userLocalPath + item.Id);
     file.remove();
+    
+
 }
 
-void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
+void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
 {
     const bool isDesktop = info.suffix() == "desktop";
-
+    Category *category = getCategory(mime);
     if (isDesktop) {
         QFile file(info.filePath());
-        QString newfile = m_userLocalPath + "deepin-custom-" + info.fileName();
+        QString newfile = m_userLocalPath + info.fileName();
         file.copy(newfile);
+        QTextStream out(&file)
+
+        out << "Hidden=false"<<endl;
+        out.flush();
+
         file.close();
 
-        QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
+        
         QFileInfo fileInfo(info.filePath());
 
-        const QString &filename = "deepin-custom-" + fileInfo.completeBaseName() + ".desktop";
+        const QString &filename =  fileInfo.completeBaseName() + ".desktop";
 
-        m_dbusManager->AddUserApp(mimelist, filename);
 
         App app;
         app.Id = filename;
@@ -119,10 +131,13 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         app.Description = "";
         app.Exec = info.filePath();
         app.isUser = true;
+        app.Hidden = false;
+
+        category->addUserItem(app);
 
         onGetListApps();
     } else {
-        QFile file(m_userLocalPath + "deepin-custom-" + info.baseName() + ".desktop");
+        QFile file(m_userLocalPath + info.baseName() + ".desktop");
 
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             return;
@@ -137,7 +152,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
             "Exec=" +  info.filePath() + "\n"
             "Icon=application-default-icon\n"
             "Terminal=false\n"
-            "Categories=" + mime + ";"
+            "Hidden=false"
 #if (QT_VERSION < QT_VERSION_CHECK(5,15,0))
             << endl;
 #else
@@ -146,22 +161,24 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         out.flush();
         file.close();
 
-        QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
 
         QFileInfo fileInfo(info.filePath());
-        m_dbusManager->AddUserApp(mimelist, "deepin-custom-" + fileInfo.baseName() + ".desktop");
 
         App app;
-        app.Id = "deepin-custom-" + fileInfo.baseName() + ".desktop";
+        app.Id = m_userLocalPath + fileInfo.baseName() + ".desktop";
         app.Name = fileInfo.baseName();
         app.DisplayName = fileInfo.baseName();
         app.Icon = "application-default-icon";
         app.Description = "";
         app.Exec = info.filePath();
         app.isUser = true;
+        app.Hidden = false;
+
+        category->addUserItem(app);
 
         onGetListApps();
     }
+
 }
 
 void DefAppWorker::getListAppFinished(const QString &mime, const QString &defaultApp, bool isUser)
@@ -202,40 +219,21 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, cons
         list << app;
     }
 
-    QList<App> systemList = category->systemAppList();
-    QList<App> userList = category->userAppList();
-    for (App app : list) {
-        if (app.isUser == false) {
-            for (App appUser : userList) {
-                if (appUser.Exec == app.Exec) {
-                    category->delUserItem(appUser);
-                }
-            }
-        }
-    }
+    QList<App> appList = category->getappItem();
 
     for (App app : list) {
-        if (!systemList.contains(app) || !userList.contains(app)) {
+        if (!appList.contains(app)) {
             category->addUserItem(app);
         }
     }
 
-    if (isUser) {
-        userList = category->userAppList();
-        for (App app : userList) {
-            if (!list.contains(app)) {
-                category->delUserItem(app);
-            }
-        }
-    } else {
-        systemList = category->systemAppList();
-        for (App app : systemList) {
-            if (!list.contains(app)) {
-                category->delUserItem(app);
-            }
+    appList = category->getappItem();
+    for (App app : appList) {
+        if (!list.contains(app)) {
+            category->delUserItem(app);
         }
     }
-
+    
     category->setCategory(mime);
 }
 
@@ -262,53 +260,8 @@ void DefAppWorker::saveDefaultApp(const QString &mime, const QJsonObject &json)
 Category *DefAppWorker::getCategory(const QString &mime) const
 {
     switch (m_stringToCategory[mime]) {
-    case Browser:
-        return m_defAppModel->getModBrowser();
-    case Mail:
-        return m_defAppModel->getModMail();
-    case Text:
-        return m_defAppModel->getModText();
-    case Music:
-        return m_defAppModel->getModMusic();
-    case Video:
-        return m_defAppModel->getModVideo();
-    case Picture:
-        return m_defAppModel->getModPicture();
-    case Terminal:
-        return m_defAppModel->getModTerminal();
+    case SelfSetUp:
+        return m_defAppModel->getModSelfSetUp();
     }
     return nullptr;
-}
-
-const QString DefAppWorker::getTypeByCategory(const DefaultAppsCategory &category)
-{
-    return getTypeListByCategory(category)[0];
-}
-
-const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory &category)
-{
-    switch (category) {
-    case Browser:       return QStringList() << "x-scheme-handler/http" << "x-scheme-handler/ftp" << "x-scheme-handler/https"
-                                   << "text/html" << "text/xml" << "text/xhtml_xml" << "text/xhtml+xml";
-    case Mail:          return QStringList() << "x-scheme-handler/mailto" << "message/rfc822" << "application/x-extension-eml"
-                                   << "application/x-xpinstall";
-    case Text:          return QStringList() << "text/plain";
-    case Music:         return QStringList() << "audio/mpeg" << "audio/mp3" << "audio/x-mp3" << "audio/mpeg3" << "audio/x-mpeg-3"
-                                   << "audio/x-mpeg" << "audio/flac" << "audio/x-flac" << "application/x-flac"
-                                   << "audio/ape" << "audio/x-ape" << "application/x-ape" << "audio/ogg" << "audio/x-ogg"
-                                   << "audio/musepack" << "application/musepack" << "audio/x-musepack"
-                                   << "application/x-musepack" << "audio/mpc" << "audio/x-mpc" << "audio/vorbis"
-                                   << "audio/x-vorbis" << "audio/x-wav" << "audio/x-ms-wma";
-    case Video:         return QStringList() << "video/mp4" << "audio/mp4" << "audio/x-matroska" << "video/x-matroska"
-                                   << "application/x-matroska" << "video/avi" << "video/msvideo" << "video/x-msvideo"
-                                   << "video/ogg" << "application/ogg" << "application/x-ogg" << "video/3gpp" << "video/3gpp2"
-                                   << "video/flv" << "video/x-flv" << "video/x-flic" << "video/mpeg" << "video/x-mpeg"
-                                   << "video/x-ogm" << "application/x-shockwave-flash" << "video/x-theora" << "video/quicktime"
-                                   << "video/x-ms-asf" << "application/vnd.rn-realmedia" << "video/x-ms-wmv";
-    case Picture:       return QStringList() << "image/jpeg" << "image/pjpeg" << "image/bmp" << "image/x-bmp" << "image/png"
-                                   << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
-                                   << "image/x-xpixmap" << "image/vnd.microsoft.icon";
-    case Terminal:      return QStringList() << "application/x-terminal";
-    }
-    return QStringList();
 }

@@ -59,27 +59,10 @@ AddButtonWidget::~AddButtonWidget()
 void AddButtonWidget::setModel(DefAppModel * const model)
 {
     switch (m_categoryValue) {
-    case DefAppWorker::Browser:
-        setCategory(model->getModBrowser());
+    case DefAppWorker::SelfSetUp:
+        setCategory(model->getModSelfSetUp());
         break;
-    case DefAppWorker::Mail:
-        setCategory(model->getModMail());
-        break;
-    case DefAppWorker::Text:
-        setCategory(model->getModText());
-        break;
-    case DefAppWorker::Music:
-        setCategory(model->getModMusic());
-        break;
-    case DefAppWorker::Video:
-        setCategory(model->getModVideo());
-        break;
-    case DefAppWorker::Picture:
-        setCategory(model->getModPicture());
-        break;
-    case DefAppWorker::Terminal:
-        setCategory(model->getModTerminal());
-        break;
+
     default:
         break;
     }
@@ -107,4 +90,3 @@ void AddButtonWidget::onAddBtnClicked()
     Q_EMIT requestFrameAutoHide(false);
     m_createFile->show();
 }
-
