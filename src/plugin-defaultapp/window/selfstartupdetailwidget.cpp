@@ -246,7 +246,7 @@ void SelfStartupDetailWidget::onListViewClicked(const QModelIndex &index)
     qDebug()  <<  "set default app "  << app.Name;
     updateListView();
     //set default app
-    Q_EMIT reverseItem(m_categoryName, app);
+    Q_EMIT reverseItem(m_category->getName(), app);
 }
 
 /**
@@ -268,7 +268,7 @@ void  SelfStartupDetailWidget::onDelBtnClicked()
 
     qDebug() << "delete app " << app.Id;
     //delete user app
-    Q_EMIT requestDelUserApp(m_categoryName, app);
+    Q_EMIT requestDelUserApp(m_category->getName(), app);
 }
 
 void SelfStartupDetailWidget::onClearAll()
