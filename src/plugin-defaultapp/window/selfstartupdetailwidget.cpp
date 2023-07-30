@@ -202,7 +202,7 @@ void SelfStartupDetailWidget::updateListView()
  */
 void SelfStartupDetailWidget::onReverseItem()
 {
-    qDebug() << Q_FUNC_INFO << app.Name;
+    // qDebug() << Q_FUNC_INFO << app.Name;
     updateListView();
 }
 
