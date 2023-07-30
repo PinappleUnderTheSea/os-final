@@ -135,7 +135,7 @@ set_target_properties(${Interface_Name} PROPERTIES
 )
 
 # so
-install(TARGETS ${Interface_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
+#install(TARGETS ${Interface_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 
 #--------------------------dccwidgets library----------------------------
@@ -173,7 +173,7 @@ set_target_properties(${Dcc_Widgets_Name} PROPERTIES
 # message(STATUS "dccwidgets success")
 
 # so
-install(TARGETS ${Dcc_Widgets_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
+#install(TARGETS ${Dcc_Widgets_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 #------------------------dccwidgets library test--------------------------
 if (UNITTEST)
@@ -235,14 +235,14 @@ target_link_libraries(${Control_Center_Name} PRIVATE
 )
 
 # bin
-install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
+#install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 # message(STATUS "dde-control-centre success")
 
 #----------------------------install config------------------------------
 # qm files
 file(GLOB QM_FILES "translations/*.qm")
-install(FILES ${QM_FILES} DESTINATION ${TRANSLATE_INSTALL_DIR})
+#install(FILES ${QM_FILES} DESTINATION ${TRANSLATE_INSTALL_DIR})
 
 #desktop
 # install(FILES misc/dde-control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
@@ -253,7 +253,7 @@ install(FILES ${QM_FILES} DESTINATION ${TRANSLATE_INSTALL_DIR})
 # dev files
 file(GLOB HEADERS "include/*")
 set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)
-install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
+#install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(misc/DdeControlCenterConfig.cmake.in
@@ -262,7 +262,7 @@ configure_package_config_file(misc/DdeControlCenterConfig.cmake.in
     PATH_VARS INCLUDE_INSTALL_DIR
     INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+#install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
 
 # message(STATUS "install config success")
