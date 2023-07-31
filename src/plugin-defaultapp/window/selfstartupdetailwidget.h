@@ -62,6 +62,7 @@ public Q_SLOTS:
 
 private:
     void AppsItemChanged(const QList<App> &list);
+    void onReverseApp(const App& item);
     void addItem(const App &item);
     void removeItem(const App &item);
     void showInvalidText(DTK_WIDGET_NAMESPACE::DStandardItem *modelItem, const QString &name, const QString &iconName);

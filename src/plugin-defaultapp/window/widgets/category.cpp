@@ -125,9 +125,10 @@ void Category::delUserItem(const App &value)
 }
 
 void Category::reverseUserItem(const App &value){
+    qDebug() << "reverse in category"<<Qt::endl;
     int idx = m_appList.indexOf(value);
     if (idx == -1) return;
     m_appList[idx].Hidden = !m_appList[idx].Hidden;
-
-    Q_EMIT reversedUserItem(value);
+    
+    Q_EMIT reversedUserItem(m_appList[idx]);
 }

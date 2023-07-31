@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "variant": "cpp",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp"
+    }
+}

@@ -64,7 +64,7 @@ void SelfStartupDetailWidget::setCategory(Category *const category) //!!to_see
 {
     m_category = category;
 
-    connect(m_category, &Category::reversedUserItem, this, &SelfStartupDetailWidget::onReverseItem);
+    connect(m_category, &Category::reversedUserItem, this, &SelfStartupDetailWidget::onReverseApp);
     connect(m_category, &Category::addedUserItem, this, &SelfStartupDetailWidget::addItem);
     connect(m_category, &Category::removedUserItem, this, &SelfStartupDetailWidget::removeItem);
     // connect(m_category, &Category::clearAll, this, &SelfStartupDetailWidget::onClearAll);
@@ -200,9 +200,25 @@ void SelfStartupDetailWidget::updateListView()
  *
  * @throws ErrorType description of error
  */
-void SelfStartupDetailWidget::onReverseItem()
+
+void SelfStartupDetailWidget::onReverseItem( ){
+    updateListView();
+
+}
+
+void SelfStartupDetailWidget::onReverseApp(const App&  item)
 {
     // qDebug() << Q_FUNC_INFO << app.Name;
+    int cnt = m_model->rowCount();
+    for (int row = 0; row < cnt; row++) {
+        QString id = m_model->data(m_model->index(row, 0), DefAppIdRole).toString();
+        bool hidden = m_model->data(m_model->index(row, 0), DefAppHiddenRole).toBool();
+        if (id == item.Id) {
+            m_model->setData(m_model->index(row, 0),!hidden, DefAppHiddenRole);
+            break;
+        }
+    }
+
     updateListView();
 }
 
