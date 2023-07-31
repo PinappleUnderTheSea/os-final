@@ -48,7 +48,7 @@ public:
     void clear();
     void addUserItem(const App &value);
     void delUserItem(const App &value);
-    void reverseUserItem(const APP &value);
+    void reverseUserItem(const App &value);
 
 Q_SIGNALS:
     void defaultChanged(const App &id);
@@ -60,7 +60,7 @@ Q_SIGNALS:
     void clearAll();
 
 private:
-    QList<App> m_applist;
+    QList<App> m_appList;
     QString m_category;
     App m_default;
 };

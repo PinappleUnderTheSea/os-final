@@ -38,7 +38,7 @@ QPair<QString, bool> readfiles(QString filename){
 }
 
 QList<App> Category::getappItem(){
-    // qDebug()<<"update go";
+    qDebug()<<"getappItem go";
     if(m_category != QString("SelfSetUp")){
         m_category = QString("SelfSetUp");
     }
@@ -47,7 +47,7 @@ QList<App> Category::getappItem(){
     struct dirent* ptr;
     if(!(pDir = opendir((QDir::homePath() + QString("/.config/autostart")).toStdString().c_str()))){
         qDebug()<<"Folder doesn't Exist!"<<Qt::endl;
-        return;
+        return QList<App>();
     }
     while((ptr = readdir(pDir))!=0) {
         if(ptr->d_name[0] == '.'){
@@ -88,9 +88,9 @@ void Category::setCategory(const QString &category)
 
 void Category::clear()
 {
-    bool clearFlag = !m_applist.isEmpty();
+    bool clearFlag = !m_appList.isEmpty();
 
-    m_applist.clear();
+    m_appList.clear();
     if (clearFlag)
         Q_EMIT clearAll();
 }
@@ -98,9 +98,9 @@ void Category::clear()
 void Category::addUserItem(const App &value)
 {
 
-    if (m_applist.contains(value)) return;
+    if (m_appList.contains(value)) return;
     
-    m_applist << value;
+    m_appList << value;
 
 
     
@@ -110,17 +110,17 @@ void Category::addUserItem(const App &value)
 
 void Category::delUserItem(const App &value)
 {
-    if(!m_applist.contain(value)) return
+    if(!m_appList.contains(value)) return;
 
-    bool isRemove = m_applist.removeOne(value);
+    bool isRemove = m_appList.removeOne(value);
     if(isRemove) Q_EMIT removedUserItem(value);
     
 }
 
-void Category::reverseUserItem(const APP &value){
-    int idx = m_applist.indexOf(value);
+void Category::reverseUserItem(const App &value){
+    int idx = m_appList.indexOf(value);
     if (idx == -1) return;
-    m_applist[idx].Hidden = !m_applist[idx].Hidden
+    m_appList[idx].Hidden = !m_appList[idx].Hidden;
 
     Q_EMIT reversedUserItem(value);
 }

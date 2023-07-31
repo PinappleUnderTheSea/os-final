@@ -110,9 +110,9 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
         QFile file(info.filePath());
         QString newfile = m_userLocalPath + info.fileName();
         file.copy(newfile);
-        QTextStream out(&file)
+        QTextStream out(&file);
 
-        out << "Hidden=false"<<endl;
+        out << "Hidden=false"<<Qt::endl;
         out.flush();
 
         file.close();
@@ -181,81 +181,7 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
 
 }
 
-void DefAppWorker::getListAppFinished(const QString &mime, const QString &defaultApp, bool isUser)
-{
-    const  QJsonArray defApp = QJsonDocument::fromJson(defaultApp.toUtf8()).array();
-    saveListApp(mime, defApp, isUser);
-}
 
-
-void DefAppWorker::getDefaultAppFinished(const QString &mime, const QString &w)
-{
-    const QJsonObject &defaultApp = QJsonDocument::fromJson(w.toStdString().c_str()).object();
-    saveDefaultApp(mime, defaultApp);
-}
-
-void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, const bool isUser)
-{
-    Category *category = getCategory(mime);
-    if (!category) {
-        return;
-    }
-
-    QList<App> list;
-
-    for (const QJsonValue &value : json) {
-        QJsonObject obj = value.toObject();
-        App app;
-        app.Id = obj["Id"].toString();
-        app.Name = obj["Name"].toString();
-        app.DisplayName = obj["DisplayName"].toString();
-        app.Icon = obj["Icon"].toString();
-        app.Description = obj["Description"].toString();
-        app.Exec = obj["Exec"].toString();
-        app.isUser = isUser;
-        app.CanDelete = obj["CanDelete"].toBool();
-        app.MimeTypeFit = obj["MimeTypeFit"].toBool();
-
-        list << app;
-    }
-
-    QList<App> appList = category->getappItem();
-
-    for (App app : list) {
-        if (!appList.contains(app)) {
-            category->addUserItem(app);
-        }
-    }
-
-    appList = category->getappItem();
-    for (App app : appList) {
-        if (!list.contains(app)) {
-            category->delUserItem(app);
-        }
-    }
-    
-    category->setCategory(mime);
-}
-
-void DefAppWorker::saveDefaultApp(const QString &mime, const QJsonObject &json)
-{
-    Category *category = getCategory(mime);
-    if (!category) {
-        return;
-    }
-    category->setCategory(mime);
-
-    App app;
-    app.Id = json["Id"].toString();
-    app.Name = json["Name"].toString();
-    app.DisplayName = json["DisplayName"].toString();
-    app.Icon = json["Icon"].toString();
-    app.Description = json["Description"].toString();
-    app.Exec = json["Exec"].toString();
-    app.isUser = false;
-
-    category->setDefault(app);
-}
 
 Category *DefAppWorker::getCategory(const QString &mime) const
 {
