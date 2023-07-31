@@ -24,7 +24,7 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 
     connect(m_dbusManager, &MimeDBusProxy::Change, this, &DefAppWorker::onGetListApps);
 
-    m_userLocalPath = QDir::homePath() + ".config/autostart";
+    m_userLocalPath = QDir::homePath() + "/.config/autostart/";
 
 }
 
@@ -40,16 +40,15 @@ void DefAppWorker::deactive()
 
 void DefAppWorker::onReverseUserApp(const QString &mime, const App &item)
 {
+    qDebug() << "worker reverse file::Hidden "<<Qt::endl;
     Category *category  = getCategory(mime);
 
+    QFile file( m_userLocalPath+item.Id);
+    QFile outfile(m_userLocalPath+ item.Id);
     
-
-    QFile file(m_userLocalPath + item.Id);
-    QFile outfile(m_userLocalPath + item.Id);
-    
-//    qDebug() << path;
+   qDebug() << "reverse file is "<<m_userLocalPath+item.Id;
     if (!file.open(QIODevice::ReadWrite | QIODevice::Text)){
-        qDebug() << QString("can not change") ;
+        qDebug() << QString("can not change1") ;
         return ;
     }
     QTextStream in(&file);
@@ -61,16 +60,18 @@ void DefAppWorker::onReverseUserApp(const QString &mime, const App &item)
             qDebug() << line;
             if(line.right(4) != "true" ){
                 line = line.left(7) + QString("true");
+                // qDebug() << "false to true";
             }else{
                 line = line.left(7) + QString("false");
+                // qDebug() << "true to false";
             }
-            qDebug() << QString("change");
+            // qDebug() << QString("change");
         }
         contents.push_back(line);
     }
 
     if (!outfile.open(QIODevice::WriteOnly | QIODevice::Text)){
-        qDebug() << QString("can not change") ;
+        qDebug() << QString("can not change2") ;
         return ;
     }
     QTextStream out(&outfile);
@@ -106,17 +107,38 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
 {
     const bool isDesktop = info.suffix() == "desktop";
     Category *category = getCategory(mime);
+    qDebug() << "source path is "<< info.filePath() <<Qt::endl;
     if (isDesktop) {
+        qDebug() << "addfile is desktop";
         QFile file(info.filePath());
+        if (!file.open(QIODevice::ReadOnly| QIODevice::Text)){
+            qDebug() << QString("can not read") ;
+            return ;
+        }
         QString newfile = m_userLocalPath + info.fileName();
-        file.copy(newfile);
-        QTextStream out(&file);
-
-        out << "Hidden=false"<<Qt::endl;
-        out.flush();
-
-        file.close();
-
+        qDebug() << "newfile path is "<<newfile<<Qt::endl;
+        QFile nfile (newfile);
+        if (!nfile.open(QIODevice::ReadWrite | QIODevice::Text)){
+            qDebug() << QString("can not write") ;
+            return ;
+        }
+        QTextStream in(&file);
+        QTextStream out(&nfile);
+        QString line;
+        int cnt = 0;
+        while(!in.atEnd()){
+            
+            line = in.readLine();
+            if(cnt == 1){
+                out << "Hidden=false"<<Qt::endl;
+            }
+            qDebug() << line<<Qt::endl;
+            out << line<<Qt::endl;
+            cnt++;
+        }
+        
+        
+        nfile.close();
         
         QFileInfo fileInfo(info.filePath());
 
@@ -137,6 +159,7 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
 
         onGetListApps();
     } else {
+        qDebug() << "addfile is not desktop";
         QFile file(m_userLocalPath + info.baseName() + ".desktop");
 
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -152,7 +175,7 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
             "Exec=" +  info.filePath() + "\n"
             "Icon=application-default-icon\n"
             "Terminal=false\n"
-            "Hidden=false"
+            "Hidden=false\n"
 #if (QT_VERSION < QT_VERSION_CHECK(5,15,0))
             << endl;
 #else
@@ -165,7 +188,7 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
         QFileInfo fileInfo(info.filePath());
 
         App app;
-        app.Id = m_userLocalPath + fileInfo.baseName() + ".desktop";
+        app.Id =fileInfo.baseName() + ".desktop";
         app.Name = fileInfo.baseName();
         app.DisplayName = fileInfo.baseName();
         app.Icon = "application-default-icon";
