@@ -7,7 +7,7 @@
 #include "defappworker.h"
 #include "interface/pagemodule.h" //to_add!!(below3)
 #include "interface/plugininterface.h"
-#include "interface/vlistmodule.h"
+#include "interface/pagemodule.h"
 
 class DefAppModel;
 
@@ -26,7 +26,7 @@ public:
 };
 
 // 一级菜单
-class SelfStartupModule : public DCC_NAMESPACE::VListModule
+class SelfStartupModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

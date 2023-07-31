@@ -70,7 +70,7 @@ QString SelfStartupPlugin::location() const
 
 
 SelfStartupModule::SelfStartupModule(QObject *parent)
-    : VListModule("selfstartup", tr("Self Start-up"), QIcon::fromTheme("dcc_nav_selfstartup"), parent)
+    : PageModule("selfstartup", tr("Self Start-up"), QIcon::fromTheme("dcc_nav_selfstartup"), parent)
     , m_model(new DefAppModel(this))
     , m_work(new DefAppWorker(m_model, this))
     , m_defApps(nullptr)
