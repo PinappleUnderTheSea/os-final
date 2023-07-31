@@ -1,0 +1,32 @@
+{
+	"BUILD_DIR" : "/home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen",
+	"CMAKE_BINARY_DIR" : "/home/pundthsea/Desktop/os-final/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/pundthsea/Desktop/os-final/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/pundthsea/Desktop/os-final",
+	"CMAKE_SOURCE_DIR" : "/home/pundthsea/Desktop/os-final",
+	"INCLUDE_DIR" : "/home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/themes/dark/icons/nav_defapp.svg",
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/themes/dark/icons/nav_defapp_normal.svg",
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/actions/dcc_mail_32px.svg",
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/actions/dcc_music_32px.svg",
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/actions/dcc_browser_32px.svg",
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/actions/dcc_video_32px.svg",
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/actions/dcc_photo_32px.svg",
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/actions/dcc_terminal_32px.svg",
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/actions/dcc_text_32px.svg",
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/icons/dcc_nav_defapp_84px.svg",
+		"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/icons/dcc_nav_defapp_42px.svg"
+	],
+	"LOCK_FILE" : "/home/pundthsea/Desktop/os-final/build/CMakeFiles/dcc-defaultapp-plugin_autogen.dir/AutoRcc_defapp_D7XD45QCFH_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "defapp" ],
+	"OUTPUT_CHECKSUM" : "D7XD45QCFH",
+	"OUTPUT_NAME" : "qrc_defapp.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt5/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/pundthsea/Desktop/os-final/build/CMakeFiles/dcc-defaultapp-plugin_autogen.dir/AutoRcc_defapp_D7XD45QCFH_Used.txt",
+	"SOURCE" : "/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/qrc/defapp.qrc",
+	"VERBOSITY" : 0
+}
