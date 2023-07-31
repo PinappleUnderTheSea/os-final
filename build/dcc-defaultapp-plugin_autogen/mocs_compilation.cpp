@@ -3,5 +3,6 @@
 #include "OSJQ3UGBAV/moc_defappworker.cpp"
 #include "OSJQ3UGBAV/moc_mimedbusproxy.cpp"
 #include "WU6IBEQ4MU/moc_selfstartupdetailwidget.cpp"
+#include "WU6IBEQ4MU/moc_selfstartupplugin.cpp"
 #include "EMLUXMS3GU/moc_addbuttonwidget.cpp"
 #include "EMLUXMS3GU/moc_category.cpp"

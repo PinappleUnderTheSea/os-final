@@ -404,6 +404,21 @@ CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/mocs_compilat
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
+  dcc-defaultapp-plugin_autogen/WU6IBEQ4MU/moc_selfstartupplugin.cpp \
+  ../src/plugin-defaultapp/window/selfstartupplugin.h \
+  ../include/interface/pagemodule.h \
+  ../include/interface/plugininterface.h \
+  ../include/interface/vlistmodule.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qplugin.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qpointer.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonobject.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcborvalue.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcborcommon.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/quuid.h \
   dcc-defaultapp-plugin_autogen/EMLUXMS3GU/moc_addbuttonwidget.cpp \
   ../src/plugin-defaultapp/window/widgets/addbuttonwidget.h \
   /usr/include/libdtk-5.6.4/DWidget/DFloatingButton \
@@ -3007,10 +3022,6 @@ CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/catego
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h:
 
-../include/interface/pagemodule.h:
-
-../src/plugin-defaultapp/window/selfstartupplugin.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QPointer:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h:
@@ -3053,12 +3064,6 @@ CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/catego
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonarray.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/quuid.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcborcommon.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QJsonDocument:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h:
@@ -3087,10 +3092,6 @@ CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/catego
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qiconengine.h:
 
-../include/interface/vlistmodule.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h:
@@ -3116,6 +3117,22 @@ CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/catego
 ../src/plugin-defaultapp/window/widgets/addbuttonwidget.h:
 
 dcc-defaultapp-plugin_autogen/EMLUXMS3GU/moc_addbuttonwidget.cpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/quuid.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcborcommon.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h:
+
+../include/interface/vlistmodule.h:
+
+../include/interface/pagemodule.h:
+
+../src/plugin-defaultapp/window/selfstartupplugin.h:
+
+dcc-defaultapp-plugin_autogen/WU6IBEQ4MU/moc_selfstartupplugin.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget:
 
@@ -3251,9 +3268,9 @@ dcc-defaultapp-plugin_autogen/EMLUXMS3GU/moc_addbuttonwidget.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h:
-
 /usr/include/dtk5/DCore/dobject.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h:
 
 /usr/include/c++/8/cstdlib:
 
@@ -3525,9 +3542,9 @@ dcc-defaultapp-plugin_autogen/EMLUXMS3GU/moc_addbuttonwidget.cpp:
 
 /usr/include/c++/8/new:
 
-../include/interface/plugininterface.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout:
+
+../include/interface/plugininterface.h:
 
 /usr/include/c++/8/bits/shared_ptr_base.h:
 
@@ -3692,6 +3709,8 @@ dcc-defaultapp-plugin_autogen/OSJQ3UGBAV/moc_mimedbusproxy.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qplugin.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h:
 
@@ -3933,9 +3952,9 @@ dcc-defaultapp-plugin_autogen/OSJQ3UGBAV/moc_defappworker.cpp:
 
 dcc-defaultapp-plugin_autogen/WU6IBEQ4MU/moc_selfstartupdetailwidget.cpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcborvalue.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcborvalue.h:
 
 ../include/interface/moduleobject.h:
 

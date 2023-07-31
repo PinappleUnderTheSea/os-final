@@ -181,6 +181,12 @@
 			null
 		],
 		[
+			"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/window/selfstartupplugin.h",
+			"Mu",
+			"WU6IBEQ4MU/moc_selfstartupplugin.cpp",
+			null
+		],
+		[
 			"/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/window/widgets/addbuttonwidget.h",
 			"Mu",
 			"EMLUXMS3GU/moc_addbuttonwidget.cpp",

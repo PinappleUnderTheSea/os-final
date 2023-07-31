@@ -341,6 +341,21 @@ CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/mocs_compilat
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
+ /home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/WU6IBEQ4MU/moc_selfstartupplugin.cpp \
+ /home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/WU6IBEQ4MU/../../../src/plugin-defaultapp/window/selfstartupplugin.h \
+ /home/pundthsea/Desktop/os-final/include/interface/pagemodule.h \
+ /home/pundthsea/Desktop/os-final/include/interface/plugininterface.h \
+ /home/pundthsea/Desktop/os-final/include/interface/vlistmodule.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qplugin.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qpointer.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonobject.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcborvalue.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcborcommon.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/quuid.h \
  /home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/EMLUXMS3GU/moc_addbuttonwidget.cpp \
  /home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/EMLUXMS3GU/../../../src/plugin-defaultapp/window/widgets/addbuttonwidget.h \
  /usr/include/libdtk-5.6.4/DWidget/DFloatingButton \
