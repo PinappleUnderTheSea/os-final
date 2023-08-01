@@ -69,22 +69,22 @@ include CMakeFiles/dcc-defaultapp-plugin.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/dcc-defaultapp-plugin.dir/flags.make
 
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/defapp.qrc
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: CMakeFiles/dcc-defaultapp-plugin_autogen.dir/AutoRcc_defapp_D7XD45QCFH_Info.json
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/themes/dark/icons/nav_defapp.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/themes/dark/icons/nav_defapp_normal.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_mail_32px.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_music_32px.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_browser_32px.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_video_32px.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_photo_32px.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_terminal_32px.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_text_32px.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/icons/dcc_nav_defapp_84px.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: ../src/plugin-defaultapp/operation/qrc/icons/dcc_nav_defapp_42px.svg
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp: /usr/lib/qt5/bin/rcc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pundthsea/Desktop/os-final/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for src/plugin-defaultapp/operation/qrc/defapp.qrc"
-	/usr/bin/cmake -E cmake_autorcc /home/pundthsea/Desktop/os-final/build/CMakeFiles/dcc-defaultapp-plugin_autogen.dir/AutoRcc_defapp_D7XD45QCFH_Info.json 
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/selfstartup.qrc
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: CMakeFiles/dcc-defaultapp-plugin_autogen.dir/AutoRcc_selfstartup_D7XD45QCFH_Info.json
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/themes/dark/icons/nav_defapp.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/themes/dark/icons/nav_defapp_normal.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_mail_32px.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_music_32px.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_browser_32px.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_video_32px.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_photo_32px.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_terminal_32px.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/actions/dcc_text_32px.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/icons/dcc_nav_selfstartup_42px.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: ../src/plugin-defaultapp/operation/qrc/icons/dcc_nav_selfstartup_84px.svg
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp: /usr/lib/qt5/bin/rcc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pundthsea/Desktop/os-final/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for src/plugin-defaultapp/operation/qrc/selfstartup.qrc"
+	/usr/bin/cmake -E cmake_autorcc /home/pundthsea/Desktop/os-final/build/CMakeFiles/dcc-defaultapp-plugin_autogen.dir/AutoRcc_selfstartup_D7XD45QCFH_Info.json 
 
 CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/mocs_compilation.cpp.o: CMakeFiles/dcc-defaultapp-plugin.dir/flags.make
 CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/mocs_compilation.cpp.o: dcc-defaultapp-plugin_autogen/mocs_compilation.cpp
@@ -198,19 +198,19 @@ CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/catego
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/category.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pundthsea/Desktop/os-final/src/plugin-defaultapp/window/widgets/category.cpp -o CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/category.cpp.s
 
-CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o: CMakeFiles/dcc-defaultapp-plugin.dir/flags.make
-CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o: dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp
-CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o: CMakeFiles/dcc-defaultapp-plugin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pundthsea/Desktop/os-final/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o -MF CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o.d -o CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o -c /home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp
+CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o: CMakeFiles/dcc-defaultapp-plugin.dir/flags.make
+CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o: dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp
+CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o: CMakeFiles/dcc-defaultapp-plugin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pundthsea/Desktop/os-final/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o -MF CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o.d -o CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o -c /home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp
 
-CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp > CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.i
+CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp > CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.i
 
-CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp -o CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.s
+CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp -o CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.s
 
 # Object files for target dcc-defaultapp-plugin
 dcc__defaultapp__plugin_OBJECTS = \
@@ -222,7 +222,7 @@ dcc__defaultapp__plugin_OBJECTS = \
 "CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/selfstartupplugin.cpp.o" \
 "CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/addbuttonwidget.cpp.o" \
 "CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/category.cpp.o" \
-"CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o"
+"CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o"
 
 # External object files for target dcc-defaultapp-plugin
 dcc__defaultapp__plugin_EXTERNAL_OBJECTS =
@@ -235,7 +235,7 @@ libdcc-defaultapp-plugin.so: CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-def
 libdcc-defaultapp-plugin.so: CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/selfstartupplugin.cpp.o
 libdcc-defaultapp-plugin.so: CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/addbuttonwidget.cpp.o
 libdcc-defaultapp-plugin.so: CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/window/widgets/category.cpp.o
-libdcc-defaultapp-plugin.so: CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o
+libdcc-defaultapp-plugin.so: CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o
 libdcc-defaultapp-plugin.so: CMakeFiles/dcc-defaultapp-plugin.dir/build.make
 libdcc-defaultapp-plugin.so: /usr/lib/x86_64-linux-gnu/libdtkwidget.so
 libdcc-defaultapp-plugin.so: /usr/lib/x86_64-linux-gnu/libQt5Concurrent.so.5.15.8
@@ -260,7 +260,7 @@ CMakeFiles/dcc-defaultapp-plugin.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/dcc-defaultapp-plugin.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/dcc-defaultapp-plugin.dir/clean
 
-CMakeFiles/dcc-defaultapp-plugin.dir/depend: dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp
+CMakeFiles/dcc-defaultapp-plugin.dir/depend: dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp
 	cd /home/pundthsea/Desktop/os-final/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pundthsea/Desktop/os-final /home/pundthsea/Desktop/os-final /home/pundthsea/Desktop/os-final/build /home/pundthsea/Desktop/os-final/build /home/pundthsea/Desktop/os-final/build/CMakeFiles/dcc-defaultapp-plugin.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dcc-defaultapp-plugin.dir/depend
 

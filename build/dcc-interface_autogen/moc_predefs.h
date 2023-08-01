@@ -189,7 +189,7 @@
 #define __cpp_decltype_auto 201304
 #define __GCC_ATOMIC_INT_LOCK_FREE 2
 #define __FLT128_MAX_EXP__ 16384
-#define TRANSLATE_READ_DIR "/usr/share/dde-control-center/translations"
+#define TRANSLATE_READ_DIR "/usr/local/share/dde-control-center/translations"
 #define __FLT32_MANT_DIG__ 24
 #define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define __STDC_IEC_559_COMPLEX__ 1
@@ -266,7 +266,7 @@
 #define linux 1
 #define __cpp_range_based_for 200907
 #define __FLT64_HAS_QUIET_NAN__ 1
-#define DSG_DATA_DIR /usr/share/dsg
+#define DSG_DATA_DIR /usr/local/share/dsg
 #define __FLT32_MIN_10_EXP__ (-37)
 #define __SSE2__ 1
 #define __EXCEPTIONS 1

@@ -4,3 +4,4 @@ ed19e4f4d2329248d77bb0fe375bfc2d CMakeFiles/dcc-interface_autogen
 47af9baa63211ba391df5332011db51d CMakeFiles/dcc-widgets_autogen
 b43b381513ed118711519a5639a0d1fe CMakeFiles/dde-control-center_autogen
 7838c836205547fb0d8e602e4f65bb39 dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp
+764c1e212636c9b42f4db184b2a4eb3e dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp

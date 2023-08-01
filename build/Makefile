@@ -265,29 +265,29 @@ dcc-defaultapp-plugin_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcc-defaultapp-plugin_autogen.dir/build.make CMakeFiles/dcc-defaultapp-plugin_autogen.dir/build
 .PHONY : dcc-defaultapp-plugin_autogen/fast
 
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.o: dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o
-.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.o
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.o: dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o
+.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.o
 
 # target to build an object file
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcc-defaultapp-plugin.dir/build.make CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o
-.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcc-defaultapp-plugin.dir/build.make CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o
+.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o
 
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.i: dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.i
-.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.i
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.i: dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.i
+.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.i
 
 # target to preprocess a source file
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcc-defaultapp-plugin.dir/build.make CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.i
-.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.i
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcc-defaultapp-plugin.dir/build.make CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.i
+.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.i
 
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.s: dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.s
-.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.s
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.s: dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.s
+.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.s
 
 # target to generate assembly for a file
-dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcc-defaultapp-plugin.dir/build.make CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.s
-.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.s
+dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcc-defaultapp-plugin.dir/build.make CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.s
+.PHONY : dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.s
 
 dcc-defaultapp-plugin_autogen/mocs_compilation.o: dcc-defaultapp-plugin_autogen/mocs_compilation.cpp.o
 .PHONY : dcc-defaultapp-plugin_autogen/mocs_compilation.o
@@ -1485,9 +1485,9 @@ help:
 	@echo "... dcc-interface"
 	@echo "... dcc-widgets"
 	@echo "... dde-control-center"
-	@echo "... dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.o"
-	@echo "... dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.i"
-	@echo "... dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.s"
+	@echo "... dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.o"
+	@echo "... dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.i"
+	@echo "... dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.s"
 	@echo "... dcc-defaultapp-plugin_autogen/mocs_compilation.o"
 	@echo "... dcc-defaultapp-plugin_autogen/mocs_compilation.i"
 	@echo "... dcc-defaultapp-plugin_autogen/mocs_compilation.s"

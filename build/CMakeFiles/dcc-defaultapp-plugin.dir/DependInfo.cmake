@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp" "CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o" "gcc" "CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_defapp.cpp.o.d"
+  "/home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp" "CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o" "gcc" "CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp.o.d"
   "/home/pundthsea/Desktop/os-final/build/dcc-defaultapp-plugin_autogen/mocs_compilation.cpp" "CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/dcc-defaultapp-plugin.dir/dcc-defaultapp-plugin_autogen/mocs_compilation.cpp.o.d"
   "/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/defappmodel.cpp" "CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/operation/defappmodel.cpp.o" "gcc" "CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/operation/defappmodel.cpp.o.d"
   "/home/pundthsea/Desktop/os-final/src/plugin-defaultapp/operation/defappworker.cpp" "CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/operation/defappworker.cpp.o" "gcc" "CMakeFiles/dcc-defaultapp-plugin.dir/src/plugin-defaultapp/operation/defappworker.cpp.o.d"

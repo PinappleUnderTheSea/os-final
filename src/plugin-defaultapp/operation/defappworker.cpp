@@ -126,11 +126,16 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
         QTextStream out(&nfile);
         QString line;
         int cnt = 0;
+        App app;
+        QString icon;
         while(!in.atEnd()){
             
             line = in.readLine();
             if(cnt == 1){
                 out << "Hidden=false"<<Qt::endl;
+            }
+            if(line.left(5) == "Icon="){
+                icon = line.mid(5);
             }
             qDebug() << line<<Qt::endl;
             out << line<<Qt::endl;
@@ -145,11 +150,14 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
         const QString &filename =  fileInfo.completeBaseName() + ".desktop";
 
 
-        App app;
+        
         app.Id = filename;
         app.Name = fileInfo.baseName();
         app.DisplayName = fileInfo.baseName();
-        app.Icon = "application-default-icon";
+        if(icon != QString(""))
+            app.Icon = icon;
+        else
+            app.Icon = "application-default-icon";
         app.Description = "";
         app.Exec = info.filePath();
         app.isUser = true;
