@@ -1,53 +1,70 @@
 CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/mocs_compilation.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/mocs_compilation.cpp \
  /usr/include/stdc-predef.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_buttontuple.cpp \
- /usr/include/c++/8/memory /usr/include/c++/8/bits/stl_algobase.h \
- /usr/include/x86_64-linux-gnu/c++/8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/8/bits/os_defines.h \
- /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_buttontuple.cpp \
+ /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_algobase.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+ /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/bits/timesize.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/long-double.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/include/x86_64-linux-gnu/c++/8/bits/cpu_defines.h \
- /usr/include/c++/8/bits/functexcept.h \
- /usr/include/c++/8/bits/exception_defines.h \
- /usr/include/c++/8/bits/cpp_type_traits.h \
- /usr/include/c++/8/ext/type_traits.h \
- /usr/include/c++/8/ext/numeric_traits.h \
- /usr/include/c++/8/bits/stl_pair.h /usr/include/c++/8/bits/move.h \
- /usr/include/c++/8/bits/concept_check.h /usr/include/c++/8/type_traits \
- /usr/include/c++/8/bits/stl_iterator_base_types.h \
- /usr/include/c++/8/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/8/debug/assertions.h \
- /usr/include/c++/8/bits/stl_iterator.h \
- /usr/include/c++/8/bits/ptr_traits.h /usr/include/c++/8/debug/debug.h \
- /usr/include/c++/8/bits/predefined_ops.h \
- /usr/include/c++/8/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/8/bits/c++allocator.h \
- /usr/include/c++/8/ext/new_allocator.h /usr/include/c++/8/new \
- /usr/include/c++/8/exception /usr/include/c++/8/bits/exception.h \
- /usr/include/c++/8/bits/exception_ptr.h \
- /usr/include/c++/8/bits/cxxabi_init_exception.h \
- /usr/lib/gcc/x86_64-linux-gnu/8/include/stddef.h \
- /usr/include/c++/8/typeinfo /usr/include/c++/8/bits/hash_bytes.h \
- /usr/include/c++/8/bits/nested_exception.h \
- /usr/include/c++/8/bits/memoryfwd.h \
- /usr/include/c++/8/bits/stl_construct.h \
- /usr/include/c++/8/ext/alloc_traits.h \
- /usr/include/c++/8/bits/alloc_traits.h \
- /usr/include/c++/8/bits/stl_uninitialized.h /usr/include/c++/8/utility \
- /usr/include/c++/8/bits/stl_relops.h /usr/include/c++/8/initializer_list \
- /usr/include/c++/8/bits/stl_tempbuf.h \
- /usr/include/c++/8/bits/stl_raw_storage_iter.h /usr/include/c++/8/iosfwd \
- /usr/include/c++/8/bits/stringfwd.h /usr/include/c++/8/bits/postypes.h \
- /usr/include/c++/8/cwchar /usr/include/wchar.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
+ /usr/include/c++/11/pstl/pstl_config.h \
+ /usr/include/c++/11/bits/functexcept.h \
+ /usr/include/c++/11/bits/exception_defines.h \
+ /usr/include/c++/11/bits/cpp_type_traits.h \
+ /usr/include/c++/11/ext/type_traits.h \
+ /usr/include/c++/11/ext/numeric_traits.h \
+ /usr/include/c++/11/bits/stl_pair.h /usr/include/c++/11/bits/move.h \
+ /usr/include/c++/11/type_traits \
+ /usr/include/c++/11/bits/stl_iterator_base_types.h \
+ /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/11/bits/concept_check.h \
+ /usr/include/c++/11/debug/assertions.h \
+ /usr/include/c++/11/bits/stl_iterator.h \
+ /usr/include/c++/11/bits/ptr_traits.h /usr/include/c++/11/debug/debug.h \
+ /usr/include/c++/11/bits/predefined_ops.h \
+ /usr/include/c++/11/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
+ /usr/include/c++/11/ext/new_allocator.h /usr/include/c++/11/new \
+ /usr/include/c++/11/bits/exception.h \
+ /usr/include/c++/11/bits/memoryfwd.h \
+ /usr/include/c++/11/bits/stl_construct.h \
+ /usr/include/c++/11/bits/stl_uninitialized.h \
+ /usr/include/c++/11/ext/alloc_traits.h \
+ /usr/include/c++/11/bits/alloc_traits.h \
+ /usr/include/c++/11/bits/stl_tempbuf.h \
+ /usr/include/c++/11/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/c++/11/bits/uses_allocator.h \
+ /usr/include/c++/11/bits/unique_ptr.h /usr/include/c++/11/utility \
+ /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/c++/11/initializer_list /usr/include/c++/11/tuple \
+ /usr/include/c++/11/array /usr/include/c++/11/bits/range_access.h \
+ /usr/include/c++/11/bits/invoke.h \
+ /usr/include/c++/11/bits/stl_function.h \
+ /usr/include/c++/11/backward/binders.h \
+ /usr/include/c++/11/bits/functional_hash.h \
+ /usr/include/c++/11/bits/hash_bytes.h \
+ /usr/include/c++/11/bits/shared_ptr.h /usr/include/c++/11/iosfwd \
+ /usr/include/c++/11/bits/stringfwd.h /usr/include/c++/11/bits/postypes.h \
+ /usr/include/c++/11/cwchar /usr/include/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /usr/lib/gcc/x86_64-linux-gnu/8/include/stdarg.h \
- /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -55,17 +72,18 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/c++/8/ext/atomicity.h \
- /usr/include/x86_64-linux-gnu/c++/8/bits/gthr.h \
- /usr/include/x86_64-linux-gnu/c++/8/bits/gthr-default.h \
- /usr/include/pthread.h /usr/include/endian.h \
- /usr/include/x86_64-linux-gnu/bits/endian.h \
- /usr/include/x86_64-linux-gnu/bits/byteswap.h \
- /usr/include/x86_64-linux-gnu/bits/types.h \
- /usr/include/x86_64-linux-gnu/bits/typesizes.h \
- /usr/include/x86_64-linux-gnu/bits/uintn-identity.h /usr/include/sched.h \
+ /usr/include/c++/11/bits/shared_ptr_base.h /usr/include/c++/11/typeinfo \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/bits/refwrap.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h \
  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endianness.h \
  /usr/include/x86_64-linux-gnu/bits/sched.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
  /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
@@ -80,77 +98,64 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+ /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
- /usr/include/x86_64-linux-gnu/c++/8/bits/atomic_word.h \
- /usr/include/c++/8/ext/concurrence.h \
- /usr/include/c++/8/bits/stl_function.h \
- /usr/include/c++/8/backward/binders.h \
- /usr/include/c++/8/bits/uses_allocator.h \
- /usr/include/c++/8/bits/unique_ptr.h /usr/include/c++/8/tuple \
- /usr/include/c++/8/array /usr/include/c++/8/stdexcept \
- /usr/include/c++/8/string /usr/include/c++/8/bits/char_traits.h \
- /usr/include/c++/8/cstdint \
- /usr/lib/gcc/x86_64-linux-gnu/8/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/c++/8/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/8/bits/c++locale.h \
- /usr/include/c++/8/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/8/cctype \
- /usr/include/ctype.h /usr/include/c++/8/bits/ostream_insert.h \
- /usr/include/c++/8/bits/cxxabi_forced.h \
- /usr/include/c++/8/bits/range_access.h \
- /usr/include/c++/8/bits/basic_string.h /usr/include/c++/8/string_view \
- /usr/include/c++/8/limits /usr/include/c++/8/bits/functional_hash.h \
- /usr/include/c++/8/bits/string_view.tcc \
- /usr/include/c++/8/ext/string_conversions.h /usr/include/c++/8/cstdlib \
- /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
- /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
- /usr/include/x86_64-linux-gnu/sys/types.h \
- /usr/include/x86_64-linux-gnu/sys/select.h \
- /usr/include/x86_64-linux-gnu/bits/select.h \
- /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
- /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/8/bits/std_abs.h /usr/include/c++/8/cstdio \
- /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /usr/include/c++/8/cerrno /usr/include/errno.h \
- /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
- /usr/include/x86_64-linux-gnu/asm/errno.h \
- /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
- /usr/include/c++/8/bits/basic_string.tcc \
- /usr/include/c++/8/bits/invoke.h /usr/include/c++/8/bits/shared_ptr.h \
- /usr/include/c++/8/bits/shared_ptr_base.h \
- /usr/include/c++/8/bits/allocated_ptr.h \
- /usr/include/c++/8/bits/refwrap.h \
- /usr/include/c++/8/ext/aligned_buffer.h \
- /usr/include/c++/8/bits/shared_ptr_atomic.h \
- /usr/include/c++/8/bits/atomic_base.h \
- /usr/include/c++/8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/8/backward/auto_ptr.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/buttontuple.h \
- /home/pundthsea/Desktop/os-final/include/interface/namespace.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+ /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
+ /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+ /usr/include/c++/11/ext/concurrence.h /usr/include/c++/11/exception \
+ /usr/include/c++/11/bits/exception_ptr.h \
+ /usr/include/c++/11/bits/cxxabi_init_exception.h \
+ /usr/include/c++/11/bits/nested_exception.h \
+ /usr/include/c++/11/bits/shared_ptr_atomic.h \
+ /usr/include/c++/11/bits/atomic_base.h \
+ /usr/include/c++/11/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/11/backward/auto_ptr.h \
+ /usr/include/c++/11/pstl/glue_memory_defs.h \
+ /usr/include/c++/11/pstl/execution_defs.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/buttontuple.h \
+ /home/Pundthsea/Desktop/os-final/include/interface/namespace.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h \
- /usr/include/c++/8/cstddef /usr/include/assert.h \
+ /usr/include/c++/11/cstddef /usr/include/assert.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtcore-config.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemdetection.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h \
- /usr/include/c++/8/algorithm /usr/include/c++/8/bits/stl_algo.h \
- /usr/include/c++/8/bits/algorithmfwd.h \
- /usr/include/c++/8/bits/stl_heap.h \
- /usr/include/c++/8/bits/uniform_int_dist.h \
+ /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
+ /usr/include/c++/11/cstdlib /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+ /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/c++/11/bits/std_abs.h \
+ /usr/include/c++/11/bits/algorithmfwd.h \
+ /usr/include/c++/11/bits/stl_heap.h \
+ /usr/include/c++/11/bits/uniform_int_dist.h \
+ /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/11/functional /usr/include/c++/11/bits/std_function.h \
+ /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
+ /usr/include/c++/11/bits/hashtable_policy.h \
+ /usr/include/c++/11/bits/enable_special_members.h \
+ /usr/include/c++/11/bits/node_handle.h \
+ /usr/include/c++/11/bits/unordered_map.h \
+ /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/vector \
+ /usr/include/c++/11/bits/stl_vector.h \
+ /usr/include/c++/11/bits/stl_bvector.h \
+ /usr/include/c++/11/bits/vector.tcc \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsysinfo.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h \
@@ -159,7 +164,7 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h \
- /usr/include/c++/8/atomic \
+ /usr/include/c++/11/atomic \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qnumeric.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h \
@@ -175,25 +180,38 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
- /usr/include/string.h /usr/include/strings.h /usr/include/c++/8/stdlib.h \
- /usr/include/c++/8/iterator /usr/include/c++/8/ostream \
- /usr/include/c++/8/ios /usr/include/c++/8/bits/ios_base.h \
- /usr/include/c++/8/bits/locale_classes.h \
- /usr/include/c++/8/bits/locale_classes.tcc \
- /usr/include/c++/8/system_error \
- /usr/include/x86_64-linux-gnu/c++/8/bits/error_constants.h \
- /usr/include/c++/8/streambuf /usr/include/c++/8/bits/streambuf.tcc \
- /usr/include/c++/8/bits/basic_ios.h \
- /usr/include/c++/8/bits/locale_facets.h /usr/include/c++/8/cwctype \
- /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
- /usr/include/x86_64-linux-gnu/c++/8/bits/ctype_base.h \
- /usr/include/c++/8/bits/streambuf_iterator.h \
- /usr/include/x86_64-linux-gnu/c++/8/bits/ctype_inline.h \
- /usr/include/c++/8/bits/locale_facets.tcc \
- /usr/include/c++/8/bits/basic_ios.tcc \
- /usr/include/c++/8/bits/ostream.tcc /usr/include/c++/8/istream \
- /usr/include/c++/8/bits/istream.tcc \
- /usr/include/c++/8/bits/stream_iterator.h \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/11/stdlib.h /usr/include/c++/11/string \
+ /usr/include/c++/11/bits/char_traits.h /usr/include/c++/11/cstdint \
+ /usr/include/c++/11/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
+ /usr/include/c++/11/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/11/cctype \
+ /usr/include/ctype.h /usr/include/c++/11/bits/ostream_insert.h \
+ /usr/include/c++/11/bits/cxxabi_forced.h \
+ /usr/include/c++/11/bits/basic_string.h /usr/include/c++/11/string_view \
+ /usr/include/c++/11/bits/string_view.tcc \
+ /usr/include/c++/11/ext/string_conversions.h /usr/include/c++/11/cstdio \
+ /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/c++/11/cerrno /usr/include/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+ /usr/include/c++/11/bits/charconv.h \
+ /usr/include/c++/11/bits/basic_string.tcc /usr/include/c++/11/iterator \
+ /usr/include/c++/11/bits/stream_iterator.h \
+ /usr/include/c++/11/bits/streambuf_iterator.h \
+ /usr/include/c++/11/streambuf /usr/include/c++/11/bits/ios_base.h \
+ /usr/include/c++/11/bits/locale_classes.h \
+ /usr/include/c++/11/bits/locale_classes.tcc \
+ /usr/include/c++/11/system_error \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
+ /usr/include/c++/11/stdexcept /usr/include/c++/11/bits/streambuf.tcc \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringliteral.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringalgorithms.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringview.h \
@@ -202,21 +220,14 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h \
- /usr/include/c++/8/numeric /usr/include/c++/8/bits/stl_numeric.h \
- /usr/include/c++/8/functional /usr/include/c++/8/bits/std_function.h \
- /usr/include/c++/8/unordered_map /usr/include/c++/8/bits/hashtable.h \
- /usr/include/c++/8/bits/hashtable_policy.h \
- /usr/include/c++/8/bits/node_handle.h /usr/include/c++/8/optional \
- /usr/include/c++/8/bits/enable_special_members.h \
- /usr/include/c++/8/bits/unordered_map.h /usr/include/c++/8/vector \
- /usr/include/c++/8/bits/stl_vector.h \
- /usr/include/c++/8/bits/stl_bvector.h /usr/include/c++/8/bits/vector.tcc \
+ /usr/include/c++/11/numeric /usr/include/c++/11/bits/stl_numeric.h \
+ /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h \
- /usr/include/c++/8/list /usr/include/c++/8/bits/stl_list.h \
- /usr/include/c++/8/bits/list.tcc \
- /usr/lib/gcc/x86_64-linux-gnu/8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/8/include-fixed/syslimits.h \
+ /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/list.tcc \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
@@ -231,11 +242,13 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h \
- /usr/include/c++/8/map /usr/include/c++/8/bits/stl_tree.h \
- /usr/include/c++/8/bits/stl_map.h /usr/include/c++/8/bits/stl_multimap.h \
+ /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
+ /usr/include/c++/11/bits/stl_map.h \
+ /usr/include/c++/11/bits/stl_multimap.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h \
- /usr/include/c++/8/chrono /usr/include/c++/8/ratio \
- /usr/include/c++/8/ctime /usr/include/c++/8/bits/parse_numbers.h \
+ /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
+ /usr/include/c++/11/limits /usr/include/c++/11/ctime \
+ /usr/include/c++/11/bits/parse_numbers.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h \
@@ -266,9 +279,9 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_comboxwidget.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/comboxwidget.h \
- /home/pundthsea/Desktop/os-final/include/widgets/settingsitem.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_comboxwidget.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/comboxwidget.h \
+ /home/Pundthsea/Desktop/os-final/include/widgets/settingsitem.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
@@ -279,7 +292,7 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
- /usr/include/c++/8/variant \
+ /usr/include/c++/11/variant \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
@@ -292,8 +305,8 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_dccdbusinterface.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/dccdbusinterface.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_dccdbusinterface.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/dccdbusinterface.h \
  /usr/include/dtk5/DGui/dtkgui_global.h \
  /usr/include/dtk5/DCore/dtkcore_global.h \
  /usr/include/dtk5/DCore/dtkcore_config.h \
@@ -305,19 +318,19 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtDBus/qdbusextratypes.h \
  /usr/include/x86_64-linux-gnu/qt5/QtDBus/qdbusconnection.h \
  /usr/include/x86_64-linux-gnu/qt5/QtDBus/qdbuspendingcall.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_dcclistview.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/dcclistview.h \
- /usr/include/libdtk-5.6.4/DWidget/DListView \
- /usr/include/libdtk-5.6.4/DWidget/dlistview.h \
- /usr/include/libdtk-5.6.4/DWidget/dtkwidget_global.h \
- /usr/include/libdtk-5.6.4/DWidget/dtkwidget_config.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_dcclistview.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/dcclistview.h \
+ /usr/include/dtk5/DWidget/DListView \
+ /usr/include/dtk5/DWidget/dlistview.h \
+ /usr/include/dtk5/DWidget/dtkwidget_global.h \
+ /usr/include/dtk5/DWidget/dtkwidget_config.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaMethod \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetaobject.h \
  /usr/include/dtk5/DCore/dobject.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QScopedPointer \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h \
- /usr/include/libdtk-5.6.4/DWidget/DStyledItemDelegate \
- /usr/include/libdtk-5.6.4/DWidget/dstyleditemdelegate.h \
+ /usr/include/dtk5/DWidget/DStyledItemDelegate \
+ /usr/include/dtk5/DWidget/dstyleditemdelegate.h \
  /usr/include/dtk5/DCore/DObject /usr/include/dtk5/DCore/dobject.h \
  /usr/include/dtk5/DGui/DPalette /usr/include/dtk5/DGui/dpalette.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
@@ -327,9 +340,9 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h \
- /usr/include/libdtk-5.6.4/DWidget/DFontSizeManager \
- /usr/include/libdtk-5.6.4/DWidget/dstyleoption.h \
- /usr/include/dtk5/DGui/DDciIcon /usr/include/dtk5/DGui/ddciicon.h \
+ /usr/include/dtk5/DWidget/DFontSizeManager \
+ /usr/include/dtk5/DWidget/dstyleoption.h /usr/include/dtk5/DGui/DDciIcon \
+ /usr/include/dtk5/DGui/ddciicon.h \
  /usr/include/dtk5/DGui/ddciiconpalette.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QColor \
@@ -355,34 +368,33 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_dccslider.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/dccslider.h \
- /usr/include/libdtk-5.6.4/DWidget/DSlider \
- /usr/include/libdtk-5.6.4/DWidget/dslider.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_dccslider.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/dccslider.h \
+ /usr/include/dtk5/DWidget/DSlider /usr/include/dtk5/DWidget/dslider.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_detailinfoitem.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/detailinfoitem.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_horizontalmodule.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/horizontalmodule.h \
- /home/pundthsea/Desktop/os-final/include/interface/moduleobject.h \
- /home/pundthsea/Desktop/os-final/include/interface/namespace.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_detailinfoitem.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/detailinfoitem.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_horizontalmodule.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/horizontalmodule.h \
+ /home/Pundthsea/Desktop/os-final/include/interface/moduleobject.h \
+ /home/Pundthsea/Desktop/os-final/include/interface/namespace.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_itemmodule.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/itemmodule.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_lineeditwidget.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/lineeditwidget.h \
- /usr/include/libdtk-5.6.4/DWidget/DArrowRectangle \
- /usr/include/libdtk-5.6.4/DWidget/darrowrectangle.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_itemmodule.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/itemmodule.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_lineeditwidget.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/lineeditwidget.h \
+ /usr/include/dtk5/DWidget/DArrowRectangle \
+ /usr/include/dtk5/DWidget/darrowrectangle.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDesktopWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
@@ -411,28 +423,27 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h \
- /usr/include/libdtk-5.6.4/DWidget/DThemeManager \
- /usr/include/libdtk-5.6.4/DWidget/dthememanager.h \
+ /usr/include/dtk5/DWidget/DThemeManager \
+ /usr/include/dtk5/DWidget/dthememanager.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QGlobalStatic \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h \
- /usr/include/libdtk-5.6.4/DWidget/dgraphicsgloweffect.h \
+ /usr/include/dtk5/DWidget/dgraphicsgloweffect.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsDropShadowEffect \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicseffect.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsEffect \
- /usr/include/libdtk-5.6.4/DWidget/DBlurEffectWidget \
- /usr/include/libdtk-5.6.4/DWidget/dblureffectwidget.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_listviewmodule.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/listviewmodule.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_modulelistmodel.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/modulelistmodel.h \
+ /usr/include/dtk5/DWidget/DBlurEffectWidget \
+ /usr/include/dtk5/DWidget/dblureffectwidget.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_listviewmodule.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/listviewmodule.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_modulelistmodel.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/modulelistmodel.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractItemModel \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_moduleobjectitem.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/moduleobjectitem.h \
- /usr/include/libdtk-5.6.4/DWidget/DStyle \
- /usr/include/libdtk-5.6.4/DWidget/dstyle.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_moduleobjectitem.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/moduleobjectitem.h \
+ /usr/include/dtk5/DWidget/DStyle /usr/include/dtk5/DWidget/dstyle.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QIconEngine \
@@ -443,28 +454,27 @@ CMakeFiles/dcc-widgets.dir/dcc-widgets_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_settingsgroup.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/settingsgroup.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_settingsgroupmodule.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/settingsgroupmodule.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_settingshead.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/settingshead.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_settingsheaderitem.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/settingsheaderitem.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_settingsitem.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_switchwidget.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/switchwidget.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_titledslideritem.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/titledslideritem.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_titlelabel.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/titlelabel.h \
- /usr/include/libdtk-5.6.4/DWidget/DLabel \
- /usr/include/libdtk-5.6.4/DWidget/dlabel.h \
- /usr/include/libdtk-5.6.4/DWidget/dstyle.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_titlevalueitem.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/titlevalueitem.h \
- /usr/include/libdtk-5.6.4/DWidget/DTipLabel \
- /usr/include/libdtk-5.6.4/DWidget/dtiplabel.h \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/RZ4CM6YYJ6/moc_dccdbusinterface_p.cpp \
- /home/pundthsea/Desktop/os-final/build/dcc-widgets_autogen/RZ4CM6YYJ6/../../../src/widgets/dccdbusinterface_p.h \
- /home/pundthsea/Desktop/os-final/include/widgets/dccdbusinterface.h
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_settingsgroup.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/settingsgroup.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_settingsgroupmodule.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/settingsgroupmodule.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_settingshead.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/settingshead.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_settingsheaderitem.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/settingsheaderitem.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_settingsitem.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_switchwidget.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/switchwidget.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_titledslideritem.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/titledslideritem.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_titlelabel.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/titlelabel.h \
+ /usr/include/dtk5/DWidget/DLabel /usr/include/dtk5/DWidget/dlabel.h \
+ /usr/include/dtk5/DWidget/dstyle.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/moc_titlevalueitem.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/MROXUFLNXW/../../../include/widgets/titlevalueitem.h \
+ /usr/include/dtk5/DWidget/DTipLabel \
+ /usr/include/dtk5/DWidget/dtiplabel.h \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/RZ4CM6YYJ6/moc_dccdbusinterface_p.cpp \
+ /home/Pundthsea/Desktop/os-final/build/dcc-widgets_autogen/RZ4CM6YYJ6/../../../src/widgets/dccdbusinterface_p.h \
+ /home/Pundthsea/Desktop/os-final/include/widgets/dccdbusinterface.h

@@ -1,4 +1,4 @@
-# Install script for directory: /home/pundthsea/Desktop/os-final
+# Install script for directory: /home/Pundthsea/Desktop/os-final
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -42,7 +42,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-interface.so.6.0.21"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-interface.so.6"
@@ -55,8 +55,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endforeach()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/pundthsea/Desktop/os-final/build/libdcc-interface.so.6.0.21"
-    "/home/pundthsea/Desktop/os-final/build/libdcc-interface.so.6"
+    "/home/Pundthsea/Desktop/os-final/build/libdcc-interface.so.6.0.21"
+    "/home/Pundthsea/Desktop/os-final/build/libdcc-interface.so.6"
     )
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-interface.so.6.0.21"
@@ -71,14 +71,14 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   endforeach()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-interface.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-interface.so")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-interface.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pundthsea/Desktop/os-final/build/libdcc-interface.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/Pundthsea/Desktop/os-final/build/libdcc-interface.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-interface.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-interface.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -87,7 +87,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   endif()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-widgets.so.6.0.21"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-widgets.so.6"
@@ -100,8 +100,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endforeach()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/pundthsea/Desktop/os-final/build/libdcc-widgets.so.6.0.21"
-    "/home/pundthsea/Desktop/os-final/build/libdcc-widgets.so.6"
+    "/home/Pundthsea/Desktop/os-final/build/libdcc-widgets.so.6.0.21"
+    "/home/Pundthsea/Desktop/os-final/build/libdcc-widgets.so.6"
     )
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-widgets.so.6.0.21"
@@ -111,7 +111,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
        NOT IS_SYMLINK "${file}")
       file(RPATH_CHANGE
            FILE "${file}"
-           OLD_RPATH "/home/pundthsea/Desktop/os-final/build:"
+           OLD_RPATH "/home/Pundthsea/Desktop/os-final/build:"
            NEW_RPATH "")
       if(CMAKE_INSTALL_DO_STRIP)
         execute_process(COMMAND "/usr/bin/strip" "${file}")
@@ -120,19 +120,19 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   endforeach()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-widgets.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-widgets.so")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-widgets.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pundthsea/Desktop/os-final/build/libdcc-widgets.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/Pundthsea/Desktop/os-final/build/libdcc-widgets.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-widgets.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-widgets.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-widgets.so"
-         OLD_RPATH "/home/pundthsea/Desktop/os-final/build:"
+         OLD_RPATH "/home/Pundthsea/Desktop/os-final/build:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdcc-widgets.so")
@@ -140,19 +140,19 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   endif()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dde-control-center" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dde-control-center")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dde-control-center"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/pundthsea/Desktop/os-final/build/dde-control-center")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/Pundthsea/Desktop/os-final/build/dde-control-center")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dde-control-center" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dde-control-center")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dde-control-center"
-         OLD_RPATH "/home/pundthsea/Desktop/os-final/build:"
+         OLD_RPATH "/home/Pundthsea/Desktop/os-final/build:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dde-control-center")
@@ -160,18 +160,18 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   endif()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/dde-control-center" TYPE DIRECTORY FILES
-    "/home/pundthsea/Desktop/os-final/include/interface"
-    "/home/pundthsea/Desktop/os-final/include/widgets"
+    "/home/Pundthsea/Desktop/os-final/include/interface"
+    "/home/Pundthsea/Desktop/os-final/include/widgets"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/DdeControlCenter" TYPE FILE FILES "/home/pundthsea/Desktop/os-final/build/DdeControlCenterConfig.cmake")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/DdeControlCenter" TYPE FILE FILES "/home/Pundthsea/Desktop/os-final/build/DdeControlCenterConfig.cmake")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}/usr/lib/x86_64-linux-gnu/dde-control-center/modules/libdcc-defaultapp-plugin.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/usr/lib/x86_64-linux-gnu/dde-control-center/modules/libdcc-defaultapp-plugin.so")
     file(RPATH_CHECK
@@ -186,12 +186,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/lib/x86_64-linux-gnu/dde-control-center/modules" TYPE MODULE FILES "/home/pundthsea/Desktop/os-final/build/libdcc-defaultapp-plugin.so")
+  file(INSTALL DESTINATION "/usr/lib/x86_64-linux-gnu/dde-control-center/modules" TYPE MODULE FILES "/home/Pundthsea/Desktop/os-final/build/libdcc-defaultapp-plugin.so")
   if(EXISTS "$ENV{DESTDIR}/usr/lib/x86_64-linux-gnu/dde-control-center/modules/libdcc-defaultapp-plugin.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/usr/lib/x86_64-linux-gnu/dde-control-center/modules/libdcc-defaultapp-plugin.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}/usr/lib/x86_64-linux-gnu/dde-control-center/modules/libdcc-defaultapp-plugin.so"
-         OLD_RPATH "/home/pundthsea/Desktop/os-final/build:"
+         OLD_RPATH "/home/Pundthsea/Desktop/os-final/build:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/usr/lib/x86_64-linux-gnu/dde-control-center/modules/libdcc-defaultapp-plugin.so")
@@ -207,5 +207,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pundthsea/Desktop/os-final/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/Pundthsea/Desktop/os-final/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

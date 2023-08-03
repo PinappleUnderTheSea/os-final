@@ -10,31 +10,39 @@ Category::Category(QObject *parent)
 {
 }
 
-QPair<QString, bool> readfiles(QString filename){
+App readfiles(QString filename){
    qDebug() << filename;
     QFile file(filename);
     if (!file.open(QIODevice::ReadWrite | QIODevice::Text)){
-        return QPair<QString, bool>("InvalidFile", 0);
+        App app;
+        app.Name = "InvalidFile";
+        return app;
     }
     QTextStream in(&file);
     QString line;
-    QPair<QString, bool> ret;
-    ret.second = false;
+    App ret;
+    ret.Hidden = false;
 //    qDebug() << in.atEnd();
-    int nm=1;
+    int nm=0;
     while(!in.atEnd()){
         line = in.readLine();
         // qDebug() << " line is " << line;
+        if(line == "[Desktop Entry]"){
+            nm=1;
+        }
+        if(line.left(5) == "Icon="){
+            ret.Icon = line.mid(5);
+        }
         if(line.left(5) == "Name=" && nm==1){
-            ret.first = line.mid(5);
+            ret.Name = line.mid(5);
             
             nm=0;
         }else if(line.left(7) == "Hidden="){
-            ret.second = (line.mid(7) != "false");
+            ret.Hidden = (line.mid(7) != "false");
 //            break;
         }
     }
-    qDebug() << "Name is " << ret.first<<Qt::endl;
+    qDebug() << "Name is " << ret.Name<<Qt::endl;
     return ret;
 }
 
@@ -55,16 +63,13 @@ QList<App> Category::getappItem(){
             continue;
         }
         qDebug() << "filename is "<<ptr->d_name << Qt::endl;
-        QPair<QString, bool> ans= readfiles(QDir::homePath() +  QString("/.config/autostart/") + QString(ptr->d_name));
+        App app = readfiles(QDir::homePath() +  QString("/.config/autostart/") + QString(ptr->d_name));
         
-        if(ans.first == "InvalidFile"){
+        if(app.Name == "InvalidFile"){
             continue;
         }
         
-        App app;
-        app.Name = ans.first;
         app.Id =  QString(ptr->d_name);
-        app.Hidden = ans.second;
         if(!m_appList.contains(app)) 
             m_appList.push_back(app);
         qDebug() << app.Name<<Qt::endl;
@@ -109,7 +114,7 @@ void Category::addUserItem(const App &value)
     
     m_appList << value;
 
-
+    qDebug() << "category add : "<<value.Name<<Qt::endl;
     
     Q_EMIT addedUserItem(value);
 

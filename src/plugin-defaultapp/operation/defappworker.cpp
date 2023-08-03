@@ -128,6 +128,8 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
         int cnt = 0;
         App app;
         QString icon;
+        QString name;
+        int nm=0;
         while(!in.atEnd()){
             
             line = in.readLine();
@@ -137,7 +139,14 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
             if(line.left(5) == "Icon="){
                 icon = line.mid(5);
             }
-            qDebug() << line<<Qt::endl;
+            if(nm==0 && line == "[Desktop Entry]"){
+                nm=1;
+            }
+            if(nm == 1 && line.left(5) == "Name="){
+                name = line.mid(5);
+                nm=0;
+            }
+            // qDebug() << line<<Qt::endl;
             out << line<<Qt::endl;
             cnt++;
         }
@@ -152,8 +161,8 @@ void DefAppWorker::onAddUserFile(const QString &mime, const QFileInfo &info)
 
         
         app.Id = filename;
-        app.Name = fileInfo.baseName();
-        app.DisplayName = fileInfo.baseName();
+        app.Name = name;
+        app.DisplayName = name;
         if(icon != QString(""))
             app.Icon = icon;
         else
