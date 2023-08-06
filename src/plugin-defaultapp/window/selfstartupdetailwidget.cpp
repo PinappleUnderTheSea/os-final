@@ -146,7 +146,7 @@ void SelfStartupDetailWidget::showInvalidText(DStandardItem *modelItem, const QS
     QPointer<DViewItemAction> act(new DViewItemAction(Qt::AlignVCenter | Qt::AlignLeft, QSize(32, 32), QSize(), false));
     QIcon icon = getAppIcon(iconName, QSize(32, 32));
     act->setIcon(icon);
-    act->setTextColorRole(DPalette::TextWarning);
+    act->setTextColorRole(DPalette::TextTitle);
     act->setIconText(name);
     actions << act;
     modelItem->setActionList(Qt::LeftEdge, actions);

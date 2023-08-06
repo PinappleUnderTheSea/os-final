@@ -211,7 +211,7 @@
 #define __INT_LEAST32_MAX__ 0x7fffffff
 #define __GCC_ATOMIC_INT_LOCK_FREE 2
 #define __FLT128_MAX_EXP__ 16384
-#define TRANSLATE_READ_DIR "/usr/local/share/dde-control-center/translations"
+#define TRANSLATE_READ_DIR "/usr/share/dde-control-center/translations"
 #define __FLT32_MANT_DIG__ 24
 #define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define SIZEOF_DPTR (sizeof(void*))
@@ -296,7 +296,7 @@
 #define __cpp_guaranteed_copy_elision 201606L
 #define linux 1
 #define __FLT64_HAS_QUIET_NAN__ 1
-#define DSG_DATA_DIR "/usr/local/share/dsg"
+#define DSG_DATA_DIR "/usr/share/dsg"
 #define __FLT32_MIN_10_EXP__ (-37)
 #define __EXCEPTIONS 1
 #define __PTRDIFF_WIDTH__ 64

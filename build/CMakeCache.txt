@@ -125,7 +125,7 @@ CMAKE_INSTALL_INCLUDEDIR:PATH=include
 CMAKE_INSTALL_INFODIR:PATH=
 
 //Object code libraries (lib/x86_64-linux-gnu)
-CMAKE_INSTALL_LIBDIR:PATH=lib
+CMAKE_INSTALL_LIBDIR:PATH=lib/x86_64-linux-gnu
 
 //Program executables (libexec)
 CMAKE_INSTALL_LIBEXECDIR:PATH=libexec
@@ -291,7 +291,7 @@ DISABLE_UPDATE:BOOL=OFF
 DVERSION:STRING=6.0.21
 
 //The directory containing a CMake configuration file for DdeControlCenter.
-DdeControlCenter_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/DdeControlCenter
+DdeControlCenter_DIR:PATH=/usr/local/lib/cmake/DdeControlCenter
 
 //The directory containing a CMake configuration file for DtkCore.
 DtkCore_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/DtkCore
@@ -560,5 +560,5 @@ PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr
 
