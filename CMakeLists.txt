@@ -135,7 +135,7 @@ set_target_properties(${Interface_Name} PROPERTIES
 )
 
 # so
-install(TARGETS ${Interface_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
+# install(TARGETS ${Interface_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 
 #--------------------------dccwidgets library----------------------------
@@ -173,7 +173,7 @@ set_target_properties(${Dcc_Widgets_Name} PROPERTIES
 # message(STATUS "dccwidgets success")
 
 # so
-install(TARGETS ${Dcc_Widgets_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
+# install(TARGETS ${Dcc_Widgets_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 #------------------------dccwidgets library test--------------------------
 if (UNITTEST)
@@ -235,7 +235,7 @@ target_link_libraries(${Control_Center_Name} PRIVATE
 )
 
 # bin
-install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
+# install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 # message(STATUS "dde-control-centre success")
 
@@ -262,8 +262,8 @@ configure_package_config_file(misc/DdeControlCenterConfig.cmake.in
     PATH_VARS INCLUDE_INSTALL_DIR
     INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
+# install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+#    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
 
 # message(STATUS "install config success")
 
