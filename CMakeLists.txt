@@ -380,19 +380,19 @@ endif()
 
 #--------------------------dcc-defaultapp-plugin--------------------------
 if (BUILD_PLUDIN)
-    set(DefaultApp_Name dcc-defaultapp-plugin)
-    file(GLOB_RECURSE DefaultApp_SRCS
-        "src/plugin-defaultapp/window/*.cpp"
-        "src/plugin-defaultapp/window/widgets/*.cpp"
-        "src/plugin-defaultapp/operation/*.cpp"
-        "src/plugin-defaultapp/operation/qrc/*.qrc"
+    set(SelfStartup_Name dcc-selfstartup-plugin)
+    file(GLOB_RECURSE SelfStartup_SRCS
+        "src/plugin-selfstartup/window/*.cpp"
+        "src/plugin-selfstartup/window/widgets/*.cpp"
+        "src/plugin-selfstartup/operation/*.cpp"
+        "src/plugin-selfstartup/operation/qrc/*.qrc"
     )
 
-    add_library(${DefaultApp_Name} MODULE
-        ${DefaultApp_SRCS}
+    add_library(${SelfStartup_Name} MODULE
+        ${SelfStartup_SRCS}
     )
 
-    set(DefaultApp_Includes
+    set(SelfStartup_Includes
         ${DtkWidget_INCLUDE_DIRS}
         Qt5::Widgets
         Qt5::DBus
@@ -400,7 +400,7 @@ if (BUILD_PLUDIN)
         src/plugin-defaultapp/window/widgets
         src/plugin-defaultapp/operation
     )
-    set(DefaultApp_Libraries
+    set(SelfStartup_Libraries
         ${Dcc_Widgets_Name}
         ${DtkWidget_LIBRARIES}
         Qt5::Widgets
@@ -408,15 +408,15 @@ if (BUILD_PLUDIN)
         Qt5::Concurrent
         ${Dcc_Widgets_Name}
     )
-    target_include_directories(${DefaultApp_Name} PUBLIC
-        ${DefaultApp_Includes}
+    target_include_directories(${SelfStartup_Name} PUBLIC
+        ${SelfStartup_Includes}
     )
 
-    target_link_libraries(${DefaultApp_Name} PRIVATE
-        ${DefaultApp_Libraries}
+    target_link_libraries(${SelfStartup_Name} PRIVATE
+        ${SelfStartup_Libraries}
     )
 
-    install(TARGETS ${DefaultApp_Name} DESTINATION ${MODULE_INSTALL_DIR})
+    install(TARGETS ${SelfStartup_Name} DESTINATION ${MODULE_INSTALL_DIR})
 endif()
 
 message(STATUS "all success")
