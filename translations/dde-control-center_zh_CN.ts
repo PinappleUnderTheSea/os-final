@@ -2736,7 +2736,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Middle</source>
         <translation>中</translation>
-    </message>
+    </message><name>
     <message>
         <source>Large</source>
         <translation>大</translation>
@@ -3888,6 +3888,13 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Learn more</source>
         <translation>了解详情</translation>
+    </message>
+</context>
+<context>
+    <name>SelfStartupPlugin</name>
+    <message>
+        <source>Self Start-up</source>
+        <translation>自启动程序</translation>
     </message>
 </context>
 </TS>

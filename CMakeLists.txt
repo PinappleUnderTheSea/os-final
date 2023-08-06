@@ -36,12 +36,12 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
         add_definitions(-DUSE_ASAN)
     endif()
 else()
-    # # generate qm
-    # execute_process(COMMAND bash "misc/translate_generation.sh"
-    #     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-    # # generate desktop translate
-    # execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
-    #     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    # generate qm
+    execute_process(COMMAND bash "misc/translate_generation.sh"
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    # generate desktop translate
+    execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
 set(BUILD_PLUDIN ON)
 
