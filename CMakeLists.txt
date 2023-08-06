@@ -378,7 +378,7 @@ if (UNITTEST)
     )
 endif()
 
-#--------------------------dcc-defaultapp-plugin--------------------------
+#--------------------------dcc-selfstartup-plugin--------------------------
 if (BUILD_PLUDIN)
     set(SelfStartup_Name dcc-selfstartup-plugin)
     file(GLOB_RECURSE SelfStartup_SRCS
@@ -397,8 +397,8 @@ if (BUILD_PLUDIN)
         Qt5::Widgets
         Qt5::DBus
         Qt5::Concurrent
-        src/plugin-defaultapp/window/widgets
-        src/plugin-defaultapp/operation
+        src/plugin-selfstartup/window/widgets
+        src/plugin-selfstartup/operation
     )
     set(SelfStartup_Libraries
         ${Dcc_Widgets_Name}
