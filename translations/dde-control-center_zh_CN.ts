@@ -3891,7 +3891,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
-    <name>SelfStartupPlugin</name>
+    <name>SelfStartupModule</name>
     <message>
         <source>Self Start-up</source>
         <translation>自启动程序</translation>
