@@ -2736,7 +2736,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Middle</source>
         <translation>中</translation>
-    </message><name>
+    </message>
     <message>
         <source>Large</source>
         <translation>大</translation>
