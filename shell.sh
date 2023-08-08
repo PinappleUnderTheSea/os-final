@@ -5,4 +5,4 @@ mkdir build
 cd build
 cmake ..
 make -j
-make install
+sudo make install
