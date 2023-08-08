@@ -521,16 +521,15 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | SelfStartupDetailWidget  | 创建自启动软件条目窗口。初始化条目窗口中的文字不可编辑、icon大小、条目形状、条目不可移动，初始化存储软件列表的QStandardItemModel，初始化软件条目的布局。 |
 | ~SelfStartupDetailWidget | 删除自启动软件条目窗口。 |
 | setModel                 | 设置自启动软件条目窗口的当前模式。根据当前窗口的分类，设置不同的窗口模式（由于本插件目前只有一个分类，因此setModel功能相当于直接调用setCategory功能）。 |
-| setCategory              | 设置自启动软件条目窗口的当前分类。由于本插件目前只有一个分类，因此，指定返回。 |
-| updateListView           |      |
-| getAppIcon               |      |
+| setCategory              | 设置自启动软件条目窗口的当前分类。将分类的增、删、改的信号和对应的自启动软件条目窗口的槽函数连接，将分类中的软件放入存储软件列表的QStandardItemModel中，并更新自启动软件条目窗口。 |
+| updateListView           | 更新自启动软件条目窗口。依次读取自启动软件条目窗口的当前模式中的每一个软件状态，依照软件状态，更新窗口显示（显示是否自启动、软件名称、软件icon、删除按键）。 |
+| getAppIcon               | 获取软件的icon。从系统中获取软件的icon，并统一调整为32*32大小。 |
 | getAppById               |      |
 | appendItemData           |      |
 | isDesktopOrBinaryFile    |      |
 | isValid                  |      |
 | reverseItem              |      |
 | requestDelUserApp        |      |
-| onReverseItem            |      |
 | onListViewClicked        |      |
 | onDelBtnClicked          |      |
 | onClearAll               |      |
