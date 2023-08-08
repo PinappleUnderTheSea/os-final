@@ -518,10 +518,10 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 | 名称                     | 功能 |
 | ------------------------ | ---- |
-| SelfStartupDetailWidget  |      |
-| ~SelfStartupDetailWidget |      |
-| setModel                 |      |
-| setCategory              |      |
+| SelfStartupDetailWidget  | 创建自启动软件条目窗口。初始化条目窗口中的文字不可编辑、icon大小、条目形状、条目不可移动，初始化存储软件列表的QStandardItemModel，初始化软件条目的布局。 |
+| ~SelfStartupDetailWidget | 删除自启动软件条目窗口。 |
+| setModel                 | 设置自启动软件条目窗口的当前模式。根据当前窗口的分类，设置不同的窗口模式（由于本插件目前只有一个分类，因此setModel功能相当于直接调用setCategory功能）。 |
+| setCategory              | 设置自启动软件条目窗口的当前分类。由于本插件目前只有一个分类，因此，指定返回。 |
 | updateListView           |      |
 | getAppIcon               |      |
 | getAppById               |      |

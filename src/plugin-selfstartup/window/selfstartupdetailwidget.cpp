@@ -71,7 +71,7 @@ void SelfStartupDetailWidget::setCategory(Category *const category) //!!to_see
 
     AppsItemChanged(m_category->getappItem());
 
-    onReverseItem();
+    updateListView();
 }
 
 /**
@@ -200,12 +200,6 @@ void SelfStartupDetailWidget::updateListView()
  *
  * @throws ErrorType description of error
  */
-
-void SelfStartupDetailWidget::onReverseItem( ){
-    updateListView();
-
-}
-
 void SelfStartupDetailWidget::onReverseApp(const App&  item)
 {
     // qDebug() << Q_FUNC_INFO << app.Name;

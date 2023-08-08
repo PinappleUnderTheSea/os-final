@@ -54,7 +54,6 @@ Q_SIGNALS:
     void requestDelUserApp(const QString &name, const App &item);
 
 public Q_SLOTS:
-    void onReverseItem();
     void onListViewClicked(const QModelIndex &index);
     void onDelBtnClicked();
     void onClearAll();
