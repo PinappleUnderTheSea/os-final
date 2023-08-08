@@ -494,6 +494,7 @@ deepin-terminal.desktop org.deepin.browser.desktop
 
 由此，可以通过在插件中检查所有`~/.config/autostart`文件夹中`.desktop`文件的`Hidden`字段来搜索系统所有的自启动软件；也可以通过添加`.desktop`文件、修改`Hidden`字段的方式进行开机自启动设置的修改。
 
+### 6 rpc远程通信问题
 
 
 ## 附录C 开发计划
