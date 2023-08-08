@@ -48,7 +48,44 @@ deepin作为国产开源的深度Linux桌面系统，不仅为用户提供了人
 
 ### 3.1 Deepin开机自启动系统设置
 
+`Deepin`系统通过检测固定的目录，检测自启动项。通过放置应用程序的`.desktop`文件在其中一个自动启动目录中，系统可以检测到该应用程序的自启动设置。通过修改`.desktop`文件中的对应字段，可以修改对应应用程序的自启动设置。
 
+#### 3.1.1 自启动目录
+
+在["desktop base directory specification"](http://standards.freedesktop.org/basedir-spec/)中的["Referencing this specification"](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html#referencing) 部分进行定义了自动启动目录是 $XDG_CONFIG_DIRS/autostart。
+
+如果同一文件名位于多个自动启动目录下，只应使用最重要目录下的文件。
+
+示例：
+如果未设置 $XDG_CONFIG_HOME，用户主目录中的自动启动目录为 ~/.config/autostart/
+
+如果未设置 $XDG_CONFIG_DIRS，系统范围的自动启动目录为 /etc/xdg/autostart/
+
+如果未设置 $XDG_CONFIG_HOME 和 $XDG_CONFIG_DIRS，并且两个文件 /etc/xdg/autostart/foo.desktop 和 ~/.config/autostart/foo.desktop 存在，那么只有文件 ~/.config/autostart/foo.desktop 将被使用，因为 ~/.config/autostart/ 比 /etc/xdg/autostart/ 更重要。
+
+#### 3.1.2 应用程序的`.desktop `文件
+
+一个应用程序的`.desktop`文件必须符合"桌面入口规范"中定义的格式。所有关键字应按照定义进行解释，但以下情况除外，以便考虑到位于自动启动目录中的`.desktop`文件不会显示在菜单中。
+
+**`Hidden`关键字**
+
+当`.desktop`文件的`Hidden`关键字设置为`true`时，该`.desktop`文件必须被忽略。当多个具有相同名称的`.desktop`文件存在于多个目录中时，仅应考虑最重要的`.desktop`文件中的`Hidden`关键字：如果其设置为`true`，则其他目录中具有相同名称的所有`.desktop`文件也必须被忽略。
+
+**`OnlyShowIn`和`NotShowIn`关键字**
+
+`OnlyShowIn`项可以包含一个字符串列表，用于标识必须自动启动此应用程序的桌面环境，其他桌面环境不得自动启动此应用程序。
+
+`NotShowIn`项可以包含一个字符串列表，用于标识不得自动启动此应用程序的桌面环境，其他桌面环境必须自动启动此应用程序。
+
+这两个关键字中的一个，要么是`OnlyShowIn`，要么是`NotShowIn`，可以出现在单个`.desktop`文件中。
+
+**`TryExec`关键字** 
+
+带有非空`TryExec`字段的`.desktop`文件如果`TryExec`关键字的值与已安装的可执行程序不匹配，则不得自动启动。`TryExec`字段的值可以是绝对路径，也可以是没有任何路径组件的可执行文件名。如果指定了没有任何路径组件的可执行文件名，则会搜索`$PATH`环境以找到匹配的可执行程序。
+
+**注意事项** 
+
+如果通过在系统范围的自动启动目录中安装`.desktop`文件来自动启动应用程序，则个人用户可以通过在其个人自动启动目录中放置具有相同名称的`.desktop`文件来禁用此应用程序的自动启动，并在其中包含`Hidden=true`关键字。
 
 ### 3.2 控制中心插件开发
 
@@ -440,6 +477,99 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 
 ### 4.2 类功能说明
+
+#### 4.2.1 DefAppModel
+
+| 名称            | 功能 |
+| --------------- | ---- |
+| DefAppModel     |      |
+| ~DefAppModel    |      |
+| getModSelfSetUp |      |
+
+#### 4.2.2 DefAppWorker
+
+| 名称                | 功能 |
+| ------------------- | ---- |
+| DefAppWorker        |      |
+| DefaultAppsCategory |      |
+| active              |      |
+| deactive            |      |
+| onReverseUserApp    |      |
+| onGetListApps       |      |
+| onDelUserApp        |      |
+| onAddUserFile       |      |
+| getCategory         |      |
+
+#### 4.2.3 MimeDBusProxy
+
+| 名称          | 功能 |
+| ------------- | ---- |
+| MimeDBusProxy |      |
+| SetDefaultApp |      |
+| DeleteApp     |      |
+| DeleteUserApp |      |
+| AddUserApp    |      |
+| GetDefaultApp |      |
+| ListApps      |      |
+| ListUserApps  |      |
+| Change        |      |
+
+#### 4.2.4 SelfStartupDetailWidget
+
+| 名称                     | 功能 |
+| ------------------------ | ---- |
+| SelfStartupDetailWidget  |      |
+| ~SelfStartupDetailWidget |      |
+| setModel                 |      |
+| setCategory              |      |
+| updateListView           |      |
+| getAppIcon               |      |
+| getAppById               |      |
+| appendItemData           |      |
+| isDesktopOrBinaryFile    |      |
+| isValid                  |      |
+| reverseItem              |      |
+| requestDelUserApp        |      |
+| onReverseItem            |      |
+| onListViewClicked        |      |
+| onDelBtnClicked          |      |
+| onClearAll               |      |
+| getAppListview           |      |
+| AppsItemChanged          |      |
+| onReverseApp             |      |
+| addItem                  |      |
+| removeItem               |      |
+| showInvalidText          |      |
+
+#### 4.2.5 DefAppModel
+
+| 名称              | 功能 |
+| ----------------- | ---- |
+| SelfStartupPlugin |      |
+| name              |      |
+| module            |      |
+| location          |      |
+
+#### 4.2.6 SelfStartupModule
+
+| 名称               | 功能 |
+| ------------------ | ---- |
+| SelfStartupModule  |      |
+| ~SelfStartupModule |      |
+| work               |      |
+| model              |      |
+| active             |      |
+
+#### 4.2.7 SelfStartupDetailModule
+
+| 名称                    | 功能 |
+| ----------------------- | ---- |
+| SelfStartupDetailModule |      |
+| page                    |      |
+
+#### 
+
+
 
 ### 4.3 实现描述
 
