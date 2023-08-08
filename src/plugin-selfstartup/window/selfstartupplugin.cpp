@@ -40,6 +40,7 @@ ModuleObject *SelfStartupPlugin::module()
 {
     // 一级页面
     SelfStartupModule *moduleRoot = new SelfStartupModule;
+    moduleRoot->setDescription(tr("Self Start-up"));
 
     // 三级页面
     SelfStartupDetailModule *selfstartupDetail = new SelfStartupDetailModule(DefAppWorker::DefaultAppsCategory::SelfSetUp, moduleRoot->model(), moduleRoot->work());
