@@ -1,12 +1,5 @@
 <RCC>
     <qresource prefix="/icons/deepin/builtin">
-        <file>actions/dcc_browser_32px.svg</file>
-        <file>actions/dcc_mail_32px.svg</file>
-        <file>actions/dcc_music_32px.svg</file>
-        <file>actions/dcc_photo_32px.svg</file>
-        <file>actions/dcc_terminal_32px.svg</file>
-        <file>actions/dcc_text_32px.svg</file>
-        <file>actions/dcc_video_32px.svg</file>
         <file>icons/dcc_nav_selfstartup_42px.svg</file>
         <file>icons/dcc_nav_selfstartup_84px.svg</file>
         <file>themes/dark/icons/nav_selfstartup_normal.svg</file>
