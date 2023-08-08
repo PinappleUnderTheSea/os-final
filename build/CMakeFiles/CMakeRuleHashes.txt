@@ -1,6 +1,0 @@
-# Hashes of file build rules.
-93ac495fd43b4710cd9cdfd93868f918 CMakeFiles/dcc-defaultapp-plugin_autogen
-981f0e2f8f9eede43203f9dcb9dd4cb4 CMakeFiles/dcc-interface_autogen
-24157f9a026f3bae06f64266a0475dbf CMakeFiles/dcc-widgets_autogen
-97c4dac3465c54fdf5b8e4f980809b36 CMakeFiles/dde-control-center_autogen
-f388ea9cc84f8c4ec515ad44538a80b8 dcc-defaultapp-plugin_autogen/D7XD45QCFH/qrc_selfstartup.cpp
