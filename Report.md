@@ -325,17 +325,13 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 #### 4.2.3 MimeDBusProxy
 
-| 名称          | 功能 |
-| ------------- | ---- |
-| MimeDBusProxy |      |
-| SetDefaultApp |      |
-| DeleteApp     |      |
-| DeleteUserApp |      |
-| AddUserApp    |      |
-| GetDefaultApp |      |
-| ListApps      |      |
-| ListUserApps  |      |
-| Change        |      |
+| 名称          | 功能                                  |
+| ------------- | ------------------------------------- |
+| MimeDBusProxy | DBusProxy构造函数                     |
+| DeleteApp     | 向应用程序管理服务发送删除App请求     |
+| AddUserApp    | 向应用程序管理服务发送添加用户App请求 |
+| ListApps      | 向应用程序管理服务发送展示所有App请求 |
+| Change        | 向应用程序管理服务发送App变动处理请求 |
 
 #### 4.2.4 SelfStartupDetailWidget
 
