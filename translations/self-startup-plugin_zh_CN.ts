@@ -1,3 +1,4 @@
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>SelfStartupModule</name>
     <message>
@@ -5,3 +6,4 @@
         <translation>自启动程序</translation>
     </message>
 </context>
+</TS>
