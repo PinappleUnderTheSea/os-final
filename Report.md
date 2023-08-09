@@ -305,7 +305,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 ```
 ├── selfstartup.json
-├── selfstartupdetailwidget.cpp
+├── selfstartup.cpp
 ├── selfstartupdetailwidget.h
 ├── selfstartupplugin.cpp
 ├── selfstartupplugin.h
@@ -316,11 +316,12 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
     └── category.h
 ```
 
-window部分是插件的前端部分，由Model，Worker和DBusProxy三个部分：
+`window`部分是插件的前端部分，由`Plugin`，`Detailwidget`，`Addbuttonwidget`和`Category`四个部分：
 
-- Model：Model部分通过继承QObject注册到QT的项目中，私有变量Category实现了自启动信息在内存中的一个副本用于前端的交互
-- Worker：Worker部分提供了插件对文件系统的操作。由于操作系统对于开机自启动的支持在于把对应的.desktop文件拷贝到/home/user/.config/autostart中并设置Hidden=false，因此对于自启动应用管理的插件必须要对文件的读写提供支持，该支持由Woker部分实现
-- DBusProxy：由于插件要注册到控制中心并且对应用进行管理，因此需要向运行中的应用程序管理服务（dde-application-manager）进行交互，管理服务提供了rpc的调用接口，插件通过DBusProxy部分向管理服务发起远程请求
+- `Plugin`：`Plugin`部分构造了自启动程序插件。包括插件接口的初始化，一级页面的初始化和二级页面的初始化。
+- `Detailwidget`：`Detailwidget`部分构造了自启动程序插件的 `app`条目。包括`app`条目的外形、位置，`app`条目的增删改查操作，以及与`worker`和`model`的交互操作（通过信号和槽函数实现）。
+- `Addbuttonwidget`：`Addbuttonwidget`部分构造了自启动程序插件的加号按钮。包括加号按钮的外形、位置，新增`app`的弹窗显示，新增`app`的路径处理，以及与`worker`和`model`的交互操作（通过信号和槽函数实现）。
+- `Category`: // to_do!
 
 
 ### 4.2 类功能说明
