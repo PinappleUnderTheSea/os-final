@@ -37,11 +37,11 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     endif()
 else()
     # generate qm
-    #execute_process(COMMAND bash "misc/translate_generation.sh"
-    #    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    execute_process(COMMAND bash "misc/translate_generation.sh"
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
     # generate desktop translate
-    #execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
-    #    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
 set(BUILD_PLUDIN ON)
 
@@ -79,7 +79,7 @@ add_definitions(-DVARDIRECTORY="${LOCALSTATE_READ_DIR}")
 find_package(PkgConfig REQUIRED)
 find_package(DtkCore REQUIRED)
 find_package(DtkWidget REQUIRED)
-find_package(Qt5 COMPONENTS Widgets Network DBus Concurrent Multimedia Svg Test LinguistTools REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Network DBus Concurrent Multimedia Svg Test REQUIRED)
 find_package(DdeControlCenter REQUIRED)
 
 # pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
@@ -102,6 +102,41 @@ set(Test_Libraries
     -lgtest
     Qt5::Test
 )
+
+#--------------------------interface--------------------------
+set(Interface_Name dcc-interface)
+file(GLOB_RECURSE Interface_SRCS
+    "include/interface/*.h"
+    "src/interface/*.cpp"
+)
+add_library(${Interface_Name} SHARED
+    ${Interface_SRCS}
+)
+
+set(Interface_Includes
+    Qt5::Widgets
+    include/interface
+)
+set(Interface_Libraries
+    Qt5::Widgets
+    ${DtkWidget_LIBRARIES}
+)
+target_include_directories(${Interface_Name} PUBLIC
+    ${Interface_Includes}
+)
+
+target_link_libraries(${Interface_Name} PRIVATE
+    ${Interface_Libraries}
+)
+
+set_target_properties(${Interface_Name} PROPERTIES
+    VERSION ${CMAKE_PROJECT_VERSION}
+    SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+)
+
+# so
+# install(TARGETS ${Interface_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
 
 #--------------------------dccwidgets library----------------------------
 set(Dcc_Widgets_Name dcc-widgets)
@@ -140,6 +175,69 @@ set_target_properties(${Dcc_Widgets_Name} PROPERTIES
 # so
 # install(TARGETS ${Dcc_Widgets_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
+#------------------------dccwidgets library test--------------------------
+if (UNITTEST)
+    set(UT_Dcc_Widgets_Name ut-dcc-widgets)
+    file(GLOB_RECURSE UT_Dcc_Widgets_SRCS
+        "tests/widgets/*.cpp"
+    )
+    add_executable(${UT_Dcc_Widgets_Name}
+        ${Dcc_Widgets_SRCS}
+        ${UT_Dcc_Widgets_SRCS}
+    )
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_Dcc_Widgets_Name} PRIVATE ${UT_COMPILER})
+    target_include_directories(${UT_Dcc_Widgets_Name} PUBLIC
+        ${Dcc_Widgets_Includes}
+    )
+    target_link_libraries(${UT_Dcc_Widgets_Name} PRIVATE
+        ${Dcc_Widgets_Libraries}
+        ${Test_Libraries}
+    )
+endif()
+# message(STATUS "dccwidgets test success")
+
+#--------------------------dde-control-center--------------------------
+set(Control_Center_Name dde-control-center)
+file(GLOB_RECURSE Control_Center_SRCS
+    "src/frame/*.h"
+    "src/frame/*.cpp"
+)
+list(REMOVE_ITEM Control_Center_SRCS "${CMAKE_SOURCE_DIR}/src/frame/main.cpp")
+
+add_executable(${Control_Center_Name}
+    ${Control_Center_SRCS}
+    src/frame/main.cpp
+)
+
+target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CVERSION}")
+
+set(Control_Center_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+set(Control_Center_Libraries
+    ${Dcc_Widgets_Name}
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+target_include_directories(${Control_Center_Name} PUBLIC
+    ${Control_Center_Includes}
+)
+
+target_link_libraries(${Control_Center_Name} PRIVATE
+    ${Control_Center_Libraries}
+)
+
+# bin
+# install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
+
+# message(STATUS "dde-control-centre success")
 
 #----------------------------install config------------------------------
 # qm files
@@ -155,61 +253,172 @@ install(FILES ${QM_FILES} DESTINATION ${TRANSLATE_INSTALL_DIR})
 # install(FILES misc/org.deepin.dde.ControlCenter1.service DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
 
 # dev files
-#file(GLOB HEADERS "include/*")
-#set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)
-#install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
-#
-#include(CMakePackageConfigHelpers)
-#configure_package_config_file(misc/DdeControlCenterConfig.cmake.in
-#    ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
-#    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
-#    PATH_VARS INCLUDE_INSTALL_DIR
-#    INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+file(GLOB HEADERS "include/*")
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)
+install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
+
+include(CMakePackageConfigHelpers)
+configure_package_config_file(misc/DdeControlCenterConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
+    PATH_VARS INCLUDE_INSTALL_DIR
+    INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
 
 # install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
 #    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
 
 # message(STATUS "install config success")
 
+
+#-------------------------ut-dcc-interface-------------------------
+if (UNITTEST)
+    set(UT_Interface_Name ut-dcc-interface)
+    file(GLOB_RECURSE UT_Interface_SRCS
+        "tests/interface/*.cpp"
+    )
+
+    add_executable(${UT_Interface_Name}
+        ${Interface_SRCS}
+        ${UT_Interface_SRCS}
+    )
+
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_Interface_Name} PRIVATE ${UT_COMPILER})
+
+    target_include_directories(${UT_Interface_Name} PUBLIC
+        ${Interface_Includes}
+    )
+
+    target_link_libraries(${UT_Interface_Name} PRIVATE
+        ${Interface_Libraries}
+        ${Test_Libraries}
+    )
+endif()
+#-------------------------ut-dcc-frame-------------------------
+if (UNITTEST)
+    set(UT_Frame_Name ut-dcc-frame)
+    file(GLOB_RECURSE UT_Frame_SRCS
+        "tests/frame/*.cpp"
+    )
+
+    add_executable(${UT_Frame_Name}
+        ${Control_Center_SRCS}
+        ${UT_Frame_SRCS}
+    )
+
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_Frame_Name} PRIVATE ${UT_COMPILER})
+
+    target_include_directories(${UT_Frame_Name} PUBLIC
+        ${Control_Center_Includes}
+    )
+
+    target_link_libraries(${UT_Frame_Name} PRIVATE
+        ${Control_Center_Libraries}
+        ${Test_Libraries}
+    )
+endif()
+#--------------------------plugin-test1--------------------------
+if (UNITTEST)
+    set(Plugin_Test1_Name plugin-test1)
+    file(GLOB_RECURSE Plugin_Test1_SRCS
+        "tests/plugin-test1/*.h"
+        "tests/plugin-test1/*.cpp"
+    )
+
+    add_library(${Plugin_Test1_Name} MODULE
+        ${Plugin_Test1_SRCS}
+    )
+
+    set(Plugin_Test1_Includes
+        Qt5::Widgets
+        Qt5::DBus
+        Dtk::Widget
+    )
+    set(Plugin_Test1_Libraries
+        ${Interface_Name}
+        Qt5::Widgets
+        Qt5::DBus
+        Dtk::Widget
+    )
+    target_include_directories(${Plugin_Test1_Name} PUBLIC
+        ${Plugin_Test1_Includes}
+    )
+
+    target_link_libraries(${Plugin_Test1_Name} PRIVATE
+        ${Plugin_Test1_Libraries}
+    )
+endif()
+
+#--------------------------plugin-test2--------------------------
+if (UNITTEST)
+    set(Plugin_Test2_Name plugin-test2)
+    file(GLOB_RECURSE Plugin_Test2_SRCS
+        "tests/plugin-test2/*.h"
+        "tests/plugin-test2/*.cpp"
+    )
+
+    add_library(${Plugin_Test2_Name} MODULE
+        ${Plugin_Test2_SRCS}
+    )
+
+    set(Plugin_Test2_Includes
+        Qt5::Widgets
+        Qt5::DBus
+    )
+    set(Plugin_Test2_Libraries
+        ${Interface_Name}
+        Qt5::Widgets
+        Qt5::DBus
+    )
+    target_include_directories(${Plugin_Test2_Name} PUBLIC
+        ${Plugin_Test2_Includes}
+    )
+
+    target_link_libraries(${Plugin_Test2_Name} PRIVATE
+        ${Plugin_Test2_Libraries}
+    )
+endif()
+
 #--------------------------dcc-selfstartup-plugin--------------------------
-set(SelfStartup_Name dcc-selfstartup-plugin)
-file(GLOB_RECURSE SelfStartup_SRCS
-    "src/plugin-selfstartup/window/*.cpp"
-    "src/plugin-selfstartup/window/widgets/*.cpp"
-    "src/plugin-selfstartup/operation/*.cpp"
-    "src/plugin-selfstartup/operation/qrc/*.qrc"
-)
+if (BUILD_PLUDIN)
+    set(SelfStartup_Name dcc-selfstartup-plugin)
+    file(GLOB_RECURSE SelfStartup_SRCS
+        "src/plugin-selfstartup/window/*.cpp"
+        "src/plugin-selfstartup/window/widgets/*.cpp"
+        "src/plugin-selfstartup/operation/*.cpp"
+        "src/plugin-selfstartup/operation/qrc/*.qrc"
+    )
 
-add_library(${SelfStartup_Name} MODULE
-    ${SelfStartup_SRCS}
-)
+    add_library(${SelfStartup_Name} MODULE
+        ${SelfStartup_SRCS}
+    )
 
-set(SelfStartup_Includes
-    ${DtkWidget_INCLUDE_DIRS}
-    Qt5::Widgets
-    Qt5::DBus
-    Qt5::Concurrent
-    src/plugin-selfstartup/window/widgets
-    src/plugin-selfstartup/operation
-)
+    set(SelfStartup_Includes
+        ${DtkWidget_INCLUDE_DIRS}
+        Qt5::Widgets
+        Qt5::DBus
+        Qt5::Concurrent
+        src/plugin-selfstartup/window/widgets
+        src/plugin-selfstartup/operation
+    )
+    set(SelfStartup_Libraries
+        ${Dcc_Widgets_Name}
+        ${DtkWidget_LIBRARIES}
+        Qt5::Widgets
+        Qt5::DBus
+        Qt5::Concurrent
+        ${Dcc_Widgets_Name}
+    )
+    target_include_directories(${SelfStartup_Name} PUBLIC
+        ${SelfStartup_Includes}
+    )
 
-set(SelfStartup_Libraries
-    ${Dcc_Widgets_Name}
-    ${DtkWidget_LIBRARIES}
-    Qt5::Widgets
-    Qt5::DBus
-    Qt5::Concurrent
-    ${Dcc_Widgets_Name}
-)
+    target_link_libraries(${SelfStartup_Name} PRIVATE
+        ${SelfStartup_Libraries}
+    )
 
-target_include_directories(${SelfStartup_Name} PUBLIC
-    ${SelfStartup_Includes}
-)
-
-target_link_libraries(${SelfStartup_Name} PRIVATE
-    ${SelfStartup_Libraries}
-)
-
-install(TARGETS ${SelfStartup_Name} DESTINATION ${MODULE_INSTALL_DIR})
+    install(TARGETS ${SelfStartup_Name} DESTINATION ${MODULE_INSTALL_DIR})
+endif()
 
 message(STATUS "all success")
