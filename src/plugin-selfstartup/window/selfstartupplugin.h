@@ -12,11 +12,12 @@
 class DefAppModel;
 
 // 默认程序插件
-class SelfStartupPlugin : public DCC_NAMESPACE::PluginInterface
+class SelfStartupPlugin : public QObject, PluginsItemInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.SelfSartup" FILE "selfstartup.json")
-    Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
+    Q_INTERFACES(PluginsItemInterface)
+    Q_PLUGIN_METADATA(IID "com.deepin.dock.PluginsItemInterface" FILE "selfstartup.json")
+
 public:
     explicit SelfStartupPlugin();
     ~SelfStartupPlugin() override;
