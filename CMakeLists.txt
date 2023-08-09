@@ -103,41 +103,6 @@ set(Test_Libraries
     Qt5::Test
 )
 
-#--------------------------interface--------------------------
-set(Interface_Name dcc-interface)
-file(GLOB_RECURSE Interface_SRCS
-    "include/interface/*.h"
-    "src/interface/*.cpp"
-)
-add_library(${Interface_Name} SHARED
-    ${Interface_SRCS}
-)
-
-set(Interface_Includes
-    Qt5::Widgets
-    include/interface
-)
-set(Interface_Libraries
-    Qt5::Widgets
-    ${DtkWidget_LIBRARIES}
-)
-#target_include_directories(${Interface_Name} PUBLIC
-#    ${Interface_Includes}
-#)
-#
-#target_link_libraries(${Interface_Name} PRIVATE
-#    ${Interface_Libraries}
-#)
-#
-#set_target_properties(${Interface_Name} PROPERTIES
-#    VERSION ${CMAKE_PROJECT_VERSION}
-#    SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-#)
-#
-# so
-# install(TARGETS ${Interface_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
-
-
 #--------------------------dccwidgets library----------------------------
 set(Dcc_Widgets_Name dcc-widgets)
 file(GLOB_RECURSE Dcc_Widgets_SRCS
@@ -175,47 +140,6 @@ set_target_properties(${Dcc_Widgets_Name} PROPERTIES
 # so
 # install(TARGETS ${Dcc_Widgets_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
-#--------------------------dde-control-center--------------------------
-set(Control_Center_Name dde-control-center)
-file(GLOB_RECURSE Control_Center_SRCS
-    "src/frame/*.h"
-    "src/frame/*.cpp"
-)
-list(REMOVE_ITEM Control_Center_SRCS "${CMAKE_SOURCE_DIR}/src/frame/main.cpp")
-
-add_executable(${Control_Center_Name}
-    ${Control_Center_SRCS}
-    src/frame/main.cpp
-)
-
-#target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CVERSION}")
-
-set(Control_Center_Includes
-    ${DtkWidget_INCLUDE_DIRS}
-    Qt5::Widgets
-    Qt5::DBus
-    Qt5::Concurrent
-)
-set(Control_Center_Libraries
-    ${Dcc_Widgets_Name}
-    ${Interface_Name}
-    ${DtkWidget_LIBRARIES}
-    Qt5::Widgets
-    Qt5::DBus
-    Qt5::Concurrent
-)
-#target_include_directories(${Control_Center_Name} PUBLIC
-#    ${Control_Center_Includes}
-#)
-#
-#target_link_libraries(${Control_Center_Name} PRIVATE
-#    ${Control_Center_Libraries}
-#)
-
-# bin
-# install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
-
-# message(STATUS "dde-control-centre success")
 
 #----------------------------install config------------------------------
 # qm files
