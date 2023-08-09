@@ -316,6 +316,11 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
     └── category.h
 ```
 
+window部分是插件的前端部分，由Model，Worker和DBusProxy三个部分：
+
+- Model：Model部分通过继承QObject注册到QT的项目中，私有变量Category实现了自启动信息在内存中的一个副本用于前端的交互
+- Worker：Worker部分提供了插件对文件系统的操作。由于操作系统对于开机自启动的支持在于把对应的.desktop文件拷贝到/home/user/.config/autostart中并设置Hidden=false，因此对于自启动应用管理的插件必须要对文件的读写提供支持，该支持由Woker部分实现
+- DBusProxy：由于插件要注册到控制中心并且对应用进行管理，因此需要向运行中的应用程序管理服务（dde-application-manager）进行交互，管理服务提供了rpc的调用接口，插件通过DBusProxy部分向管理服务发起远程请求
 
 
 ### 4.2 类功能说明
@@ -362,53 +367,53 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 | 名称                     | 功能                                                         |
 | ------------------------ | ------------------------------------------------------------ |
-| SelfStartupDetailWidget  | 创建自启动软件条目窗口。初始化条目窗口中的文字不可编辑、icon大小、条目形状、条目不可移动，初始化存储软件列表的QStandardItemModel，初始化软件条目的布局。 |
-| ~SelfStartupDetailWidget | 删除自启动软件条目窗口。                                     |
-| setModel                 | 设置自启动软件条目窗口的当前模式。根据当前窗口的分类，设置不同的窗口模式（由于本插件目前只有一个分类，因此setModel功能相当于直接调用setCategory功能）。 |
+| SelfStartupDetailWidget  | 自启动软件条目窗口构造函数。初始化条目窗口中的文字不可编辑、icon大小、条目形状、条目不可移动，初始化存储软件列表的QStandardItemModel，初始化软件条目的布局。 |
+| ~SelfStartupDetailWidget | 自启动软件条目窗口析构函数。                                     |
+| setModel                 | 设置自启动软件条目窗口的当前model。根据当前窗口的分类，设置不同的窗口model（由于本插件目前只有一个分类，因此setModel功能相当于直接调用setCategory功能）。 |
 | setCategory              | 设置自启动软件条目窗口的当前分类。将分类的增、删、改的信号和对应的自启动软件条目窗口的槽函数连接，将分类中的软件放入存储软件列表的QStandardItemModel中，并更新自启动软件条目窗口。 |
-| updateListView           | 更新自启动软件条目窗口。依次读取自启动软件条目窗口的当前模式中的每一个软件状态，依照软件状态，更新窗口显示（显示是否自启动、软件名称、软件icon、删除按键）。 |
+| updateListView           | 更新自启动软件条目窗口。依次读取自启动软件条目窗口的当前model中的每一个软件状态，依照软件状态，更新窗口显示（显示是否自启动、软件名称、软件icon、删除按键）。 |
 | getAppIcon               | 获取软件的icon。从系统中获取软件的icon，并统一调整为32*32大小。 |
-| getAppById               |                                                              |
-| appendItemData           |                                                              |
-| isDesktopOrBinaryFile    |                                                              |
-| isValid                  |                                                              |
-| reverseItem              |                                                              |
-| requestDelUserApp        |                                                              |
-| onListViewClicked        |                                                              |
-| onDelBtnClicked          |                                                              |
-| onClearAll               |                                                              |
-| getAppListview           |                                                              |
-| AppsItemChanged          |                                                              |
-| onReverseApp             |                                                              |
-| addItem                  |                                                              |
-| removeItem               |                                                              |
-| showInvalidText          |                                                              |
+| getAppById               | 通过ID获取APP结构体。遍历分类中的app，返回对应的APP结构体。 |
+| appendItemData           | 向model中新增app信息。从APP结构体中获取app信息，向model中新增app，并更新总app数量。 |
+| isDesktopOrBinaryFile    | 判断文件是否属于桌面或二进制文件。 |
+| isValid                  | 判断app是否有效。判断app的ID非空。 |
+| reverseItem              | 向category发出app自启动状态转换的信号。 |
+| requestDelUserApp        | 向category发出删除app的信号。 |
+| onListViewClicked        | 自启动软件条目窗口被点击后的槽函数。从自启动软件条目窗口获取app信息，并向category发出app自启动状态转换的信号。 |
+| onDelBtnClicked          | 自启动软件条目窗口删除按钮被点击后的槽函数。从自启动软件条目窗口获取app信息，并向category发出删除app的信号。 |
+| onClearAll               | 清空model中所有的app信息。 |
+| getAppListview           | 返回model中所有的app信息。 |
+| AppsItemChanged          | 重置model中所有的app信息。依次将app_list中的app信息存入model中，并连接激活、点击信号。 |
+| onReverseApp             | category返回app自启动状态转换信号的槽函数。更新对应model中app的自启动状态，并更新窗口。 |
+| addItem                  | category返回app新增信号的槽函数。向model中新增对应的app信息，并更新窗口。 |
+| removeItem               | category返回app删减信号的槽函数。向model中删减对应的app信息，并更新窗口。 |
+| showInvalidText          | 设置自启动软件条目窗口的字体、图标的位置、大小。 |
 
-#### 4.3.5 DefAppModel
+#### 4.3.5 SelfStartupPlugin
 
 | 名称              | 功能 |
 | ----------------- | ---- |
-| SelfStartupPlugin |      |
-| name              |      |
-| module            |      |
-| location          |      |
+| SelfStartupPlugin | 自启动程序插件的构造函数。基于DCC_NAMESPACE::PluginInterface的接口。 |
+| name              | 返回自启动程序插件的名称。 |
+| module            | 自启动程序插件初始化函数。初始化自启动程序插件的一级页面、二级页面和加号按钮。 |
+| location          | 返回自启动程序插件的位置。即，在控制中心插件中的排序。 |
 
 #### 4.3.6 SelfStartupModule
 
 | 名称               | 功能 |
 | ------------------ | ---- |
-| SelfStartupModule  |      |
-| ~SelfStartupModule |      |
-| work               |      |
-| model              |      |
-| active             |      |
+| SelfStartupModule  | 自启动程序插件一级页面的构造函数。初始化一级页面的名称，描述，图标，work，model。 |
+| ~SelfStartupModule | 自启动程序插件一级页面的解构函数。向m_work、m_model发送删除信号。 |
+| work               | 返回m_work。 |
+| model              | 返回m_model。 |
+| active             | 激活m_work。 |
 
 #### 4.3.7 SelfStartupDetailModule
 
 | 名称                    | 功能 |
 | ----------------------- | ---- |
-| SelfStartupDetailModule |      |
-| page                    |      |
+| SelfStartupDetailModule | 自启动程序插件二级页面的构造函数。初始化二级页面的名称，分类，work，model。 |
+| page                    | 自启动程序插件二级页面的初始化函数。初始化DetailWidget，并将DetailWidget的app状态修改信号、删除信号与work的槽函数相连接。 |
 
 #### 4.3.8 Category
 
