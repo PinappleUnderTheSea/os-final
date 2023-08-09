@@ -301,7 +301,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 ### 4.3 实现描述
 
-#### 4.2.1 DefAppModel
+#### 4.3.1 DefAppModel
 
 | 名称            | 功能                      |
 | --------------- | ------------------------- |
@@ -309,7 +309,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | ~DefAppModel    | Model析构函数             |
 | getModSelfSetUp | 返回SelfSetUp内存Category |
 
-#### 4.2.2 DefAppWorker
+#### 4.3.2 DefAppWorker
 
 | 名称                | 功能                                                         |
 | ------------------- | ------------------------------------------------------------ |
@@ -317,13 +317,13 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | DefaultAppsCategory | 枚举类，用于实现插件的可扩展性，实现对不同类型软件的分类，默认状态为只有SelfSetUp类 |
 | active              | 向应用程序管理服务发出blockSignal(false)消息                 |
 | deactive            | 向应用程序管理服务发出blockSignal(true)消息                  |
-| onReverseUserApp    | 对参与维护的自启动应用开关反转处理，把autostart中的.desktop文件Hidden字段反转 |
+| onReverseUserApp    | 对参与维护的自启动应用开关反转处理，把autostart中的.desktop文件Hidden字段反转并同步Category |
 | onGetListApps       | 与Model处理应用变化信号结束的信息提供的一个空接口，只用于承接信号处理 |
-| onDelUserApp        | 在autostart文件夹中删去用户不希望继续维护是否自启动的应用    |
-| onAddUserFile       | 向autostart中添加用户希望维护是否自启动的应用                |
+| onDelUserApp        | 在autostart文件夹中删去用户不希望继续维护是否自启动的应用并同步Category |
+| onAddUserFile       | 向autostart中添加用户希望维护是否自启动的应用并同步Category  |
 | getCategory         | 返回应用类型的分类                                           |
 
-#### 4.2.3 MimeDBusProxy
+#### 4.3.3 MimeDBusProxy
 
 | 名称          | 功能                                  |
 | ------------- | ------------------------------------- |
@@ -333,7 +333,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | ListApps      | 向应用程序管理服务发送展示所有App请求 |
 | Change        | 向应用程序管理服务发送App变动处理请求 |
 
-#### 4.2.4 SelfStartupDetailWidget
+#### 4.3.4 SelfStartupDetailWidget
 
 | 名称                     | 功能                                                         |
 | ------------------------ | ------------------------------------------------------------ |
@@ -359,7 +359,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | removeItem               |                                                              |
 | showInvalidText          |                                                              |
 
-#### 4.2.5 DefAppModel
+#### 4.3.5 DefAppModel
 
 | 名称              | 功能 |
 | ----------------- | ---- |
@@ -368,7 +368,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | module            |      |
 | location          |      |
 
-#### 4.2.6 SelfStartupModule
+#### 4.3.6 SelfStartupModule
 
 | 名称               | 功能 |
 | ------------------ | ---- |
@@ -378,12 +378,25 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | model              |      |
 | active             |      |
 
-#### 4.2.7 SelfStartupDetailModule
+#### 4.3.7 SelfStartupDetailModule
 
 | 名称                    | 功能 |
 | ----------------------- | ---- |
 | SelfStartupDetailModule |      |
 | page                    |      |
+
+#### 4.3.8 Category
+
+| 名称            | 功能                                                         |
+| --------------- | ------------------------------------------------------------ |
+| Category        | Category类构造函数，继承QObject类，每个Category类里面封装相同类型的应用信息 |
+| getName         | 获取当前Category分类的名称                                   |
+| setCategory     | 设置当前Category的类型名称                                   |
+| getappItem      | 获取当前Category封装的应用信息                               |
+| clear           | 清空当前Category储存的应用信息                               |
+| addUserItem     | 把传入应用信息存到Category中并向前端发送更新信号             |
+| delUserItem     | 把目标应用从Category中删除并向前端发送更新信号               |
+| reverseUserItem | 设置目标应用Hidden字段反转并向前端发送更新信号               |
 
  
 
