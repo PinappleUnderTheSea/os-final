@@ -11,6 +11,7 @@
 
 #include <QApplication>
 #include <QVBoxLayout>
+#include <QTranslator>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -31,8 +32,7 @@ struct DATE
     }
 };
 
-SelfStartupPlugin::SelfStartupPlugin(QObject *parent)
-    : QObject(parent)
+SelfStartupPlugin::SelfStartupPlugin()
 {
   QTranslator *trs = new QTranslator(this);
   trs->load(QString("/usr/share/dde-control-center/translations/self-startup-plugin_%1.qm").arg(QLocale::system().name()));
