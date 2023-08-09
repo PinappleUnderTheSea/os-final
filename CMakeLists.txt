@@ -241,9 +241,10 @@ target_link_libraries(${Control_Center_Name} PRIVATE
 
 #----------------------------install config------------------------------
 # qm files
-file(GLOB TS_FILES "translations/*.ts")
-qt5_add_translation(QM_FILES ${TS_FILES})
-add_custom_target(translations ALL DEPENDS ${QM_FILES})
+#file(GLOB TS_FILES "translations/*.ts")
+#qt5_add_translation(QM_FILES ${TS_FILES})
+#add_custom_target(translations ALL DEPENDS ${QM_FILES})
+file(GLOB QM_FILES "translations/*.qm")
 install(FILES ${QM_FILES} DESTINATION ${TRANSLATE_INSTALL_DIR})
 
 #desktop
