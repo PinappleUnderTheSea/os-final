@@ -31,6 +31,14 @@ struct DATE
     }
 };
 
+SelfStartupPlugin::SelfStartupPlugin(QObject *parent)
+    : QObject(parent)
+{
+  QTranslator *trs = new QTranslator(this);
+  trs->load(QString("/usr/share/dde-control-center/translations/self-startup-plugin_%1.qm").arg(QLocale::system().name()));
+  QCoreApplication::installTranslator(trs);
+}
+
 QString SelfStartupPlugin::name() const
 {
     return QStringLiteral("Self Startup");

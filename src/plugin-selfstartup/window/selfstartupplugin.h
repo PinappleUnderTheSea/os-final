@@ -18,7 +18,8 @@ class SelfStartupPlugin : public DCC_NAMESPACE::PluginInterface
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.SelfSartup" FILE "selfstartup.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
-    explicit SelfStartupPlugin() { }
+    explicit SelfStartupPlugin(QObject *parent = nullptr);
+    ~SelfStartupPlugin() override;
 
     virtual QString name() const override;
     virtual DCC_NAMESPACE::ModuleObject *module() override;
