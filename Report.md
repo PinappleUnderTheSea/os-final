@@ -258,217 +258,9 @@ deepin作为国产开源的深度Linux桌面系统，不仅为用户提供了人
 │       ├── titlelabel.cpp
 │       └── titlevalueitem.cpp
 └── translations
-    ├── dde-control-center_ady.ts
-    ├── dde-control-center_af.ts
-    ├── dde-control-center_ak.ts
-    ├── dde-control-center_am_ET.ts
-    ├── dde-control-center_ar.ts
-    ├── dde-control-center_ar_EG.ts
-    ├── dde-control-center_ast.ts
-    ├── dde-control-center_az.ts
-    ├── dde-control-center_bg.ts
-    ├── dde-control-center_bn.ts
-    ├── dde-control-center_bo.ts
-    ├── dde-control-center_br.ts
-    ├── dde-control-center_ca.ts
-    ├── dde-control-center_cgg.ts
-    ├── dde-control-center_cs.ts
-    ├── dde-control-center_da.ts
-    ├── dde-control-center_de.ts
-    ├── dde-control-center_de_CH.ts
-    ├── dde-control-center_el.ts
-    ├── dde-control-center_en.ts
-    ├── dde-control-center_en_AU.ts
-    ├── dde-control-center_en_GB.ts
-    ├── dde-control-center_en_US.ts
-    ├── dde-control-center_eo.ts
-    ├── dde-control-center_es.ts
-    ├── dde-control-center_es_MX.ts
-    ├── dde-control-center_et.ts
-    ├── dde-control-center_eu.ts
-    ├── dde-control-center_fa.ts
-    ├── dde-control-center_fi.ts
-    ├── dde-control-center_fil.ts
-    ├── dde-control-center_fr.ts
-    ├── dde-control-center_gl_ES.ts
-    ├── dde-control-center_he.ts
-    ├── dde-control-center_hi_IN.ts
-    ├── dde-control-center_hr.ts
-    ├── dde-control-center_hu.ts
-    ├── dde-control-center_hy.ts
-    ├── dde-control-center_id.ts
-    ├── dde-control-center_it.ts
-    ├── dde-control-center_ja.ts
-    ├── dde-control-center_ka.ts
-    ├── dde-control-center_kab.ts
-    ├── dde-control-center_kk.ts
-    ├── dde-control-center_km_KH.ts
-    ├── dde-control-center_kn_IN.ts
-    ├── dde-control-center_ko.ts
-    ├── dde-control-center_ku.ts
-    ├── dde-control-center_ku_IQ.ts
-    ├── dde-control-center_ky.ts
-    ├── dde-control-center_ky@Arab.ts
-    ├── dde-control-center_la.ts
-    ├── dde-control-center_lo.ts
-    ├── dde-control-center_lt.ts
-    ├── dde-control-center_lv.ts
-    ├── dde-control-center_ml.ts
-    ├── dde-control-center_mn.ts
-    ├── dde-control-center_mr.ts
-    ├── dde-control-center_ms.ts
-    ├── dde-control-center_nb.ts
-    ├── dde-control-center_ne.ts
-    ├── dde-control-center_nl.ts
-    ├── dde-control-center_pa.ts
-    ├── dde-control-center_pam.ts
-    ├── dde-control-center_pl.ts
-    ├── dde-control-center_ps.ts
-    ├── dde-control-center_pt.ts
-    ├── dde-control-center_pt_BR.ts
-    ├── dde-control-center_ro.ts
-    ├── dde-control-center_ru.ts
-    ├── dde-control-center_sc.ts
-    ├── dde-control-center_si.ts
-    ├── dde-control-center_sk.ts
-    ├── dde-control-center_sl.ts
-    ├── dde-control-center_sq.ts
-    ├── dde-control-center_sr.ts
-    ├── dde-control-center_sv.ts
-    ├── dde-control-center_sw.ts
-    ├── dde-control-center_ta.ts
-    ├── dde-control-center_te.ts
-    ├── dde-control-center_th.ts
-    ├── dde-control-center_tr.ts
-    ├── dde-control-center_tzm.ts
-    ├── dde-control-center_ug.ts
-    ├── dde-control-center_uk.ts
-    ├── dde-control-center_ur.ts
-    ├── dde-control-center_uz.ts
-    ├── dde-control-center_vi.ts
-    ├── dde-control-center_zh_CN.ts
-    ├── dde-control-center_zh_HK.ts
-    ├── dde-control-center_zh_TW.ts
+    ├── ...(translation files)
     ├── desktop
-    │   ├── desktop.ts
-    │   ├── desktop_ady.ts
-    │   ├── desktop_af.ts
-    │   ├── desktop_ak.ts
-    │   ├── desktop_am_ET.ts
-    │   ├── desktop_ar.ts
-    │   ├── desktop_ar_EG.ts
-    │   ├── desktop_ast.ts
-    │   ├── desktop_az.ts
-    │   ├── desktop_bg.ts
-    │   ├── desktop_bn.ts
-    │   ├── desktop_bo.ts
-    │   ├── desktop_br.ts
-    │   ├── desktop_ca.ts
-    │   ├── desktop_cgg.ts
-    │   ├── desktop_cs.ts
-    │   ├── desktop_da.ts
-    │   ├── desktop_de.ts
-    │   ├── desktop_de_CH.ts
-    │   ├── desktop_el.ts
-    │   ├── desktop_en.ts
-    │   ├── desktop_en_AU.ts
-    │   ├── desktop_en_GB.ts
-    │   ├── desktop_en_US.ts
-    │   ├── desktop_eo.ts
-    │   ├── desktop_es.ts
-    │   ├── desktop_es_419.ts
-    │   ├── desktop_es_MX.ts
-    │   ├── desktop_et.ts
-    │   ├── desktop_fa.ts
-    │   ├── desktop_fi.ts
-    │   ├── desktop_fil.ts
-    │   ├── desktop_fr.ts
-    │   ├── desktop_gl_ES.ts
-    │   ├── desktop_he.ts
-    │   ├── desktop_hi_IN.ts
-    │   ├── desktop_hr.ts
-    │   ├── desktop_hu.ts
-    │   ├── desktop_hy.ts
-    │   ├── desktop_id.ts
-    │   ├── desktop_it.ts
-    │   ├── desktop_ja.ts
-    │   ├── desktop_ka.ts
-    │   ├── desktop_kab.ts
-    │   ├── desktop_kk.ts
-    │   ├── desktop_km_KH.ts
-    │   ├── desktop_kn_IN.ts
-    │   ├── desktop_ko.ts
-    │   ├── desktop_ku.ts
-    │   ├── desktop_ku_IQ.ts
-    │   ├── desktop_ky.ts
-    │   ├── desktop_ky@Arab.ts
-    │   ├── desktop_la.ts
-    │   ├── desktop_lo.ts
-    │   ├── desktop_lt.ts
-    │   ├── desktop_lv.ts
-    │   ├── desktop_ml.ts
-    │   ├── desktop_mn.ts
-    │   ├── desktop_mr.ts
-    │   ├── desktop_ms.ts
-    │   ├── desktop_nb.ts
-    │   ├── desktop_ne.ts
-    │   ├── desktop_nl.ts
-    │   ├── desktop_pa.ts
-    │   ├── desktop_pam.ts
-    │   ├── desktop_pl.ts
-    │   ├── desktop_ps.ts
-    │   ├── desktop_pt.ts
-    │   ├── desktop_pt_BR.ts
-    │   ├── desktop_ro.ts
-    │   ├── desktop_ru.ts
-    │   ├── desktop_sc.ts
-    │   ├── desktop_si.ts
-    │   ├── desktop_sk.ts
-    │   ├── desktop_sl.ts
-    │   ├── desktop_sq.ts
-    │   ├── desktop_sr.ts
-    │   ├── desktop_sv.ts
-    │   ├── desktop_sw.ts
-    │   ├── desktop_ta.ts
-    │   ├── desktop_te.ts
-    │   ├── desktop_th.ts
-    │   ├── desktop_tr.ts
-    │   ├── desktop_tzm.ts
-    │   ├── desktop_ug.ts
-    │   ├── desktop_uk.ts
-    │   ├── desktop_ur.ts
-    │   ├── desktop_uz.ts
-    │   ├── desktop_vi.ts
-    │   ├── desktop_zh_CN.ts
-    │   ├── desktop_zh_HK.ts
-    │   └── desktop_zh_TW.ts
-    ├── keyboard_language_az.ts
-    ├── keyboard_language_bo.ts
-    ├── keyboard_language_ca.ts
-    ├── keyboard_language_cs.ts
-    ├── keyboard_language_el.ts
-    ├── keyboard_language_en.ts
-    ├── keyboard_language_en_US.ts
-    ├── keyboard_language_es.ts
-    ├── keyboard_language_fi.ts
-    ├── keyboard_language_fr.ts
-    ├── keyboard_language_hu.ts
-    ├── keyboard_language_it.ts
-    ├── keyboard_language_ms.ts
-    ├── keyboard_language_nl.ts
-    ├── keyboard_language_pl.ts
-    ├── keyboard_language_pt.ts
-    ├── keyboard_language_pt_BR.ts
-    ├── keyboard_language_ru.ts
-    ├── keyboard_language_sl.ts
-    ├── keyboard_language_sq.ts
-    ├── keyboard_language_sr.ts
-    ├── keyboard_language_tr.ts
-    ├── keyboard_language_ug.ts
-    ├── keyboard_language_uk.ts
-    ├── keyboard_language_zh_CN.ts
-    ├── keyboard_language_zh_HK.ts
-    └── keyboard_language_zh_TW.ts
+        ├──...(desktop translation files)
 ```
 
 ### 4.1 总体思路与系统框架
@@ -511,25 +303,25 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 #### 4.2.1 DefAppModel
 
-| 名称            | 功能 |
-| --------------- | ---- |
-| DefAppModel     |      |
-| ~DefAppModel    |      |
-| getModSelfSetUp |      |
+| 名称            | 功能                      |
+| --------------- | ------------------------- |
+| DefAppModel     | Model构造函数             |
+| ~DefAppModel    | Model析构函数             |
+| getModSelfSetUp | 返回SelfSetUp内存Category |
 
 #### 4.2.2 DefAppWorker
 
-| 名称                | 功能 |
-| ------------------- | ---- |
-| DefAppWorker        |      |
-| DefaultAppsCategory |      |
-| active              |      |
-| deactive            |      |
-| onReverseUserApp    |      |
-| onGetListApps       |      |
-| onDelUserApp        |      |
-| onAddUserFile       |      |
-| getCategory         |      |
+| 名称                | 功能                                                         |
+| ------------------- | ------------------------------------------------------------ |
+| DefAppWorker        | Worker构造函数，连接Worker和Model                            |
+| DefaultAppsCategory | 枚举类，用于实现插件的可扩展性，实现对不同类型软件的分类，默认状态为只有SelfSetUp类 |
+| active              | 向应用程序管理服务发出blockSignal(false)消息                 |
+| deactive            | 向应用程序管理服务发出blockSignal(true)消息                  |
+| onReverseUserApp    | 对参与维护的自启动应用开关反转处理，把autostart中的.desktop文件Hidden字段反转 |
+| onGetListApps       | 与Model处理应用变化信号结束的信息提供的一个空接口，只用于承接信号处理 |
+| onDelUserApp        | 在autostart文件夹中删去用户不希望继续维护是否自启动的应用    |
+| onAddUserFile       | 向autostart中添加用户希望维护是否自启动的应用                |
+| getCategory         | 返回应用类型的分类                                           |
 
 #### 4.2.3 MimeDBusProxy
 
