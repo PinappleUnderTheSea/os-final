@@ -188,7 +188,7 @@ add_executable(${Control_Center_Name}
     src/frame/main.cpp
 )
 
-target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CVERSION}")
+#target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CVERSION}")
 
 set(Control_Center_Includes
     ${DtkWidget_INCLUDE_DIRS}
