@@ -86,7 +86,7 @@ void DefAppWorker::onReverseUserApp(const QString &mime, const App &item)
 }
 
 void DefAppWorker::onGetListApps(){
-    //TODO: unknown usage 
+    // empty interface
     return ;
 }
 

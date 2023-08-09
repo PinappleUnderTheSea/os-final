@@ -258,217 +258,9 @@ deepin作为国产开源的深度Linux桌面系统，不仅为用户提供了人
 │       ├── titlelabel.cpp
 │       └── titlevalueitem.cpp
 └── translations
-    ├── dde-control-center_ady.ts
-    ├── dde-control-center_af.ts
-    ├── dde-control-center_ak.ts
-    ├── dde-control-center_am_ET.ts
-    ├── dde-control-center_ar.ts
-    ├── dde-control-center_ar_EG.ts
-    ├── dde-control-center_ast.ts
-    ├── dde-control-center_az.ts
-    ├── dde-control-center_bg.ts
-    ├── dde-control-center_bn.ts
-    ├── dde-control-center_bo.ts
-    ├── dde-control-center_br.ts
-    ├── dde-control-center_ca.ts
-    ├── dde-control-center_cgg.ts
-    ├── dde-control-center_cs.ts
-    ├── dde-control-center_da.ts
-    ├── dde-control-center_de.ts
-    ├── dde-control-center_de_CH.ts
-    ├── dde-control-center_el.ts
-    ├── dde-control-center_en.ts
-    ├── dde-control-center_en_AU.ts
-    ├── dde-control-center_en_GB.ts
-    ├── dde-control-center_en_US.ts
-    ├── dde-control-center_eo.ts
-    ├── dde-control-center_es.ts
-    ├── dde-control-center_es_MX.ts
-    ├── dde-control-center_et.ts
-    ├── dde-control-center_eu.ts
-    ├── dde-control-center_fa.ts
-    ├── dde-control-center_fi.ts
-    ├── dde-control-center_fil.ts
-    ├── dde-control-center_fr.ts
-    ├── dde-control-center_gl_ES.ts
-    ├── dde-control-center_he.ts
-    ├── dde-control-center_hi_IN.ts
-    ├── dde-control-center_hr.ts
-    ├── dde-control-center_hu.ts
-    ├── dde-control-center_hy.ts
-    ├── dde-control-center_id.ts
-    ├── dde-control-center_it.ts
-    ├── dde-control-center_ja.ts
-    ├── dde-control-center_ka.ts
-    ├── dde-control-center_kab.ts
-    ├── dde-control-center_kk.ts
-    ├── dde-control-center_km_KH.ts
-    ├── dde-control-center_kn_IN.ts
-    ├── dde-control-center_ko.ts
-    ├── dde-control-center_ku.ts
-    ├── dde-control-center_ku_IQ.ts
-    ├── dde-control-center_ky.ts
-    ├── dde-control-center_ky@Arab.ts
-    ├── dde-control-center_la.ts
-    ├── dde-control-center_lo.ts
-    ├── dde-control-center_lt.ts
-    ├── dde-control-center_lv.ts
-    ├── dde-control-center_ml.ts
-    ├── dde-control-center_mn.ts
-    ├── dde-control-center_mr.ts
-    ├── dde-control-center_ms.ts
-    ├── dde-control-center_nb.ts
-    ├── dde-control-center_ne.ts
-    ├── dde-control-center_nl.ts
-    ├── dde-control-center_pa.ts
-    ├── dde-control-center_pam.ts
-    ├── dde-control-center_pl.ts
-    ├── dde-control-center_ps.ts
-    ├── dde-control-center_pt.ts
-    ├── dde-control-center_pt_BR.ts
-    ├── dde-control-center_ro.ts
-    ├── dde-control-center_ru.ts
-    ├── dde-control-center_sc.ts
-    ├── dde-control-center_si.ts
-    ├── dde-control-center_sk.ts
-    ├── dde-control-center_sl.ts
-    ├── dde-control-center_sq.ts
-    ├── dde-control-center_sr.ts
-    ├── dde-control-center_sv.ts
-    ├── dde-control-center_sw.ts
-    ├── dde-control-center_ta.ts
-    ├── dde-control-center_te.ts
-    ├── dde-control-center_th.ts
-    ├── dde-control-center_tr.ts
-    ├── dde-control-center_tzm.ts
-    ├── dde-control-center_ug.ts
-    ├── dde-control-center_uk.ts
-    ├── dde-control-center_ur.ts
-    ├── dde-control-center_uz.ts
-    ├── dde-control-center_vi.ts
-    ├── dde-control-center_zh_CN.ts
-    ├── dde-control-center_zh_HK.ts
-    ├── dde-control-center_zh_TW.ts
+    ├── ...(translation files)
     ├── desktop
-    │   ├── desktop.ts
-    │   ├── desktop_ady.ts
-    │   ├── desktop_af.ts
-    │   ├── desktop_ak.ts
-    │   ├── desktop_am_ET.ts
-    │   ├── desktop_ar.ts
-    │   ├── desktop_ar_EG.ts
-    │   ├── desktop_ast.ts
-    │   ├── desktop_az.ts
-    │   ├── desktop_bg.ts
-    │   ├── desktop_bn.ts
-    │   ├── desktop_bo.ts
-    │   ├── desktop_br.ts
-    │   ├── desktop_ca.ts
-    │   ├── desktop_cgg.ts
-    │   ├── desktop_cs.ts
-    │   ├── desktop_da.ts
-    │   ├── desktop_de.ts
-    │   ├── desktop_de_CH.ts
-    │   ├── desktop_el.ts
-    │   ├── desktop_en.ts
-    │   ├── desktop_en_AU.ts
-    │   ├── desktop_en_GB.ts
-    │   ├── desktop_en_US.ts
-    │   ├── desktop_eo.ts
-    │   ├── desktop_es.ts
-    │   ├── desktop_es_419.ts
-    │   ├── desktop_es_MX.ts
-    │   ├── desktop_et.ts
-    │   ├── desktop_fa.ts
-    │   ├── desktop_fi.ts
-    │   ├── desktop_fil.ts
-    │   ├── desktop_fr.ts
-    │   ├── desktop_gl_ES.ts
-    │   ├── desktop_he.ts
-    │   ├── desktop_hi_IN.ts
-    │   ├── desktop_hr.ts
-    │   ├── desktop_hu.ts
-    │   ├── desktop_hy.ts
-    │   ├── desktop_id.ts
-    │   ├── desktop_it.ts
-    │   ├── desktop_ja.ts
-    │   ├── desktop_ka.ts
-    │   ├── desktop_kab.ts
-    │   ├── desktop_kk.ts
-    │   ├── desktop_km_KH.ts
-    │   ├── desktop_kn_IN.ts
-    │   ├── desktop_ko.ts
-    │   ├── desktop_ku.ts
-    │   ├── desktop_ku_IQ.ts
-    │   ├── desktop_ky.ts
-    │   ├── desktop_ky@Arab.ts
-    │   ├── desktop_la.ts
-    │   ├── desktop_lo.ts
-    │   ├── desktop_lt.ts
-    │   ├── desktop_lv.ts
-    │   ├── desktop_ml.ts
-    │   ├── desktop_mn.ts
-    │   ├── desktop_mr.ts
-    │   ├── desktop_ms.ts
-    │   ├── desktop_nb.ts
-    │   ├── desktop_ne.ts
-    │   ├── desktop_nl.ts
-    │   ├── desktop_pa.ts
-    │   ├── desktop_pam.ts
-    │   ├── desktop_pl.ts
-    │   ├── desktop_ps.ts
-    │   ├── desktop_pt.ts
-    │   ├── desktop_pt_BR.ts
-    │   ├── desktop_ro.ts
-    │   ├── desktop_ru.ts
-    │   ├── desktop_sc.ts
-    │   ├── desktop_si.ts
-    │   ├── desktop_sk.ts
-    │   ├── desktop_sl.ts
-    │   ├── desktop_sq.ts
-    │   ├── desktop_sr.ts
-    │   ├── desktop_sv.ts
-    │   ├── desktop_sw.ts
-    │   ├── desktop_ta.ts
-    │   ├── desktop_te.ts
-    │   ├── desktop_th.ts
-    │   ├── desktop_tr.ts
-    │   ├── desktop_tzm.ts
-    │   ├── desktop_ug.ts
-    │   ├── desktop_uk.ts
-    │   ├── desktop_ur.ts
-    │   ├── desktop_uz.ts
-    │   ├── desktop_vi.ts
-    │   ├── desktop_zh_CN.ts
-    │   ├── desktop_zh_HK.ts
-    │   └── desktop_zh_TW.ts
-    ├── keyboard_language_az.ts
-    ├── keyboard_language_bo.ts
-    ├── keyboard_language_ca.ts
-    ├── keyboard_language_cs.ts
-    ├── keyboard_language_el.ts
-    ├── keyboard_language_en.ts
-    ├── keyboard_language_en_US.ts
-    ├── keyboard_language_es.ts
-    ├── keyboard_language_fi.ts
-    ├── keyboard_language_fr.ts
-    ├── keyboard_language_hu.ts
-    ├── keyboard_language_it.ts
-    ├── keyboard_language_ms.ts
-    ├── keyboard_language_nl.ts
-    ├── keyboard_language_pl.ts
-    ├── keyboard_language_pt.ts
-    ├── keyboard_language_pt_BR.ts
-    ├── keyboard_language_ru.ts
-    ├── keyboard_language_sl.ts
-    ├── keyboard_language_sq.ts
-    ├── keyboard_language_sr.ts
-    ├── keyboard_language_tr.ts
-    ├── keyboard_language_ug.ts
-    ├── keyboard_language_uk.ts
-    ├── keyboard_language_zh_CN.ts
-    ├── keyboard_language_zh_HK.ts
-    └── keyboard_language_zh_TW.ts
+        ├──...(desktop translation files)
 ```
 
 ### 4.1 总体思路与系统框架
@@ -480,6 +272,15 @@ deepin作为国产开源的深度Linux桌面系统，不仅为用户提供了人
 #### 4.1.2 设计思路
 
 我们在初赛中已经完成了通过注册到dde-dock实现的自启动插件，对于插件的界面以及界面上按钮对应的功能已经有了一个大致的构想，但由于dde-dock的插件是一个较为独立的结构，而dde-control-center里面的每一个插件都需要往控制中心里注册一个module并且通过rpc方法与dde-application-manager进行远程服务的交流，因此在实现细节上dde-control-center插件和dde-dock插件有着很大的区别。
+
+用户逻辑方面，我们首先在控制中心实现了管理自启动应用的面板，对于添加到维护列表的应用都会被展示到面板上，对于每一项应用都会提供 Enable/Disable的选择按钮和Delete的删除按钮，用于管理是否开机自启动与不希望维护改应用的删除。同时在面板有一个添加按钮，用户点击后会打开文件对话框，用户可以自行从中选择自定义路径的应用程序添加到插件维护的列表中。
+
+插件运行逻辑方面，分别有添加、删除、开启/关闭（反转）逻辑，分别思路如下：
+
+- 添加逻辑：用户在点击添加按钮后会获取该文件的路径并读取FileInfo，AddButtonWidget发送requestCreateFile信号携带参数Category名称与FileInfo到Worker中；Worker在`/home/user/.config/autostart`文件下判断是否存在一个相同的应用信息，如果不存在则创建一个原.desktop文件的副本并且添加一行Hidden=false字段，把应用信息存到App结构体中，同时调用Woker中对应的Category的添加函数传入赋值好的App，Category在内存中同步一份自启动应用信息，最后更新前端页面
+- 删除逻辑：在用户点击应用对应行的删除按钮后获取到AppID，通过getAppById得到App信息后发送requestDelUserApp信号到Worker，Woker找到autostart文件夹中对应文件并将其删去，同时把App在对应的Category中移除，最后更新前端页面。
+- 反转逻辑：在用户点击对应行的打勾按钮后想获取到AppId，通过getAppById得到App信息后发送反转请求到Worker，Worker读取磁盘中autostart里对应.desktop文件文本找到Hidden字段并将其反转，同时调用Category把内存中App结构体的Hidden成员反转，最后更新前端页面。
+- 启动逻辑：插件启动的时候会调用Category的getAppItem函数，该函数从autostart文件夹中逐文件读取信息存在App结构体中，封装到m_appList作为初始化时参与维护的应用程序，前端从m_appList中把应用名称以及是否自启动信息列举到页面
 
 ##### operation部分
 
@@ -499,6 +300,21 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 - Worker：Worker部分提供了插件对文件系统的操作。由于操作系统对于开机自启动的支持在于把对应的.desktop文件拷贝到/home/user/.config/autostart中并设置Hidden=false，因此对于自启动应用管理的插件必须要对文件的读写提供支持，该支持由Woker部分实现
 - DBusProxy：由于插件要注册到控制中心并且对应用进行管理，因此需要向运行中的应用程序管理服务（dde-application-manager）进行交互，管理服务提供了rpc的调用接口，插件通过DBusProxy部分向管理服务发起远程请求
 
+##### window部分
+
+```
+├── selfstartup.json
+├── selfstartupdetailwidget.cpp
+├── selfstartupdetailwidget.h
+├── selfstartupplugin.cpp
+├── selfstartupplugin.h
+└── widgets
+    ├── addbuttonwidget.cpp
+    ├── addbuttonwidget.h
+    ├── category.cpp
+    └── category.h
+```
+
 
 
 ### 4.2 类功能说明
@@ -509,43 +325,39 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 ### 4.3 实现描述
 
-#### 4.2.1 DefAppModel
+#### 4.3.1 DefAppModel
 
-| 名称            | 功能 |
-| --------------- | ---- |
-| DefAppModel     |      |
-| ~DefAppModel    |      |
-| getModSelfSetUp |      |
+| 名称            | 功能                      |
+| --------------- | ------------------------- |
+| DefAppModel     | Model构造函数             |
+| ~DefAppModel    | Model析构函数             |
+| getModSelfSetUp | 返回SelfSetUp内存Category |
 
-#### 4.2.2 DefAppWorker
+#### 4.3.2 DefAppWorker
 
-| 名称                | 功能 |
-| ------------------- | ---- |
-| DefAppWorker        |      |
-| DefaultAppsCategory |      |
-| active              |      |
-| deactive            |      |
-| onReverseUserApp    |      |
-| onGetListApps       |      |
-| onDelUserApp        |      |
-| onAddUserFile       |      |
-| getCategory         |      |
+| 名称                | 功能                                                         |
+| ------------------- | ------------------------------------------------------------ |
+| DefAppWorker        | Worker构造函数，连接Worker和Model                            |
+| DefaultAppsCategory | 枚举类，用于实现插件的可扩展性，实现对不同类型软件的分类，默认状态为只有SelfSetUp类 |
+| active              | 向应用程序管理服务发出blockSignal(false)消息                 |
+| deactive            | 向应用程序管理服务发出blockSignal(true)消息                  |
+| onReverseUserApp    | 对参与维护的自启动应用开关反转处理，把autostart中的.desktop文件Hidden字段反转并同步Category |
+| onGetListApps       | 与Model处理应用变化信号结束的信息提供的一个空接口，只用于承接信号处理 |
+| onDelUserApp        | 在autostart文件夹中删去用户不希望继续维护是否自启动的应用并同步Category |
+| onAddUserFile       | 向autostart中添加用户希望维护是否自启动的应用并同步Category  |
+| getCategory         | 返回应用类型的分类                                           |
 
-#### 4.2.3 MimeDBusProxy
+#### 4.3.3 MimeDBusProxy
 
-| 名称          | 功能 |
-| ------------- | ---- |
-| MimeDBusProxy |      |
-| SetDefaultApp |      |
-| DeleteApp     |      |
-| DeleteUserApp |      |
-| AddUserApp    |      |
-| GetDefaultApp |      |
-| ListApps      |      |
-| ListUserApps  |      |
-| Change        |      |
+| 名称          | 功能                                  |
+| ------------- | ------------------------------------- |
+| MimeDBusProxy | DBusProxy构造函数                     |
+| DeleteApp     | 向应用程序管理服务发送删除App请求     |
+| AddUserApp    | 向应用程序管理服务发送添加用户App请求 |
+| ListApps      | 向应用程序管理服务发送展示所有App请求 |
+| Change        | 向应用程序管理服务发送App变动处理请求 |
 
-#### 4.2.4 SelfStartupDetailWidget
+#### 4.3.4 SelfStartupDetailWidget
 
 | 名称                     | 功能                                                         |
 | ------------------------ | ------------------------------------------------------------ |
@@ -571,7 +383,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | removeItem               |                                                              |
 | showInvalidText          |                                                              |
 
-#### 4.2.5 DefAppModel
+#### 4.3.5 DefAppModel
 
 | 名称              | 功能 |
 | ----------------- | ---- |
@@ -580,7 +392,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | module            |      |
 | location          |      |
 
-#### 4.2.6 SelfStartupModule
+#### 4.3.6 SelfStartupModule
 
 | 名称               | 功能 |
 | ------------------ | ---- |
@@ -590,12 +402,25 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | model              |      |
 | active             |      |
 
-#### 4.2.7 SelfStartupDetailModule
+#### 4.3.7 SelfStartupDetailModule
 
 | 名称                    | 功能 |
 | ----------------------- | ---- |
 | SelfStartupDetailModule |      |
 | page                    |      |
+
+#### 4.3.8 Category
+
+| 名称            | 功能                                                         |
+| --------------- | ------------------------------------------------------------ |
+| Category        | Category类构造函数，继承QObject类，每个Category类里面封装相同类型的应用信息 |
+| getName         | 获取当前Category分类的名称                                   |
+| setCategory     | 设置当前Category的类型名称                                   |
+| getappItem      | 获取当前Category封装的应用信息                               |
+| clear           | 清空当前Category储存的应用信息                               |
+| addUserItem     | 把传入应用信息存到Category中并向前端发送更新信号             |
+| delUserItem     | 把目标应用从Category中删除并向前端发送更新信号               |
+| reverseUserItem | 设置目标应用Hidden字段反转并向前端发送更新信号               |
 
  
 
