@@ -28,7 +28,7 @@ deepin作为国产开源的深度Linux桌面系统，不仅为用户提供了人
 
 目前已有的自启动管理方法是在开始菜单中对菜单中所展示应用软件单独进行自启动的设置。具体的方法是对所希望设置自启动项的应用软件选中后右键，点击“设置开机自启动”即可在每次开机时自动打开该应用软件。
 
-// TODO: 把开始菜单贴图进去
+// **TODO**: 把开始菜单贴图进去
 
 然而，这种方法有两大明显的缺陷：（1）无法向用户展示所有的自启动项设置（2）大批量的自启动项修改极其不便。由此，催生了控制中心自启动管理插件的需求。
 
@@ -36,9 +36,9 @@ deepin作为国产开源的深度Linux桌面系统，不仅为用户提供了人
 
 为了完成控制中心插件，我们对需求进行了更细致的刻画。经过总结后，插件的需求主要分为三条：
 
-1、完成一个控制中心插件，能够展示当前所有开机启动项的列表
-2、能够在插件中，通过用户界面的交互来管理（添加、删除、启用、禁用）开机启动项
-3、插件以单独的仓库提供，并能够单独构建，不需要合并入 dde-control-center 项目
+1、完成一个控制中心插件，能够展示当前所有开机启动项的列表；
+2、能够在插件中，通过用户界面的交互来管理（添加、删除、启用、禁用）开机启动项；
+3、插件以单独的仓库提供，并能够单独构建，不需要合并入 dde-control-center 项目。
 
 其中，第一条需求是该插件的基础。自启动项的列表一方面为用户提供了清晰的展示界面，另一方面也是程序与用户交互，获取修改操作信息的基础。
 第二条需求总结了该插件需要支持的功能，即添加、删除、启用、禁用，这些功能需要在前端设计对应的交互界面，同时在后端设计对应的操作接口，调用系统接口以修改自启动设置。
@@ -52,26 +52,26 @@ deepin作为国产开源的深度Linux桌面系统，不仅为用户提供了人
 
 #### 3.1.1 自启动目录
 
-在["desktop base directory specification"](http://standards.freedesktop.org/basedir-spec/)中的["Referencing this specification"](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html#referencing) 部分进行定义了自动启动目录是 $XDG_CONFIG_DIRS/autostart。
+在["desktop base directory specification"](http://standards.freedesktop.org/basedir-spec/)中的["Referencing this specification"](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html#referencing) 部分进行定义了自动启动目录是 `$XDG_CONFIG_DIRS/autostart`。
 
 如果同一文件名位于多个自动启动目录下，只应使用最重要目录下的文件。
 
 示例：
-如果未设置 $XDG_CONFIG_HOME，用户主目录中的自动启动目录为 ~/.config/autostart/
+如果未设置`$XDG_CONFIG_HOME`，用户主目录中的自动启动目录为`~/.config/autostart/`。
 
-如果未设置 $XDG_CONFIG_DIRS，系统范围的自动启动目录为 /etc/xdg/autostart/
+如果未设置`$XDG_CONFIG_DIRS`，系统范围的自动启动目录为`/etc/xdg/autostart/`。
 
-如果未设置 $XDG_CONFIG_HOME 和 $XDG_CONFIG_DIRS，并且两个文件 /etc/xdg/autostart/foo.desktop 和 ~/.config/autostart/foo.desktop 存在，那么只有文件 ~/.config/autostart/foo.desktop 将被使用，因为 ~/.config/autostart/ 比 /etc/xdg/autostart/ 更重要。
+如果未设置`$XDG_CONFIG_HOME`和`$XDG_CONFIG_DIRS`，并且两个文件`/etc/xdg/autostart/foo.desktop`和 `~/.config/autostart/foo.desktop`存在，那么只有文件`~/.config/autostart/foo.desktop`将被使用，因为`~/.config/autostart/`比`/etc/xdg/autostart/`更重要。
 
 #### 3.1.2 应用程序的`.desktop `文件
 
 一个应用程序的`.desktop`文件必须符合"桌面入口规范"中定义的格式。所有关键字应按照定义进行解释，但以下情况除外，以便考虑到位于自动启动目录中的`.desktop`文件不会显示在菜单中。
 
-**`Hidden`关键字**
+##### `Hidden`关键字
 
 当`.desktop`文件的`Hidden`关键字设置为`true`时，该`.desktop`文件必须被忽略。当多个具有相同名称的`.desktop`文件存在于多个目录中时，仅应考虑最重要的`.desktop`文件中的`Hidden`关键字：如果其设置为`true`，则其他目录中具有相同名称的所有`.desktop`文件也必须被忽略。
 
-**`OnlyShowIn`和`NotShowIn`关键字**
+##### `OnlyShowIn`和`NotShowIn`关键字
 
 `OnlyShowIn`项可以包含一个字符串列表，用于标识必须自动启动此应用程序的桌面环境，其他桌面环境不得自动启动此应用程序。
 
@@ -79,17 +79,42 @@ deepin作为国产开源的深度Linux桌面系统，不仅为用户提供了人
 
 这两个关键字中的一个，要么是`OnlyShowIn`，要么是`NotShowIn`，可以出现在单个`.desktop`文件中。
 
-**`TryExec`关键字** 
+##### `TryExec`关键字 
 
 带有非空`TryExec`字段的`.desktop`文件如果`TryExec`关键字的值与已安装的可执行程序不匹配，则不得自动启动。`TryExec`字段的值可以是绝对路径，也可以是没有任何路径组件的可执行文件名。如果指定了没有任何路径组件的可执行文件名，则会搜索`$PATH`环境以找到匹配的可执行程序。
 
-**注意事项** 
+##### 注意事项 
 
 如果通过在系统范围的自动启动目录中安装`.desktop`文件来自动启动应用程序，则个人用户可以通过在其个人自动启动目录中放置具有相同名称的`.desktop`文件来禁用此应用程序的自动启动，并在其中包含`Hidden=true`关键字。
 
 ### 3.2 控制中心插件开发
 
+##### V23控制中心特性
 
+1、V23控制中心只负责框架设计，具体功能全部由插件实现；
+2、V23控制中心支持多级插件系统，支持插件插入到任意位置中；
+3、高度可定制，可定制任意插件是否显示，若插件支持，可定制任意插件内容是否显示。
+
+##### V23控制中心插件安装路径说明
+
+1、控制中心会自动加载翻译，翻译目录需要严格放置在`/${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/dde-control-center/translations`下，控制中心会自动加载，同时，插件的翻译和名称也有要求，命名为`${Plugin_name}_{locale}.ts`，`locale`就是多语言的翻译，翻译文件必须控制和插件名称相同；
+2、控制中心的so应该放置在`/${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTA；LL_LIBDIR}/dde-control-center/modules`下，请使用构建系统的提供的`gnuinstall`路径，上面举的例子是`cmake`，`mesonbuild`也有自己的逻辑。
+
+##### V23控制中心开发接口说明
+
+1、`ModuleObject`类用于构建每个页面元素，其是插件的核心；
+2、`PluginInterface`类用于规范插件信息，每个插件必须提供一个`ModuleObject对象。
+
+##### 标准开发流程示例
+
+1、继承`PluginInterface`，实现其虚函数；
+2、实例化一个根模块，根模块在初始化时不允许有耗时操作，若有耗时操作，应继承`ModuleObject`然后实现`active`方法，将耗时操作放入其中；
+3、若根模块的子项是横向菜单列表，则可使用`List`储存其基础信息，继承或使用`HListModule`类，然后循环使用`appendChild`方法将菜单添加到根模块中；
+4、若根模块的子项是纵向菜单列表，则可使用`List`储存其基础信息，继承或使用`VListModule`类，然后循环使用`appendChild`方法将菜单添加到根模块中；
+5、以此类推，具体的某个子项菜单同样再次添加菜单列表，直到菜单列表的子项为`PageModule`时为止；
+6、准备一个以上的`Module`继承自`ModuleObject`，并实现其`page()`方法，然后添加到`PageModule`中，注意，`page()`方法中需返回新的`QWidget`对象；
+7、当某个菜单为`PageModule`时，使用其`appendChild`方法将上方的`Module`添加到其子项中，此时，控制中心会根据`page`的大小添加滚动条，并将多个`page`进行垂直排列进行显示。`PageModule`持支嵌套，并且其有默认边距，如果嵌套使用，嵌套的`PageModule`边距建议设置为0；
+8、若某个`VListModule`或`PageModule`页面需要附加按钮时，可调其子项`ModuleObject`的`setExtra`，该`ModuleObject`的`page`提供按钮，这样该`ModuleObject`将显示在`VListModule`或`PageModule`页面的最下方。
 
 ## 4 系统框架设计
 
