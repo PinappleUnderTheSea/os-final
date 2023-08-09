@@ -503,6 +503,12 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 ### 4.2 类功能说明
 
+ 
+
+
+
+### 4.3 实现描述
+
 #### 4.2.1 DefAppModel
 
 | 名称            | 功能 |
@@ -541,29 +547,29 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 #### 4.2.4 SelfStartupDetailWidget
 
-| 名称                     | 功能 |
-| ------------------------ | ---- |
+| 名称                     | 功能                                                         |
+| ------------------------ | ------------------------------------------------------------ |
 | SelfStartupDetailWidget  | 创建自启动软件条目窗口。初始化条目窗口中的文字不可编辑、icon大小、条目形状、条目不可移动，初始化存储软件列表的QStandardItemModel，初始化软件条目的布局。 |
-| ~SelfStartupDetailWidget | 删除自启动软件条目窗口。 |
+| ~SelfStartupDetailWidget | 删除自启动软件条目窗口。                                     |
 | setModel                 | 设置自启动软件条目窗口的当前模式。根据当前窗口的分类，设置不同的窗口模式（由于本插件目前只有一个分类，因此setModel功能相当于直接调用setCategory功能）。 |
 | setCategory              | 设置自启动软件条目窗口的当前分类。将分类的增、删、改的信号和对应的自启动软件条目窗口的槽函数连接，将分类中的软件放入存储软件列表的QStandardItemModel中，并更新自启动软件条目窗口。 |
 | updateListView           | 更新自启动软件条目窗口。依次读取自启动软件条目窗口的当前模式中的每一个软件状态，依照软件状态，更新窗口显示（显示是否自启动、软件名称、软件icon、删除按键）。 |
 | getAppIcon               | 获取软件的icon。从系统中获取软件的icon，并统一调整为32*32大小。 |
-| getAppById               |      |
-| appendItemData           |      |
-| isDesktopOrBinaryFile    |      |
-| isValid                  |      |
-| reverseItem              |      |
-| requestDelUserApp        |      |
-| onListViewClicked        |      |
-| onDelBtnClicked          |      |
-| onClearAll               |      |
-| getAppListview           |      |
-| AppsItemChanged          |      |
-| onReverseApp             |      |
-| addItem                  |      |
-| removeItem               |      |
-| showInvalidText          |      |
+| getAppById               |                                                              |
+| appendItemData           |                                                              |
+| isDesktopOrBinaryFile    |                                                              |
+| isValid                  |                                                              |
+| reverseItem              |                                                              |
+| requestDelUserApp        |                                                              |
+| onListViewClicked        |                                                              |
+| onDelBtnClicked          |                                                              |
+| onClearAll               |                                                              |
+| getAppListview           |                                                              |
+| AppsItemChanged          |                                                              |
+| onReverseApp             |                                                              |
+| addItem                  |                                                              |
+| removeItem               |                                                              |
+| showInvalidText          |                                                              |
 
 #### 4.2.5 DefAppModel
 
@@ -591,13 +597,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 | SelfStartupDetailModule |      |
 | page                    |      |
 
-#### 
-
-
-
-### 4.3 实现描述
-
-
+ 
 
 
 
@@ -612,8 +612,58 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 //TODO: 扩展性
 
-
 ## 附录A 插件安装
+
+### 1、开发环境配置
+
+#### （1）、配置 Deepin 操作系统
+
+开发环境：Deepin V23Beta版
+
+系统架构：x86
+
+镜像下载链接：https://mirrors.ustc.edu.cn/deepin-cd/releases/23-Beta/
+
+虚拟机平台：WMware Workstation 16Pro
+
+操作系统环境搭建参考博客：https://blog.csdn.net/qq_44133136/article/details/105887560
+
+
+
+**TODO**
+
+#### （2）、配置 Deepin 插件开发环境
+
+##### 安装基本开发环境：
+
+安装包 `build-essential`、`git`、`g++`、`cmake`、`dde`、`dtk`
+
+```shell
+sudo apt install build-essential git g++ cmake
+sudo apt install dde-dock-dev libdtkwidget-dev
+```
+
+##### 安装 QT 开发环境：
+
+安装 `qt5-default`、`qt5-doc`、`qtcreator`
+
+```shell
+sudo apt install qt5-default qt5-doc qtcreator
+```
+
+依照上述方法，可在虚拟机中运行`qtcreator`，并在`qtcreator`中对插件进行测试
+
+![image-20230513155011159](/Users/shenyang/Desktop/操作系统大赛/中期&结题/提交文档/images/QT_IDE.png)
+
+#### （3）、插件安装测试
+
+为了测试所配置的虚拟机环境可用于 DDE 插件的开发，在环境配置中，本小组选取了`Github`仓库中的插件`dde-sys-monitor-plugin`（项目地址：https://github.com/q77190858/dde-sys-monitor-plugin）进行试运行。
+
+根据上述方法配置插件开发环境后，可按照`dde-sys-monitor-plugin`中的提示信息顺利运行该插件。这表明开发环境配置已完成。
+
+
+
+
 
 ## 附录B 开发过程问题记录
 
@@ -632,6 +682,8 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 通过查阅资料与实践，我们了解到`Deepin`系统包含自启动文件夹`~/.config/autostart`，该文件夹类似于 Windows 下的启动文件夹，系统开机时会执行该文件夹下的每个 desktop 文件 Exec 参数指向的脚本或可执行文件。
 
 为了确认可行性，小组进行了该方法的验证。首先，通过`Deepin`系统自带的修改开机自启动设置的方法，修改开机启动项（图中修改`终端`的自启动项）：
+
+**TODO**
 
 ![deepin自启动修改](./images/deepin自启动修改.png)
 
