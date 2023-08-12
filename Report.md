@@ -305,7 +305,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 ```
 ├── selfstartup.json
-├── selfstartupdetailwidget.cpp
+├── selfstartup.cpp
 ├── selfstartupdetailwidget.h
 ├── selfstartupplugin.cpp
 ├── selfstartupplugin.h
@@ -316,6 +316,12 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
     └── category.h
 ```
 
+`window`部分是插件的前端部分，由`Plugin`，`Detailwidget`，`Addbuttonwidget`和`Category`四个部分：
+
+- `Plugin`：`Plugin`部分构造了自启动程序插件。包括插件接口的初始化，一级页面的初始化和二级页面的初始化。
+- `Detailwidget`：`Detailwidget`部分构造了自启动程序插件的 `app`条目。包括`app`条目的外形、位置，`app`条目的增删改查操作，以及与`worker`和`model`的交互操作（通过信号和槽函数实现）。
+- `Addbuttonwidget`：`Addbuttonwidget`部分构造了自启动程序插件的加号按钮。包括加号按钮的外形、位置，新增`app`的弹窗显示，新增`app`的路径处理，以及与`worker`和`model`的交互操作（通过信号和槽函数实现）。
+- `Category`: // to_do!
 
 
 ### 4.2 类功能说明
@@ -362,53 +368,53 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 | 名称                     | 功能                                                         |
 | ------------------------ | ------------------------------------------------------------ |
-| SelfStartupDetailWidget  | 创建自启动软件条目窗口。初始化条目窗口中的文字不可编辑、icon大小、条目形状、条目不可移动，初始化存储软件列表的QStandardItemModel，初始化软件条目的布局。 |
-| ~SelfStartupDetailWidget | 删除自启动软件条目窗口。                                     |
-| setModel                 | 设置自启动软件条目窗口的当前模式。根据当前窗口的分类，设置不同的窗口模式（由于本插件目前只有一个分类，因此setModel功能相当于直接调用setCategory功能）。 |
+| SelfStartupDetailWidget  | 自启动软件条目窗口构造函数。初始化条目窗口中的文字不可编辑、icon大小、条目形状、条目不可移动，初始化存储软件列表的QStandardItemModel，初始化软件条目的布局。 |
+| ~SelfStartupDetailWidget | 自启动软件条目窗口析构函数。                                     |
+| setModel                 | 设置自启动软件条目窗口的当前model。根据当前窗口的分类，设置不同的窗口model（由于本插件目前只有一个分类，因此setModel功能相当于直接调用setCategory功能）。 |
 | setCategory              | 设置自启动软件条目窗口的当前分类。将分类的增、删、改的信号和对应的自启动软件条目窗口的槽函数连接，将分类中的软件放入存储软件列表的QStandardItemModel中，并更新自启动软件条目窗口。 |
-| updateListView           | 更新自启动软件条目窗口。依次读取自启动软件条目窗口的当前模式中的每一个软件状态，依照软件状态，更新窗口显示（显示是否自启动、软件名称、软件icon、删除按键）。 |
+| updateListView           | 更新自启动软件条目窗口。依次读取自启动软件条目窗口的当前model中的每一个软件状态，依照软件状态，更新窗口显示（显示是否自启动、软件名称、软件icon、删除按键）。 |
 | getAppIcon               | 获取软件的icon。从系统中获取软件的icon，并统一调整为32*32大小。 |
-| getAppById               |                                                              |
-| appendItemData           |                                                              |
-| isDesktopOrBinaryFile    |                                                              |
-| isValid                  |                                                              |
-| reverseItem              |                                                              |
-| requestDelUserApp        |                                                              |
-| onListViewClicked        |                                                              |
-| onDelBtnClicked          |                                                              |
-| onClearAll               |                                                              |
-| getAppListview           |                                                              |
-| AppsItemChanged          |                                                              |
-| onReverseApp             |                                                              |
-| addItem                  |                                                              |
-| removeItem               |                                                              |
-| showInvalidText          |                                                              |
+| getAppById               | 通过ID获取APP结构体。遍历分类中的app，返回对应的APP结构体。 |
+| appendItemData           | 向model中新增app信息。从APP结构体中获取app信息，向model中新增app，并更新总app数量。 |
+| isDesktopOrBinaryFile    | 判断文件是否属于桌面或二进制文件。 |
+| isValid                  | 判断app是否有效。判断app的ID非空。 |
+| reverseItem              | 向category发出app自启动状态转换的信号。 |
+| requestDelUserApp        | 向category发出删除app的信号。 |
+| onListViewClicked        | 自启动软件条目窗口被点击后的槽函数。从自启动软件条目窗口获取app信息，并向category发出app自启动状态转换的信号。 |
+| onDelBtnClicked          | 自启动软件条目窗口删除按钮被点击后的槽函数。从自启动软件条目窗口获取app信息，并向category发出删除app的信号。 |
+| onClearAll               | 清空model中所有的app信息。 |
+| getAppListview           | 返回model中所有的app信息。 |
+| AppsItemChanged          | 重置model中所有的app信息。依次将app_list中的app信息存入model中，并连接激活、点击信号。 |
+| onReverseApp             | category返回app自启动状态转换信号的槽函数。更新对应model中app的自启动状态，并更新窗口。 |
+| addItem                  | category返回app新增信号的槽函数。向model中新增对应的app信息，并更新窗口。 |
+| removeItem               | category返回app删减信号的槽函数。向model中删减对应的app信息，并更新窗口。 |
+| showInvalidText          | 设置自启动软件条目窗口的字体、图标的位置、大小。 |
 
-#### 4.3.5 DefAppModel
+#### 4.3.5 SelfStartupPlugin
 
 | 名称              | 功能 |
 | ----------------- | ---- |
-| SelfStartupPlugin |      |
-| name              |      |
-| module            |      |
-| location          |      |
+| SelfStartupPlugin | 自启动程序插件的构造函数。基于DCC_NAMESPACE::PluginInterface的接口。 |
+| name              | 返回自启动程序插件的名称。 |
+| module            | 自启动程序插件初始化函数。初始化自启动程序插件的一级页面、二级页面和加号按钮。 |
+| location          | 返回自启动程序插件的位置。即，在控制中心插件中的排序。 |
 
 #### 4.3.6 SelfStartupModule
 
 | 名称               | 功能 |
 | ------------------ | ---- |
-| SelfStartupModule  |      |
-| ~SelfStartupModule |      |
-| work               |      |
-| model              |      |
-| active             |      |
+| SelfStartupModule  | 自启动程序插件一级页面的构造函数。初始化一级页面的名称，描述，图标，work，model。 |
+| ~SelfStartupModule | 自启动程序插件一级页面的解构函数。向m_work、m_model发送删除信号。 |
+| work               | 返回m_work。 |
+| model              | 返回m_model。 |
+| active             | 激活m_work。 |
 
 #### 4.3.7 SelfStartupDetailModule
 
 | 名称                    | 功能 |
 | ----------------------- | ---- |
-| SelfStartupDetailModule |      |
-| page                    |      |
+| SelfStartupDetailModule | 自启动程序插件二级页面的构造函数。初始化二级页面的名称，分类，work，model。 |
+| page                    | 自启动程序插件二级页面的初始化函数。初始化DetailWidget，并将DetailWidget的app状态修改信号、删除信号与work的槽函数相连接。 |
 
 #### 4.3.8 Category
 
@@ -449,7 +455,34 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 进入软件所安装的文件夹，选择该软件，即可将其添加入自启动管理中。在自启动管理界面中，可以点击软件右侧灰色的叉号，以将该软件剔除出自启动管理的界面。由此实现了自启动管理的添加、删除功能。
 
-//TODO: 扩展性
+## 6 插件的可扩展性
+
+本次项目的插件完整的覆盖了OSCOMP-proj223的所有需求，但由于只是一个短期开发的项目，因此有构想到了很多可以对插件进行扩展的方面；同时deepin作为开源社区也为开发者提供了良好的扩展接口，我们考虑了以下几点的扩展路径：
+
+### 6.1 语言扩展
+
+对于translation 板块，我们修改和编译仅仅使用了dde-control-center的zh_CN部分，限于语言广度我们只能提供插件的简体中文和英文模式，对于deepin可以支持的其他语言还有待扩展
+
+### 6.2 用户体验扩展
+
+由于Linux系统贯彻了"everything is a file"这一思想，因此整个操作系统的磁盘布局是文件化的，用户的应用可以安装到磁盘的任意地方，同时考虑到大部分Linux使用者为具有计算机基础能力的开发者，我们在插件中设计的添加应用按钮是让用户自主找到文件路径并添加。但是对于一般用户，这样的操作可能有些许复杂，所以我们考虑一个提高用户体验的方式：deepin中系统应用和从应用商店获取的用户程序分别分布在了两个文件夹中，如果用户没有自定义路径的话，我们的插件可以在用户请求添加的时候扫描这两个文件夹，提前给用户展示出可能用户希望添加的应用程序可供直接点击添加
+
+### 6.3 实时性扩展
+
+我们测试了dde-control-center的大部分插件，我们发现几乎所有都没有实现实时扫描磁盘的功能——即如果我们在dde-control-center外部对插件所管理的磁盘进行了修改的话，前端的界面并不会感受到更新而刷新界面。以自启动为例，我们实现了管理插件，但是用户仍然可以在应用菜单栏从控制中心外部添加到自启动中，此时自启动并不会更新页面，需要放回上一级窗口重新启动插件进行扫描。对于这一项扩展，我们考虑了一种方法为新起一个线程不停的扫描autostart文件夹中的.desktop文件并与Category中的比较，如果出现了不一致则发送（Q_Emit）更新窗口的信号，这样可以实现不返回上一级的情况下更新。但该功能只是作为扩展性的一个构想，实际实现的话首先带来的用户体验收益并不是很大，且已经存在插件的情况下应用场景很小，同时开启一个持续扫描的线程对于内存与插件的效率有较大的开销。
+
+### 6.4 并发性扩展
+
+插件的工作流程包含了修改磁盘与更新内存中的映射同时展示到面板上。对于磁盘的修改会涉及到一定次数的I/O，因此时间开销一定会比内存中信息更新更大的。因此我们思考了可以在此插件的基础上在新起一个进程，用rpc的方式对插件提供服务，服务内容包括对autostart文件夹的增删查改，插件只需要修改内存中的部分并作为rpc客户端向磁盘I/O的服务发送函数调用请求即可
+
+### 6.5 一致性的扩展
+
+因为插件会同时修改内存与磁盘的信息，并且保证二者相同，此时就会存在一定的一致性问题：
+
+- 磁盘和内存写入不同步，在其中一个进行的过程中发生了崩溃程序退出，此时是否成功写入成为一个一致性问题。我们的解决方式为先写入磁盘再写入内存，同时在重启插件的时候会重新扫描一次磁盘，这样只要写入磁盘的第一阶段成功之后即使崩溃也可以在重启的时候恢复数据
+- 多进程同时操作：如果有多个控制中心进程同时进行了文件的操作，采取的方式为读磁盘，写磁盘，写内存的操作，这样可以使得在读磁盘的时候如果有同名的应用被添加到里面会被正在写入（包括添加与删除操作）的进程阻塞读取，在写入过程结束之后才会触发读磁盘，然后写内存的时候判断是否存在，如果存在则跳过第三步，如果不存在则再写入磁盘
+
+
 
 ## 附录A 插件安装
 
@@ -546,6 +579,8 @@ deepin-terminal.desktop org.deepin.browser.desktop
 由此，可以通过在插件中检查所有`~/.config/autostart`文件夹中`.desktop`文件的`Hidden`字段来搜索系统所有的自启动软件；也可以通过添加`.desktop`文件、修改`Hidden`字段的方式进行开机自启动设置的修改。
 
 ### 6 rpc远程通信问题
+
+//TODO
 
 ## 附录C 开发计划
 
