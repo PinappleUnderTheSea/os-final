@@ -34,7 +34,7 @@ DDE 控制中心自启动管理插件可单独编译、集成至 DDE 控制中�
 
 ### 2、DDE Dock自启动管理插件：
 
-项目地址：地址：[https://github.com/PinappleUnderTheSea/os223.git](
+项目地址：地址：https://github.com/PinappleUnderTheSea/os223.git
 
 ## 成果展示
 
@@ -45,15 +45,15 @@ DDE 控制中心自启动管理插件可单独编译、集成至 DDE 控制中�
 
 插件图标：
 
-<img src="./images/前端页面.jpg" alt="前端页面" style="zoom:50%;" />
+<img src="./images/前端页面.jpg" alt="前端页面" style="zoom:30%;" />
 
 自启动管理窗口：
 
-<img src="./images/自启动管理页面.jpg" alt="自启动管理页面" style="zoom:50%;" />
+<img src="./images/自启动管理页面.jpg" alt="自启动管理页面" style="zoom:30%;" />
 
 添加自启动应用选择界面：
 
-<img src="./images/应用选择页面.jpg" alt="应用选择页面" style="zoom:67%;" />
+<img src="./images/应用选择页面.jpg" alt="应用选择页面" style="zoom:30%;" />
 
 ## 部署方式
 
