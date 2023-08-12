@@ -12,6 +12,7 @@
 #include "mimedbusproxy.h"
 #include "category.h"
 
+class QTranslator;
 class QFileInfo;
 
 class DefAppModel;
@@ -44,6 +45,7 @@ private:
     MimeDBusProxy  *m_dbusManager;
     QMap<QString, DefaultAppsCategory> m_stringToCategory;
     QString m_userLocalPath;
+    QTranslator *m_translator;
 
 private:
     Category* getCategory(const QString &mime) const;

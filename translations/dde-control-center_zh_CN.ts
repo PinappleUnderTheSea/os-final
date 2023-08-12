@@ -3890,18 +3890,4 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>了解详情</translation>
     </message>
 </context>
-<context>
-    <name>SelfStartupModule</name>
-    <message>
-        <source>Self Start-up</source>
-        <translation>自启动程序</translation>
-    </message>
-</context>
-<context>
-    <name>SelfStartupPlugin</name>
-    <message>
-        <source>Self Start-up</source>
-        <translation>自启动程序</translation>
-    </message>
-</context>
 </TS>
