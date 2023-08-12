@@ -507,6 +507,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 ```shell
 sudo apt build-dep .
 sudo apt install -y qt5-default
+sudo apt-get install dde-control-center-dev
 ```
 
 #### （3）、插件安装测试
