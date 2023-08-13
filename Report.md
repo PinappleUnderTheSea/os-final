@@ -218,7 +218,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 - `Detailwidget`：`Detailwidget`部分构造了自启动程序插件的 `app`条目。包括`app`条目的外形、位置，`app`条目的增删改查操作，以及与`worker`和`model`的交互操作（通过信号和槽函数实现）。
 - `Addbuttonwidget`：`Addbuttonwidget`部分构造了自启动程序插件的加号按钮。包括加号按钮的外形、位置，新增`app`的弹窗显示，新增`app`的路径处理，以及与`worker`和`model`的交互操作（通过信号和槽函数实现）。
 - `Category`: `category`部分为磁盘中autostart文件夹中重要信息在内存中的拷贝，用于插件的窗口部分直接获取到该文件夹中.desktop类型文件的重要字段展示到界面。
- 
+
 
 
 
@@ -394,7 +394,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 #### （2）、配置 Deepin 插件环境
 
-##### 安装依赖包：
+**安装依赖包**：
 
 ```shell
 sudo apt build-dep .
@@ -442,13 +442,35 @@ sudo sh shell.sh
 
 于是我们重新安装最新版本的`Deepin V23Beta`，成功的将我们所编写的插件植入控制中心中。
 
-### 2 图标展示问题
+### 2 图标与文字颜色展示问题
+
+我们初步的demo展示出来的界面所有管理的应用程序都是统一显示的默认应用程序的图标，但我们还是希望要和deepin桌面上.desktop文件相同的图标；与此同时，我们发现发现插件中的应用程序名字都是红色，同时希望这里是一个经典的黑色，这两个都是关于item的展示问题。我们关注到了这一段代码
+
+```c++
+QIcon icon = getAppIcon(iconName, QSize(32, 32));
+act->setIcon(icon);
+act->setTextColorRole(DPalette::TextTitle);
+act->setIconText(name);
+```
+
+- 关于icon问题，我们可以对App结构体进行扩展，增加一条icon字段，通过读取带有图标应用程序.desktop文件中的icon字段存到当中，如果没有icon字段的程序设置为“application-default-icon”，并且在展示的时候调用`act->setIcon()`传入icon字段
+- 关于颜色问题，上述代码中看到了`act->setTextColorRole()`字段，里面传入了文字颜色类型的变量，在DPalette中定义了如下常量，初始选择的红色文字为`TextWarning`，我们只需要替换为`TextTitle`即可
+
+| TypeName       | 颜色类型                                                     |
+| -------------- | ------------------------------------------------------------ |
+| ItemBackground | 列表项的背景色                                               |
+| TextTitle      | 标题型文本的颜色                                             |
+| TextTips       | 提示性文本的颜色                                             |
+| TextWarning    | 警告类型的文本颜色                                           |
+| TextLively     | 活跃式文本颜色（不受活动色影响）                             |
+| LightLively    | 活跃式按钮（recommend button）背景色中的亮色（不受活跃色影响） |
+| DarkLively     | 活跃式按钮（recommend button）背景色中的暗色，会从亮色渐变到暗色（不受活跃色影响） |
+| FrameBorder    | 控件边框颜色                                                 |
+| NColorTypes    | 无颜色类型                                                   |
 
 ### 3 翻译问题
 
-### 4 文字颜色异常问题
-
-### 5 开机启动项处理思路问题
+### 4 开机启动项处理思路问题
 
 为了实现插件可视化管理软件的开机自启动，了解`Deepin`系统开机自启动的功能实现是至关重要的。
 
@@ -471,7 +493,7 @@ deepin-terminal.desktop org.deepin.browser.desktop
 
 由此，可以通过在插件中检查所有`~/.config/autostart`文件夹中`.desktop`文件的`Hidden`字段来搜索系统所有的自启动软件；也可以通过添加`.desktop`文件、修改`Hidden`字段的方式进行开机自启动设置的修改。
 
-### 6 rpc远程通信问题
+### 5 rpc远程通信问题
 
 1. **远程过程调用：** RPC允许一个程序调用另一个程序在远程机器或进程上执行的过程（函数或方法），就像本地调用一样。这样，开发者可以透明地在分布式系统中调用远程的功能，无需关注底层网络细节。
 2. **通信协议：** RPC通信需要定义一个协议，该协议规定了消息的格式、编码方式、序列化和反序列化方法等。通过确定的request和response协议格式制定规定了客户端和服务器之间如何进行数据交换。
