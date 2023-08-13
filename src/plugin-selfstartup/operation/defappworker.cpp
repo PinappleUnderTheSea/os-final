@@ -12,14 +12,11 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QTranslator>
-#include <QApplication>
 
 DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     QObject(parent),
     m_defAppModel(model),
-    m_dbusManager(new MimeDBusProxy(this)), 
-    m_translator(nullptr)
+    m_dbusManager(new MimeDBusProxy(this))
 {
 
     m_stringToCategory.insert("SelfSetUp",     SelfSetUp);
@@ -33,14 +30,6 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 
 void DefAppWorker::active()
 {
-    QApplication qApp(0, nullptr);
-
-    if (!m_translator) {
-        m_translator = new QTranslator(this);
-        m_translator->load("/usr/share/dde-control-center/translations/self-startup-plugin_" + QLocale::system().name());
-        qApp->installTranslator(m_translator);
-    }
-
     m_dbusManager->blockSignals(false);
 }
 

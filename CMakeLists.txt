@@ -103,6 +103,8 @@ set(Test_Libraries
     Qt5::Test
 )
 
+add_subdirectory("example")
+
 #--------------------------interface--------------------------
 set(Interface_Name dcc-interface)
 file(GLOB_RECURSE Interface_SRCS
