@@ -119,145 +119,39 @@ deepin作为国产开源的深度Linux桌面系统，不仅为用户提供了人
 
 ## 4 系统框架设计
 
-**项目文件组织**
+### 4.1 项目组织方式
+
+#### 类图
+
+<img src="./images/类图.jpg" alt="默认自启动设置方式" style="zoom:100%;" />
+
+#### 项目文件组织
+
+详细文件树请见附录C
 
 ```bash
 .
 ├── CMakeLists.txt
 ├── include
 │   ├── interface
-│   │   ├── hlistmodule.h
-│   │   ├── moduleobject.h
-│   │   ├── namespace.h
-│   │   ├── pagemodule.h
-│   │   ├── plugininterface.h
-│   │   └── vlistmodule.h
+│   │   ├── ...
 │   └── widgets
-│       ├── accessibleinterface.h
-│       ├── buttontuple.h
-│       ├── comboxwidget.h
-│       ├── dccdbusinterface.h
-│       ├── dcclistview.h
-│       ├── dccslider.h
-│       ├── detailinfoitem.h
-│       ├── horizontalmodule.h
-│       ├── itemmodule.h
-│       ├── lineeditwidget.h
-│       ├── listviewmodule.h
-│       ├── modulelistmodel.h
-│       ├── moduleobjectitem.h
-│       ├── settingsgroup.h
-│       ├── settingsgroupmodule.h
-│       ├── settingshead.h
-│       ├── settingsheaderitem.h
-│       ├── settingsitem.h
-│       ├── switchwidget.h
-│       ├── titledslideritem.h
-│       ├── titlelabel.h
-│       ├── titlevalueitem.h
-│       ├── utils.h
-│       └── widgetmodule.h
+│       ├── ...
 ├── misc
-│   ├── DdeControlCenterConfig.cmake.in
-│   ├── configs
-│   │   ├── org.deepin.dde.control-center.accounts.json
-│   │   ├── org.deepin.dde.control-center.display.json
-│   │   ├── org.deepin.dde.control-center.json
-│   │   └── org.deepin.dde.control-center.update.json
-│   ├── dde-control-center.desktop
-│   ├── developdocument.html
-│   ├── gen_report.sh
-│   ├── lupdate.sh
-│   ├── org.deepin.dde.ControlCenter1.service
-│   ├── translate_desktop2ts.sh
-│   ├── translate_generation.sh
-│   └── translate_ts2desktop.sh
+│   ├── ...
 ├── shell.sh
 ├── src
 │   ├── frame
-│   │   ├── accessible.h
-│   │   ├── controlcenterdbusadaptor.cpp
-│   │   ├── controlcenterdbusadaptor.h
-│   │   ├── listitemdelegate.cpp
-│   │   ├── listitemdelegate.h
-│   │   ├── listview.cpp
-│   │   ├── listview.h
-│   │   ├── main.cpp
-│   │   ├── mainmodule.cpp
-│   │   ├── mainmodule.h
-│   │   ├── mainwindow.cpp
-│   │   ├── mainwindow.h
-│   │   ├── pluginmanager.cpp
-│   │   ├── pluginmanager.h
-│   │   ├── searchwidget.cpp
-│   │   ├── searchwidget.h
-│   │   ├── utils.cpp
-│   │   └── utils.h
+│   │   ├── ...
 │   ├── interface
-│   │   ├── hlistmodule.cpp
-│   │   ├── moduledatamodel.cpp
-│   │   ├── moduledatamodel.h
-│   │   ├── moduleobject.cpp
-│   │   ├── pagemodule.cpp
-│   │   ├── tabitemdelegate.cpp
-│   │   ├── tabitemdelegate.h
-│   │   ├── tabview.cpp
-│   │   ├── tabview.h
-│   │   └── vlistmodule.cpp
+│   │   ├── ...
 │   ├── plugin-selfstartup
 │   │   ├── operation
-│   │   │   ├── defappmodel.cpp
-│   │   │   ├── defappmodel.h
-│   │   │   ├── defappworker.cpp
-│   │   │   ├── defappworker.h
-│   │   │   ├── mimedbusproxy.cpp
-│   │   │   ├── mimedbusproxy.h
-│   │   │   └── qrc
-│   │   │       ├── icons
-│   │   │       │   ├── dcc_nav_selfstartup_42px.svg
-│   │   │       │   └── dcc_nav_selfstartup_84px.svg
-│   │   │       ├── selfstartup.qrc
-│   │   │       └── themes
-│   │   │           └── dark
-│   │   │               └── icons
-│   │   │                   ├── nav_selfstartup.svg
-│   │   │                   └── nav_selfstartup_normal.svg
+│   │   │   ├── ...
 │   │   └── window
-│   │       ├── selfstartup.json
-│   │       ├── selfstartupdetailwidget.cpp
-│   │       ├── selfstartupdetailwidget.h
-│   │       ├── selfstartupplugin.cpp
-│   │       ├── selfstartupplugin.h
-│   │       └── widgets
-│   │           ├── addbuttonwidget.cpp
-│   │           ├── addbuttonwidget.h
-│   │           ├── category.cpp
-│   │           └── category.h
+│   │       ├── ...
 │   └── widgets
-│       ├── accessiblefactoryinterface.h
-│       ├── accessibleinterface.cpp
-│       ├── buttontuple.cpp
-│       ├── comboxwidget.cpp
-│       ├── dccdbusinterface.cpp
-│       ├── dccdbusinterface_p.h
-│       ├── dcclistview.cpp
-│       ├── dccslider.cpp
-│       ├── detailinfoitem.cpp
-│       ├── horizontalmodule.cpp
-│       ├── itemmodule.cpp
-│       ├── lineeditwidget.cpp
-│       ├── listviewmodule.cpp
-│       ├── modulelistmodel.cpp
-│       ├── moduleobjectitem.cpp
-│       ├── settingsgroup.cpp
-│       ├── settingsgroupmodule.cpp
-│       ├── settingshead.cpp
-│       ├── settingsheaderitem.cpp
-│       ├── settingsitem.cpp
-│       ├── switchwidget.cpp
-│       ├── titledslideritem.cpp
-│       ├── titlelabel.cpp
-│       └── titlevalueitem.cpp
+│       ├── ...
 └── translations
     ├── ...(translation files)
     ├── desktop
@@ -583,7 +477,11 @@ deepin-terminal.desktop org.deepin.browser.desktop
 
 //TODO
 
-## 附录C 开发计划
+## 附录C 详细文件树
+
+
+
+## 附录D 开发计划
 
 ### 第一步（6/26～7/8）
 
