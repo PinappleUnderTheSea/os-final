@@ -479,6 +479,359 @@ deepin-terminal.desktop org.deepin.browser.desktop
 
 ## 附录C 详细文件树
 
+```
+├── CMakeLists.txt
+├── Report.md
+├── build
+├── include
+│   ├── interface
+│   │   ├── hlistmodule.h
+│   │   ├── moduleobject.h
+│   │   ├── namespace.h
+│   │   ├── pagemodule.h
+│   │   ├── plugininterface.h
+│   │   └── vlistmodule.h
+│   └── widgets
+│       ├── accessibleinterface.h
+│       ├── buttontuple.h
+│       ├── comboxwidget.h
+│       ├── dccdbusinterface.h
+│       ├── dcclistview.h
+│       ├── dccslider.h
+│       ├── detailinfoitem.h
+│       ├── horizontalmodule.h
+│       ├── itemmodule.h
+│       ├── lineeditwidget.h
+│       ├── listviewmodule.h
+│       ├── modulelistmodel.h
+│       ├── moduleobjectitem.h
+│       ├── settingsgroup.h
+│       ├── settingsgroupmodule.h
+│       ├── settingshead.h
+│       ├── settingsheaderitem.h
+│       ├── settingsitem.h
+│       ├── switchwidget.h
+│       ├── titledslideritem.h
+│       ├── titlelabel.h
+│       ├── titlevalueitem.h
+│       ├── utils.h
+│       └── widgetmodule.h
+├── misc
+│   ├── DdeControlCenterConfig.cmake.in
+│   ├── configs
+│   │   ├── org.deepin.dde.control-center.accounts.json
+│   │   ├── org.deepin.dde.control-center.display.json
+│   │   ├── org.deepin.dde.control-center.json
+│   │   └── org.deepin.dde.control-center.update.json
+│   ├── dde-control-center.desktop
+│   ├── developdocument.html
+│   ├── gen_report.sh
+│   ├── lupdate.sh
+│   ├── org.deepin.dde.ControlCenter1.service
+│   ├── translate_desktop2ts.sh
+│   ├── translate_generation.sh
+│   └── translate_ts2desktop.sh
+├── shell.sh
+├── src
+│   ├── frame
+│   │   ├── accessible.h
+│   │   ├── controlcenterdbusadaptor.cpp
+│   │   ├── controlcenterdbusadaptor.h
+│   │   ├── listitemdelegate.cpp
+│   │   ├── listitemdelegate.h
+│   │   ├── listview.cpp
+│   │   ├── listview.h
+│   │   ├── main.cpp
+│   │   ├── mainmodule.cpp
+│   │   ├── mainmodule.h
+│   │   ├── mainwindow.cpp
+│   │   ├── mainwindow.h
+│   │   ├── pluginmanager.cpp
+│   │   ├── pluginmanager.h
+│   │   ├── searchwidget.cpp
+│   │   ├── searchwidget.h
+│   │   ├── utils.cpp
+│   │   └── utils.h
+│   ├── interface
+│   │   ├── hlistmodule.cpp
+│   │   ├── moduledatamodel.cpp
+│   │   ├── moduledatamodel.h
+│   │   ├── moduleobject.cpp
+│   │   ├── pagemodule.cpp
+│   │   ├── tabitemdelegate.cpp
+│   │   ├── tabitemdelegate.h
+│   │   ├── tabview.cpp
+│   │   ├── tabview.h
+│   │   └── vlistmodule.cpp
+│   ├── plugin-selfstartup
+│   │   ├── operation
+│   │   │   ├── defappmodel.cpp
+│   │   │   ├── defappmodel.h
+│   │   │   ├── defappworker.cpp
+│   │   │   ├── defappworker.h
+│   │   │   ├── mimedbusproxy.cpp
+│   │   │   ├── mimedbusproxy.h
+│   │   │   └── qrc
+│   │   │       ├── icons
+│   │   │       │   ├── dcc_nav_selfstartup_42px.svg
+│   │   │       │   └── dcc_nav_selfstartup_84px.svg
+│   │   │       ├── selfstartup.qrc
+│   │   │       └── themes
+│   │   │           └── dark
+│   │   │               └── icons
+│   │   │                   ├── nav_selfstartup.svg
+│   │   │                   └── nav_selfstartup_normal.svg
+│   │   └── window
+│   │       ├── selfstartup.json
+│   │       ├── selfstartupdetailwidget.cpp
+│   │       ├── selfstartupdetailwidget.h
+│   │       ├── selfstartupplugin.cpp
+│   │       ├── selfstartupplugin.h
+│   │       └── widgets
+│   │           ├── addbuttonwidget.cpp
+│   │           ├── addbuttonwidget.h
+│   │           ├── category.cpp
+│   │           └── category.h
+│   └── widgets
+│       ├── accessiblefactoryinterface.h
+│       ├── accessibleinterface.cpp
+│       ├── buttontuple.cpp
+│       ├── comboxwidget.cpp
+│       ├── dccdbusinterface.cpp
+│       ├── dccdbusinterface_p.h
+│       ├── dcclistview.cpp
+│       ├── dccslider.cpp
+│       ├── detailinfoitem.cpp
+│       ├── horizontalmodule.cpp
+│       ├── itemmodule.cpp
+│       ├── lineeditwidget.cpp
+│       ├── listviewmodule.cpp
+│       ├── modulelistmodel.cpp
+│       ├── moduleobjectitem.cpp
+│       ├── settingsgroup.cpp
+│       ├── settingsgroupmodule.cpp
+│       ├── settingshead.cpp
+│       ├── settingsheaderitem.cpp
+│       ├── settingsitem.cpp
+│       ├── switchwidget.cpp
+│       ├── titledslideritem.cpp
+│       ├── titlelabel.cpp
+│       └── titlevalueitem.cpp
+└── translations
+    ├── dde-control-center_ady.ts
+    ├── dde-control-center_af.ts
+    ├── dde-control-center_ak.ts
+    ├── dde-control-center_am_ET.ts
+    ├── dde-control-center_ar.ts
+    ├── dde-control-center_ar_EG.ts
+    ├── dde-control-center_ast.ts
+    ├── dde-control-center_az.ts
+    ├── dde-control-center_bg.ts
+    ├── dde-control-center_bn.ts
+    ├── dde-control-center_bo.ts
+    ├── dde-control-center_br.ts
+    ├── dde-control-center_ca.ts
+    ├── dde-control-center_cgg.ts
+    ├── dde-control-center_cs.ts
+    ├── dde-control-center_da.ts
+    ├── dde-control-center_de.ts
+    ├── dde-control-center_de_CH.ts
+    ├── dde-control-center_el.ts
+    ├── dde-control-center_en.ts
+    ├── dde-control-center_en_AU.ts
+    ├── dde-control-center_en_GB.ts
+    ├── dde-control-center_en_US.ts
+    ├── dde-control-center_eo.ts
+    ├── dde-control-center_es.ts
+    ├── dde-control-center_es_MX.ts
+    ├── dde-control-center_et.ts
+    ├── dde-control-center_eu.ts
+    ├── dde-control-center_fa.ts
+    ├── dde-control-center_fi.ts
+    ├── dde-control-center_fil.ts
+    ├── dde-control-center_fr.ts
+    ├── dde-control-center_gl_ES.ts
+    ├── dde-control-center_he.ts
+    ├── dde-control-center_hi_IN.ts
+    ├── dde-control-center_hr.ts
+    ├── dde-control-center_hu.ts
+    ├── dde-control-center_hy.ts
+    ├── dde-control-center_id.ts
+    ├── dde-control-center_it.ts
+    ├── dde-control-center_ja.ts
+    ├── dde-control-center_ka.ts
+    ├── dde-control-center_kab.ts
+    ├── dde-control-center_kk.ts
+    ├── dde-control-center_km_KH.ts
+    ├── dde-control-center_kn_IN.ts
+    ├── dde-control-center_ko.ts
+    ├── dde-control-center_ku.ts
+    ├── dde-control-center_ku_IQ.ts
+    ├── dde-control-center_ky.ts
+    ├── dde-control-center_ky@Arab.ts
+    ├── dde-control-center_la.ts
+    ├── dde-control-center_lo.ts
+    ├── dde-control-center_lt.ts
+    ├── dde-control-center_lv.ts
+    ├── dde-control-center_ml.ts
+    ├── dde-control-center_mn.ts
+    ├── dde-control-center_mr.ts
+    ├── dde-control-center_ms.ts
+    ├── dde-control-center_nb.ts
+    ├── dde-control-center_ne.ts
+    ├── dde-control-center_nl.ts
+    ├── dde-control-center_pa.ts
+    ├── dde-control-center_pam.ts
+    ├── dde-control-center_pl.ts
+    ├── dde-control-center_ps.ts
+    ├── dde-control-center_pt.ts
+    ├── dde-control-center_pt_BR.ts
+    ├── dde-control-center_ro.ts
+    ├── dde-control-center_ru.ts
+    ├── dde-control-center_sc.ts
+    ├── dde-control-center_si.ts
+    ├── dde-control-center_sk.ts
+    ├── dde-control-center_sl.ts
+    ├── dde-control-center_sq.ts
+    ├── dde-control-center_sr.ts
+    ├── dde-control-center_sv.ts
+    ├── dde-control-center_sw.ts
+    ├── dde-control-center_ta.ts
+    ├── dde-control-center_te.ts
+    ├── dde-control-center_th.ts
+    ├── dde-control-center_tr.ts
+    ├── dde-control-center_tzm.ts
+    ├── dde-control-center_ug.ts
+    ├── dde-control-center_uk.ts
+    ├── dde-control-center_ur.ts
+    ├── dde-control-center_uz.ts
+    ├── dde-control-center_vi.ts
+    ├── dde-control-center_zh_CN.ts
+    ├── dde-control-center_zh_HK.ts
+    ├── dde-control-center_zh_TW.ts
+    ├── desktop
+    │   ├── desktop.ts
+    │   ├── desktop_ady.ts
+    │   ├── desktop_af.ts
+    │   ├── desktop_ak.ts
+    │   ├── desktop_am_ET.ts
+    │   ├── desktop_ar.ts
+    │   ├── desktop_ar_EG.ts
+    │   ├── desktop_ast.ts
+    │   ├── desktop_az.ts
+    │   ├── desktop_bg.ts
+    │   ├── desktop_bn.ts
+    │   ├── desktop_bo.ts
+    │   ├── desktop_br.ts
+    │   ├── desktop_ca.ts
+    │   ├── desktop_cgg.ts
+    │   ├── desktop_cs.ts
+    │   ├── desktop_da.ts
+    │   ├── desktop_de.ts
+    │   ├── desktop_de_CH.ts
+    │   ├── desktop_el.ts
+    │   ├── desktop_en.ts
+    │   ├── desktop_en_AU.ts
+    │   ├── desktop_en_GB.ts
+    │   ├── desktop_en_US.ts
+    │   ├── desktop_eo.ts
+    │   ├── desktop_es.ts
+    │   ├── desktop_es_419.ts
+    │   ├── desktop_es_MX.ts
+    │   ├── desktop_et.ts
+    │   ├── desktop_fa.ts
+    │   ├── desktop_fi.ts
+    │   ├── desktop_fil.ts
+    │   ├── desktop_fr.ts
+    │   ├── desktop_gl_ES.ts
+    │   ├── desktop_he.ts
+    │   ├── desktop_hi_IN.ts
+    │   ├── desktop_hr.ts
+    │   ├── desktop_hu.ts
+    │   ├── desktop_hy.ts
+    │   ├── desktop_id.ts
+    │   ├── desktop_it.ts
+    │   ├── desktop_ja.ts
+    │   ├── desktop_ka.ts
+    │   ├── desktop_kab.ts
+    │   ├── desktop_kk.ts
+    │   ├── desktop_km_KH.ts
+    │   ├── desktop_kn_IN.ts
+    │   ├── desktop_ko.ts
+    │   ├── desktop_ku.ts
+    │   ├── desktop_ku_IQ.ts
+    │   ├── desktop_ky.ts
+    │   ├── desktop_ky@Arab.ts
+    │   ├── desktop_la.ts
+    │   ├── desktop_lo.ts
+    │   ├── desktop_lt.ts
+    │   ├── desktop_lv.ts
+    │   ├── desktop_ml.ts
+    │   ├── desktop_mn.ts
+    │   ├── desktop_mr.ts
+    │   ├── desktop_ms.ts
+    │   ├── desktop_nb.ts
+    │   ├── desktop_ne.ts
+    │   ├── desktop_nl.ts
+    │   ├── desktop_pa.ts
+    │   ├── desktop_pam.ts
+    │   ├── desktop_pl.ts
+    │   ├── desktop_ps.ts
+    │   ├── desktop_pt.ts
+    │   ├── desktop_pt_BR.ts
+    │   ├── desktop_ro.ts
+    │   ├── desktop_ru.ts
+    │   ├── desktop_sc.ts
+    │   ├── desktop_si.ts
+    │   ├── desktop_sk.ts
+    │   ├── desktop_sl.ts
+    │   ├── desktop_sq.ts
+    │   ├── desktop_sr.ts
+    │   ├── desktop_sv.ts
+    │   ├── desktop_sw.ts
+    │   ├── desktop_ta.ts
+    │   ├── desktop_te.ts
+    │   ├── desktop_th.ts
+    │   ├── desktop_tr.ts
+    │   ├── desktop_tzm.ts
+    │   ├── desktop_ug.ts
+    │   ├── desktop_uk.ts
+    │   ├── desktop_ur.ts
+    │   ├── desktop_uz.ts
+    │   ├── desktop_vi.ts
+    │   ├── desktop_zh_CN.ts
+    │   ├── desktop_zh_HK.ts
+    │   └── desktop_zh_TW.ts
+    ├── keyboard_language_az.ts
+    ├── keyboard_language_bo.ts
+    ├── keyboard_language_ca.ts
+    ├── keyboard_language_cs.ts
+    ├── keyboard_language_el.ts
+    ├── keyboard_language_en.ts
+    ├── keyboard_language_en_US.ts
+    ├── keyboard_language_es.ts
+    ├── keyboard_language_fi.ts
+    ├── keyboard_language_fr.ts
+    ├── keyboard_language_hu.ts
+    ├── keyboard_language_it.ts
+    ├── keyboard_language_ms.ts
+    ├── keyboard_language_nl.ts
+    ├── keyboard_language_pl.ts
+    ├── keyboard_language_pt.ts
+    ├── keyboard_language_pt_BR.ts
+    ├── keyboard_language_ru.ts
+    ├── keyboard_language_sl.ts
+    ├── keyboard_language_sq.ts
+    ├── keyboard_language_sr.ts
+    ├── keyboard_language_tr.ts
+    ├── keyboard_language_ug.ts
+    ├── keyboard_language_uk.ts
+    ├── keyboard_language_zh_CN.ts
+    ├── keyboard_language_zh_HK.ts
+    ├── keyboard_language_zh_TW.ts
+    └── translations.qrc
+```
+
 
 
 ## 附录D 开发计划
