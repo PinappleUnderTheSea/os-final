@@ -215,7 +215,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 - `Plugin`：`Plugin`部分构造了自启动程序插件。包括插件接口的初始化，一级页面的初始化和二级页面的初始化。
 - `Detailwidget`：`Detailwidget`部分构造了自启动程序插件的 `app`条目。包括`app`条目的外形、位置，`app`条目的增删改查操作，以及与`worker`和`model`的交互操作（通过信号和槽函数实现）。
 - `Addbuttonwidget`：`Addbuttonwidget`部分构造了自启动程序插件的加号按钮。包括加号按钮的外形、位置，新增`app`的弹窗显示，新增`app`的路径处理，以及与`worker`和`model`的交互操作（通过信号和槽函数实现）。
-- `Category`: // to_do!
+- `Category`: `category`部分为磁盘中autostart文件夹中重要信息在内存中的拷贝，用于插件的窗口部分直接获取到该文件夹中.desktop类型文件的重要字段展示到界面。
 
 
 ### 4.2 类功能说明
