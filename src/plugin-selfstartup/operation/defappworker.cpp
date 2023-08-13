@@ -33,7 +33,7 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 
 void DefAppWorker::active()
 {
-    QApplication qApp;
+    QApplication qApp(0, nullptr);
 
     if (!m_translator) {
         m_translator = new QTranslator(this);
