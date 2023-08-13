@@ -511,6 +511,12 @@ deepin-terminal.desktop org.deepin.browser.desktop
 
 ### 7 插件描述缺失问题
 
+<img src="./images/添加描述前.png" alt="添加描述前" style="zoom:80%;" />
+
+在加载插件后，我们发现插件缺失了描述信息，与其他的插件格式明显由很大的不同，通过`Matrix`上交流发现，是插件缺少了`setDescription`的代码，因此，正确加入描述后，我们获得了以下结果。
+
+<img src="./images/添加描述后.png" alt="添加描述后" style="zoom:80%;" />
+
 ## 附录C 详细文件树
 
 ```
