@@ -445,7 +445,11 @@ sudo sh shell.sh
 ### 2 图标展示问题
 
 ### 3 翻译问题
+翻译主要涉及到：插件名的翻译和自启动软件名的翻译。
 
+对于插件名的翻译。我们学习了`DDE-NETWORK-CORE`仓库的做法，首先我们编写翻译成不同语言的`.ts`翻译文件，使用`CMakelists`中的`qt5_add_translation`指令获得`.qm`翻译文件，再将翻译的`.qm`文件`install`进入`${CMAKE_INSTALL_DATAROOTDIR}/dde-control-center/translations`（通常是`$/usr/share/dde-control-center/translations`），在通过`loadTranslator`载入系统对应语言的翻译文件。
+
+对于自启动软件名的翻译。考虑到部分软件缺失官方翻译名称，无法软件的信息中直接获取，yin我们目前只采用英文格式。
 ### 4 文字颜色异常问题
 
 ### 5 开机启动项处理思路问题
@@ -480,6 +484,8 @@ deepin-terminal.desktop org.deepin.browser.desktop
 5. **错误处理：** RPC通信中需要处理各种可能的错误情况，例如网络连接中断、超时、服务不可用等。合理的错误处理可以保证系统的可靠性和鲁棒性。
 6. **服务注册与发现：** 在dde-application-manager中以字符串命名注册了远程调用函数的服务，dde-control-center中关于对应用的变更可以通过rpc远程调用实现就和
 7. **安全性：** RPC通信涉及跨网络的数据传输，因此安全性是一个重要考虑因素。加密、认证和授权等机制可以确保通信的安全性。
+
+### 7 插件描述缺失问题
 
 ## 附录C 详细文件树
 
