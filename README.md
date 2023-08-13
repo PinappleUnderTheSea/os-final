@@ -123,7 +123,7 @@ sudo sh shell.sh
 - [x] Debug
 - [x] 撰写文档
 
-（以上DDE-Dock自启动插件开发均在初赛完成，项目地址见末尾）
+**（以上DDE-Dock自启动插件开发均在初赛完成，项目地址见末尾）**
 
 ### 第六步（6/26～7/8）
 
@@ -151,6 +151,30 @@ sudo sh shell.sh
 
 - [x] 修改翻译、文字颜色问题
 - [x] 撰写文档
+
+## 参考资料
+
+### 文档
+
+Qt 插件标准：https://wiki.qt.io/Plugins
+
+deepin V23 `dde-control-center`文档：[dde-control-center: dde-control-center (linuxdeepin.github.io)](https://linuxdeepin.github.io/dde-control-center/index.html)
+
+`dde-control-center`控制中心插件开发示例：[控制中心插件 - deepin开发者平台](https://docs.deepin.org/info/开发入门/基础环境/DTK/案例/案例/控制中心插件)
+
+`qt-5`手册：https://doc.qt.io/qt-5/
+
+deepin 应用自启动说明：https://specifications.freedesktop.org/autostart-spec/autostart-spec-latest.html
+
+### 博客
+
+关于`deepin`开机自启动项的讨论：https://bbs.deepin.org/zh/post/169824、https://blog.csdn.net/qq_21137441/article/details/124825726
+
+### 仓库
+
+`dde-control-center`仓库：https://github.com/linuxdeepin/dde-control-center.git
+
+其他开发者的插件项目：https://github.com/linuxdeepin/dde-network-core/tree/master
 
 ## 补充：DDE-Dock插件
 
