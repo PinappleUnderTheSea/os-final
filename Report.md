@@ -509,7 +509,7 @@ deepin-terminal.desktop org.deepin.browser.desktop
 6. **服务注册与发现：** 在dde-application-manager中以字符串命名注册了远程调用函数的服务，dde-control-center中关于对应用的变更可以通过rpc远程调用实现就和
 7. **安全性：** RPC通信涉及跨网络的数据传输，因此安全性是一个重要考虑因素。加密、认证和授权等机制可以确保通信的安全性。
 
-### 7 插件描述缺失问题
+### 6 插件描述缺失问题
 
 <img src="./images/添加描述前.png" alt="添加描述前" style="zoom:80%;" />
 
