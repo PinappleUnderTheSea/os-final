@@ -904,4 +904,8 @@ deepin-terminal.desktop org.deepin.browser.desktop
 - [x] 撰写文档
 
 
+## 附录E 参考资料
+[1] to_do!
+
+说明：由于控制中心的插件对于外观的统一性具有较高的要求，因此，我们仓库中的`include/interface`，`include/widgets`，`src/interface`，`src/widgets`，`src/frame`下的文件均来自dde-control-center源代码仓库，以保证插件接口的一致性和外观的统一性。
 
