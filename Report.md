@@ -517,6 +517,42 @@ deepin-terminal.desktop org.deepin.browser.desktop
 
 <img src="./images/添加描述后.png" alt="添加描述后" style="zoom:80%;" />
 
+
+## 附录D 开发计划
+
+### 第一步（6/26～7/8）
+
+- [x] 调研`DDE Control Center`框架等相关内容
+- [x] 设计前端界面
+- [x] 分工
+
+### 第二步（7/9～7/15）
+
+- [x] 编译教程中的`Hello World`控制中心插件
+- [x] 设计插件架构
+
+### 第三步（7/16～7/22）
+
+- [x] 配置环境，编译V20示例插件
+- [x] 设计后端接口
+- [x] 修改`window`、`operation`、`category`下的文件
+
+### 第四步（7/23～7/29）
+
+- [x] 配置环境，编译`Default-App`与`Self Start-up`插件
+- [x] Debug
+
+### 第五步（7/30～8/10）
+
+- [x] 修改翻译、文字颜色问题
+- [x] 撰写文档
+
+
+## 附录E 参考资料
+[1] to_do!
+
+说明：由于控制中心的插件对于外观的统一性具有较高的要求，因此，我们仓库中的`include/interface`，`include/widgets`，`src/interface`，`src/widgets`，`src/frame`下的文件均来自dde-control-center源代码仓库，以保证插件接口的一致性和外观的统一性。
+
 ## 附录C 详细文件树
 
 ```
@@ -871,41 +907,3 @@ deepin-terminal.desktop org.deepin.browser.desktop
     ├── keyboard_language_zh_TW.ts
     └── translations.qrc
 ```
-
-
-
-## 附录D 开发计划
-
-### 第一步（6/26～7/8）
-
-- [x] 调研`DDE Control Center`框架等相关内容
-- [x] 设计前端界面
-- [x] 分工
-
-### 第二步（7/9～7/15）
-
-- [x] 编译教程中的`Hello World`控制中心插件
-- [x] 设计插件架构
-
-### 第三步（7/16～7/22）
-
-- [x] 配置环境，编译V20示例插件
-- [x] 设计后端接口
-- [x] 修改`window`、`operation`、`category`下的文件
-
-### 第四步（7/23～7/29）
-
-- [x] 配置环境，编译`Default-App`与`Self Start-up`插件
-- [x] Debug
-
-### 第五步（7/30～8/10）
-
-- [x] 修改翻译、文字颜色问题
-- [x] 撰写文档
-
-
-## 附录E 参考资料
-[1] to_do!
-
-说明：由于控制中心的插件对于外观的统一性具有较高的要求，因此，我们仓库中的`include/interface`，`include/widgets`，`src/interface`，`src/widgets`，`src/frame`下的文件均来自dde-control-center源代码仓库，以保证插件接口的一致性和外观的统一性。
-
