@@ -378,9 +378,9 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 ## 附录A 插件安装
 
-### 1、开发环境配置
+### 1 开发环境配置
 
-#### （1）、配置 Deepin 操作系统
+#### 1.1 配置 Deepin 操作系统
 
 开发环境：Deepin V23Beta版
 
@@ -392,7 +392,7 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 
 操作系统环境搭建参考博客：https://blog.csdn.net/qq_44133136/article/details/105887560
 
-#### （2）、配置 Deepin 插件环境
+#### 1.2 配置 Deepin 插件环境
 
 **安装依赖包**：
 
@@ -402,7 +402,7 @@ sudo apt install -y qt5-default
 sudo apt-get install dde-control-center-dev
 ```
 
-#### （3）、插件安装测试
+#### 1.3 插件安装测试
 
 ##### 安装插件：
 
