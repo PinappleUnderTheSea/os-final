@@ -177,6 +177,8 @@ deepin作为国产开源的深度Linux桌面系统，不仅为用户提供了人
 - 反转逻辑：在用户点击对应行的打勾按钮后想获取到AppId，通过`getAppById`得到App信息后发送反转请求到`Worker`，`Worker`读取磁盘中`autostart`里对应`.desktop`文件文本找到`Hidden`字段并将其反转，同时调用`Category`把内存中App结构体的`Hidden`成员反转，最后更新前端页面。
 - 启动逻辑：插件启动的时候会调用`Category`的`getAppItem`函数，该函数从`autostart`文件夹中逐文件读取信息存在App结构体中，封装到`m_appList`作为初始化时参与维护的应用程序，前端从`m_appList`中把应用名称以及是否自启动信息列举到页面
 
+### 4.2 类功能说明
+
 ##### operation部分
 
 ```
@@ -216,10 +218,6 @@ operation部分是插件的后端部分，对于控制中心的每个插件都�
 - `Detailwidget`：`Detailwidget`部分构造了自启动程序插件的 `app`条目。包括`app`条目的外形、位置，`app`条目的增删改查操作，以及与`worker`和`model`的交互操作（通过信号和槽函数实现）。
 - `Addbuttonwidget`：`Addbuttonwidget`部分构造了自启动程序插件的加号按钮。包括加号按钮的外形、位置，新增`app`的弹窗显示，新增`app`的路径处理，以及与`worker`和`model`的交互操作（通过信号和槽函数实现）。
 - `Category`: `category`部分为磁盘中autostart文件夹中重要信息在内存中的拷贝，用于插件的窗口部分直接获取到该文件夹中.desktop类型文件的重要字段展示到界面。
-
-
-### 4.2 类功能说明
-
  
 
 
