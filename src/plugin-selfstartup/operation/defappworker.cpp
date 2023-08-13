@@ -13,6 +13,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QTranslator>
+#include <QApplication>
 
 DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     QObject(parent),
@@ -32,6 +33,8 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 
 void DefAppWorker::active()
 {
+    QApplication qApp;
+
     if (!m_translator) {
         m_translator = new QTranslator(this);
         m_translator->load("/usr/share/dde-control-center/translations/self-startup-plugin_" + QLocale::system().name());
