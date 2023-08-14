@@ -1,0 +1,1 @@
+sudo rm /usr/lib/x86_64-linux-gnu/dde-control-center/modules/libdcc-selfstartup-plugin.so
