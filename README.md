@@ -20,7 +20,7 @@ DDE 控制中心自启动管理插件可单独编译、集成至 DDE 控制中�
 
 ## 完成情况
 
-**【TODO】**项目文档位于根目录的`初赛报告.md`。\
+项目文档位于根目录的`决赛报告.md`。\
 博客地址：https://y-aang.github.io （题目：DDE 控制中心自启动管理插件）
 
 | 任务                                                         | 完成情况                       |
@@ -32,10 +32,10 @@ DDE 控制中心自启动管理插件可单独编译、集成至 DDE 控制中�
 
 ## 成果展示
 
-功能展示视频链接：**【TODO】**
+功能展示视频链接：
 
-链接：https://pan.baidu.com/s/1-9B3n-61Sh7Jaq4SKp4WSw?pwd=hoo8 
-提取码：hoo8 
+链接：https://pan.baidu.com/s/1YgvhbZ8pypE4CFhuBYw3eg 
+提取码：rwcc
 
 插件图标：
 
@@ -86,6 +86,14 @@ sudo sh shell.sh
 此时，如果进入`/usr/lib/x86_64-linux-gnu/dde-control-center/modules/`文件夹，看到编译出的`.so`文件已经被下载到该文件夹中：
 
 ![插件安装位置文件夹](./images/插件安装位置文件夹.jpg)
+
+### 4、卸载插件
+
+```shell
+sudo sh uninstall.sh
+```
+
+重启控制中心，可以看到原本的“自启动管理”图标消失，即为卸载成功。
 
 ## 分工
 
