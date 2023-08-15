@@ -76,7 +76,7 @@ sudo apt-get install dde-control-center-dev
 ### 3、安装插件
 
 ```shell
-sudo sh shell.sh
+sudo sh install.sh
 ```
 
 安装成功后，打开控制中心，会看到以下自启动插件图标，即为安装成功：
