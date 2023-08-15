@@ -174,6 +174,7 @@ deepin V23 `dde-control-center`文档：[dde-control-center: dde-control-center 
 
 deepin 应用自启动说明：https://specifications.freedesktop.org/autostart-spec/autostart-spec-latest.html
 
+【说明】 由于控制中心的插件对于外观的统一性具有较高的要求，因此，我们仓库中的`include/interface`，`include/widgets`，`src/interface`，`src/widgets`，`src/frame`下的文件均来自dde-control-center源代码仓库，以保证插件接口的一致性和外观的统一性。
 ### 博客
 
 关于`deepin`开机自启动项的讨论：https://bbs.deepin.org/zh/post/169824、https://blog.csdn.net/qq_21137441/article/details/124825726
